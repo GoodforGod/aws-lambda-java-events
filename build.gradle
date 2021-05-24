@@ -1,0 +1,125 @@
+plugins {
+    id "jacoco"
+    id "java-library"
+    id "maven-publish"
+
+    id "org.sonarqube" version "3.1.1"
+    id "com.diffplug.spotless" version "5.11.0"
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}
+
+group = groupId
+version = artifactVersion
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+spotless {
+    java {
+        encoding "UTF-8"
+        removeUnusedImports()
+        eclipse().configFile "${projectDir}/config/codestyle.xml"
+    }
+}
+
+dependencies {
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
+    testImplementation "org.junit.jupiter:junit-jupiter-api"
+    testImplementation "org.junit.jupiter:junit-jupiter-params"
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    options.incremental = true
+    options.fork = true
+}
+
+tasks.withType(Test) {
+    reports.html.enabled = false
+    reports.junitXml.enabled = false
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            pom {
+                name = "AWS Lambda Java Events Library"
+                url = "https://github.com/GoodforGod/$artifactId"
+                description = "Event interface definitions AWS services supported by AWS Lambda."
+
+                license {
+                    name = "MIT License"
+                    url = "https://github.com/GoodforGod/$artifactId/blob/master/LICENSE"
+                    distribution = "repo"
+                }
+
+                developer {
+                    id = "GoodforGod"
+                    name = "Anton Kurako"
+                    email = "goodforgod.dev@gmail.com"
+                    url = "https://github.com/GoodforGod"
+                }
+
+                scm {
+                    connection = "scm:git:git://github.com/GoodforGod/${artifactId}.git"
+                    developerConnection = "scm:git:ssh://GoodforGod/${artifactId}.git"
+                    url = "https://github.com/GoodforGod/$artifactId/tree/master"
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+            url = version.endsWith("SNAPSHOT") ? snapshotsRepoUrl : releasesRepoUrl
+            credentials {
+                username System.getenv("OSS_USERNAME")
+                password System.getenv("OSS_PASSWORD")
+            }
+        }
+    }
+}
+
+check.dependsOn jacocoTestReport
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+}
+
+if (project.hasProperty("signing.keyId")) {
+    apply plugin: "signing"
+    signing {
+        sign publishing.publications.mavenJava
+    }
+}
+
+javadoc {
+    options.encoding = "UTF-8"
+    if (JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption("html5", true)
+    }
+}

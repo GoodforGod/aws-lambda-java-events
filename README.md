@@ -42,45 +42,20 @@
 
 *As of version `3.0.0`, users are no longer required to pull in SDK dependencies in order to use this library.*
 
+## Dependency :rocket:
 
-### Getting Started
-
-[Maven](https://maven.apache.org)
-
-```xml
-<dependencies>
-    ...
-    <dependency>
-        <groupId>com.amazonaws</groupId>
-        <artifactId>aws-lambda-java-core</artifactId>
-        <version>1.2.1</version>
-    </dependency>
-    <dependency>
-        <groupId>com.amazonaws</groupId>
-        <artifactId>aws-lambda-java-events</artifactId>
-        <version>3.8.0</version>
-    </dependency>
-    ...
-</dependencies>
-```
-
-[Gradle](https://gradle.org)
-
+**Gradle**
 ```groovy
-'com.amazonaws:aws-lambda-java-core:1.2.1'
-'com.amazonaws:aws-lambda-java-events:3.8.0'
+dependencies {
+    compile 'com.github.goodforgod:aws-lambda-java-events:0.9.0-SNAPSHOT'
+}
 ```
 
-[Leiningen](http://leiningen.org) and [Boot](http://boot-clj.com)
-
-```clojure
-[com.amazonaws/aws-lambda-java-core "1.2.1"]
-[com.amazonaws/aws-lambda-java-events "3.8.0"]
-```
-
-[sbt](http://www.scala-sbt.org)
-
-```scala
-"com.amazonaws" % "aws-lambda-java-core" % "1.2.1"
-"com.amazonaws" % "aws-lambda-java-events" % "3.8.0"
+**Maven**
+```xml
+<dependency>
+    <groupId>com.github.goodforgod</groupId>
+    <artifactId>aws-lambda-java-events</artifactId>
+    <version>0.9.0-SNAPSHOT</version>
+</dependency>
 ```
