@@ -21,14 +21,15 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * API Gateway v2 event: https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
+ */
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
 @Data
 @NoArgsConstructor
-/**
- * API Gateway v2 event: https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
- */
 public class APIGatewayV2HTTPEvent {
+
     private String version;
     private String routeKey;
     private String rawPath;
@@ -38,7 +39,7 @@ public class APIGatewayV2HTTPEvent {
     private Map<String, String> queryStringParameters;
     private Map<String, String> pathParameters;
     private Map<String, String> stageVariables;
-    private String Body;
+    private String body;
     private boolean isBase64Encoded;
     private RequestContext requestContext;
 
