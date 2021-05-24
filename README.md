@@ -1,5 +1,7 @@
 # AWS Lambda Java Events v3
 
+This is fork of [official AWS Lambda Java Events](https://github.com/aws/aws-lambda-java-libs) that aims to provide simplified Java models **without JodaTime**.
+
 ### Event Models Supported
 * `ActiveMQEvent`
 * `APIGatewayCustomAuthorizerEvent`
