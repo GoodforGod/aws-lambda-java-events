@@ -2,18 +2,36 @@
 
 This is fork of [official AWS Lambda Java Events](https://github.com/aws/aws-lambda-java-libs) that aims to provide simplified Java models **without JodaTime**.
 
-### Event Models Supported
+## Dependency :rocket:
+
+**Gradle**
+```groovy
+dependencies {
+    compile 'com.github.goodforgod:aws-lambda-java-events:0.9.0-SNAPSHOT'
+}
+```
+
+**Maven**
+```xml
+<dependency>
+    <groupId>com.github.goodforgod</groupId>
+    <artifactId>aws-lambda-java-events</artifactId>
+    <version>0.9.0-SNAPSHOT</version>
+</dependency>
+```
+
+### Events
 * `ActiveMQEvent`
 * `APIGatewayCustomAuthorizerEvent`
-* `APIGatewayProxyRequestEvent`
-* `APIGatewayProxyResponseEvent`
+* `APIGatewayProxyRequest`
+* `APIGatewayProxyResponse`
 * `APIGatewayV2CustomAuthorizerEvent`
 * `APIGatewayV2HTTPEvent`
 * `APIGatewayV2HTTPResponse`
 * `APIGatewayV2WebSocketEvent`
 * `APIGatewayV2WebSocketResponse`
-* `ApplicationLoadBalancerRequestEvent`
-* `ApplicationLoadBalancerResponseEvent`
+* `LoadBalancerRequest`
+* `LoadBalancerResponse`
 * `CloudFormationCustomResourceEvent`
 * `CloudFrontEvent`
 * `CloudWatchLogsEvent`
@@ -41,23 +59,3 @@ This is fork of [official AWS Lambda Java Events](https://github.com/aws/aws-lam
 * `SimpleIAMPolicyResponse`
 * `SNSEvent`
 * `SQSEvent`
-
-*As of version `3.0.0`, users are no longer required to pull in SDK dependencies in order to use this library.*
-
-## Dependency :rocket:
-
-**Gradle**
-```groovy
-dependencies {
-    compile 'com.github.goodforgod:aws-lambda-java-events:0.9.0-SNAPSHOT'
-}
-```
-
-**Maven**
-```xml
-<dependency>
-    <groupId>com.github.goodforgod</groupId>
-    <artifactId>aws-lambda-java-events</artifactId>
-    <version>0.9.0-SNAPSHOT</version>
-</dependency>
-```
