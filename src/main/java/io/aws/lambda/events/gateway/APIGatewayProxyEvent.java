@@ -15,7 +15,7 @@ import java.util.Map;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public class APIGatewayProxyRequest extends BodyEvent implements Serializable {
+public class APIGatewayProxyEvent extends BodyEvent implements Serializable {
 
     private String resource;
     private String path;

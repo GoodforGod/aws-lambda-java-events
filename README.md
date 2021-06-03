@@ -21,41 +21,52 @@ dependencies {
 ```
 
 ### Events
-* `ActiveMQEvent`
-* `APIGatewayCustomAuthorizerEvent`
-* `APIGatewayProxyRequest`
-* `APIGatewayProxyResponse`
-* `APIGatewayV2CustomAuthorizerEvent`
-* `APIGatewayV2HTTPEvent`
-* `APIGatewayV2HTTPResponse`
-* `APIGatewayV2WebSocketEvent`
-* `APIGatewayV2WebSocketResponse`
-* `LoadBalancerRequest`
-* `LoadBalancerResponse`
-* `CloudFormationCustomResourceEvent`
-* `CloudFrontEvent`
-* `CloudWatchLogsEvent`
-* `CodeCommitEvent`
-* `CognitoEvent`
-* `ConfigEvent`
-* `ConnectEvent`
-* `DynamodbEvent`
-* `IoTButtonEvent`
-* `KafkaEvent`
-* `KinesisAnalyticsFirehoseInputPreprocessingEvent`
-* `KinesisAnalyticsInputPreprocessingResponse`
-* `KinesisAnalyticsOutputDeliveryEvent`
-* `KinesisAnalyticsOutputDeliveryResponse`
-* `KinesisAnalyticsStreamsInputPreprocessingEvent`
-* `KinesisEvent`
-* `KinesisFirehoseEvent`
-* `LambdaDestinationEvent`
-* `LexEvent`
-* `S3BatchEvent`
-* `S3BatchResponse`
-* `S3Event`
-* `ScheduledEvent`
-* `SecretsManagerRotationEvent`
-* `SimpleIAMPolicyResponse`
-* `SNSEvent`
-* `SQSEvent`
+* DynamoDB
+  * `DynamodbEvent`
+  * `DynamodbTimeWindowEvent`
+* Gateway
+  * `APIGatewayProxyEvent`
+  * `APIGatewayProxyResponse`
+  * `APIGatewayCustomAuthorizerEvent`
+  * `APIGatewayV2CustomAuthorizerEvent`
+  * `APIGatewayV2HTTPEvent`
+  * `APIGatewayV2HTTPResponse`
+  * `APIGatewayV2WebSocketEvent`
+  * `APIGatewayV2WebSocketResponse`
+* Kinesis
+  * `KinesisAnalyticsFirehoseInputPreprocessingEvent`
+  * `KinesisAnalyticsInputPreprocessingResponse`
+  * `KinesisAnalyticsOutputDeliveryEvent`
+  * `KinesisAnalyticsOutputDeliveryResponse`
+  * `KinesisAnalyticsStreamsInputPreprocessingEvent`
+  * `KinesisEvent`
+  * `KinesisFirehoseEvent`
+  * `KinesisTimeWindowEvent`
+* S3
+  * `S3BatchEvent`
+  * `S3BatchResponse`
+  * `S3Event`
+  * `S3EventNotification`
+  * `S3EventObjectLambdaEvent`
+* System
+  * `LoadBalancerRequest`
+  * `LoadBalancerResponse`
+  * `CloudFormationCustomResourceEvent`
+  * `CloudFrontEvent`
+  * `CloudWatchLogsEvent`
+  * `CodeCommitEvent`
+  * `ConfigEvent`
+  * `LambdaDestinationEvent`
+  * `IamPolicyResponse`
+  * `SecretsManagerRotationEvent`
+  * `SimpleIAMPolicyResponse`
+* Common
+  * `ActiveMQEvent`
+  * `CognitoEvent`
+  * `ConnectEvent`
+  * `IoTButtonEvent`
+  * `KafkaEvent`
+  * `LexEvent`
+  * `ScheduledEvent`
+  * `SNSEvent`
+  * `SQSEvent`
