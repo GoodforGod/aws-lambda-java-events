@@ -11,7 +11,7 @@ import java.util.List;
  * Represents and AmazonS3 event.
  *
  */
-public class S3Event extends S3EventNotification implements Serializable, Cloneable {
+public class S3Event extends S3EventNotification implements Serializable {
 
     private static final long serialVersionUID = -8094860465750962044L;
 

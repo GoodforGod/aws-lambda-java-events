@@ -10,13 +10,13 @@ import java.util.Map;
 /**
  * Represents an Amazon SQS event.
  */
-public class SQSEvent implements Serializable, Cloneable {
+public class SQSEvent implements Serializable {
 
     private static final long serialVersionUID = -5663700178408796225L;
 
     private List<SQSMessage> records;
 
-    public static class MessageAttribute implements Serializable, Cloneable {
+    public static class MessageAttribute implements Serializable {
 
         private static final long serialVersionUID = -1602746537669100978L;
 
@@ -198,7 +198,7 @@ public class SQSEvent implements Serializable, Cloneable {
 
     }
 
-    public static class SQSMessage implements Serializable, Cloneable {
+    public static class SQSMessage implements Serializable {
 
         private static final long serialVersionUID = -2300083946005987098L;
 

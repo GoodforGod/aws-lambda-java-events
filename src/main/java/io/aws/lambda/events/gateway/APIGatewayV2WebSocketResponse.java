@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * @author Tim Gustafson <tjg@amazon.com>
  */
-public class APIGatewayV2WebSocketResponse implements Serializable, Cloneable {
+public class APIGatewayV2WebSocketResponse implements Serializable {
 
   private static final long serialVersionUID = -5155789062248356200L;
 

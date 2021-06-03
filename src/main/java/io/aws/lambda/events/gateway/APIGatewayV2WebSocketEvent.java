@@ -8,11 +8,11 @@ import java.util.Objects;
 /**
  * @author Tim Gustafson <tjg@amazon.com>
  */
-public class APIGatewayV2WebSocketEvent implements Serializable, Cloneable {
+public class APIGatewayV2WebSocketEvent implements Serializable {
 
   private static final long serialVersionUID = 5695319264103347099L;
 
-  public static class RequestIdentity implements Serializable, Cloneable {
+  public static class RequestIdentity implements Serializable {
 
     private static final long serialVersionUID = -3276649362684921217L;
 
@@ -212,7 +212,7 @@ public class APIGatewayV2WebSocketEvent implements Serializable, Cloneable {
     }
   }
 
-  public static class RequestContext implements Serializable, Cloneable {
+  public static class RequestContext implements Serializable {
 
     private static final long serialVersionUID = -6641935365992304860L;
 

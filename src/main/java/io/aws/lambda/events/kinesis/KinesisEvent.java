@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Represents an Amazon Kinesis event.
  */
-public class KinesisEvent implements Serializable, Cloneable {
+public class KinesisEvent implements Serializable {
 
     private static final long serialVersionUID = 8145257839787754632L;
 
@@ -129,7 +129,7 @@ public class KinesisEvent implements Serializable, Cloneable {
      * Kinesis event records provide contextual data about a Kinesis record
      *
      */
-    public static class KinesisEventRecord implements Serializable, Cloneable {
+    public static class KinesisEventRecord implements Serializable {
 
         private static final long serialVersionUID = -3855723544907905206L;
 

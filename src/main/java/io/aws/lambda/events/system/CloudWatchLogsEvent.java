@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * Class representing CloudWatchLogs event (callback when cloud watch logs something)
  */
-public class CloudWatchLogsEvent implements Serializable, Cloneable {
+public class CloudWatchLogsEvent implements Serializable {
 
     private static final long serialVersionUID = -1617470828168156271L;
 
@@ -16,7 +16,7 @@ public class CloudWatchLogsEvent implements Serializable, Cloneable {
     /**
      * Represents AWSLogs object in CloudWatch Evenet
      */
-    public static class AWSLogs implements Serializable, Cloneable {
+    public static class AWSLogs implements Serializable {
 
         private static final long serialVersionUID = -7793438350437169987L;
 

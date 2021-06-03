@@ -1,171 +1,28 @@
 
 package io.aws.lambda.events.dynamodb;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
 import java.io.Serializable;
 
 /**
- * <p>
  * Contains details about the type of identity that made the request.
- * </p>
- *
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/streams-dynamodb-2012-08-10/Identity" target="_top">AWS API
  *      Documentation</a>
  */
-public class Identity implements Serializable, Cloneable {
+@Data
+@Accessors(chain = true)
+public class Identity implements Serializable {
 
     /**
-     * <p>
-     * A unique identifier for the entity that made the call. For Time To Live, the principalId is
-     * "dynamodb.amazonaws.com".
-     * </p>
+     * A unique identifier for the entity that made the call. For Time To Live, the principalId is "dynamodb.amazonaws.com".
      */
     private String principalId;
 
     /**
-     * <p>
      * The type of the identity. For Time To Live, the type is "Service".
-     * </p>
      */
     private String type;
-
-    /**
-     * <p>
-     * A unique identifier for the entity that made the call. For Time To Live, the principalId is
-     * "dynamodb.amazonaws.com".
-     * </p>
-     *
-     * @param principalId
-     *        A unique identifier for the entity that made the call. For Time To Live, the principalId is
-     *        "dynamodb.amazonaws.com".
-     */
-    public void setPrincipalId(String principalId) {
-        this.principalId = principalId;
-    }
-
-    /**
-     * <p>
-     * A unique identifier for the entity that made the call. For Time To Live, the principalId is
-     * "dynamodb.amazonaws.com".
-     * </p>
-     *
-     * @return A unique identifier for the entity that made the call. For Time To Live, the principalId is
-     *         "dynamodb.amazonaws.com".
-     */
-    public String getPrincipalId() {
-        return this.principalId;
-    }
-
-    /**
-     * <p>
-     * A unique identifier for the entity that made the call. For Time To Live, the principalId is
-     * "dynamodb.amazonaws.com".
-     * </p>
-     *
-     * @param principalId
-     *        A unique identifier for the entity that made the call. For Time To Live, the principalId is
-     *        "dynamodb.amazonaws.com".
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-    public Identity withPrincipalId(String principalId) {
-        setPrincipalId(principalId);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The type of the identity. For Time To Live, the type is "Service".
-     * </p>
-     *
-     * @param type
-     *        The type of the identity. For Time To Live, the type is "Service".
-     */
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    /**
-     * <p>
-     * The type of the identity. For Time To Live, the type is "Service".
-     * </p>
-     *
-     * @return The type of the identity. For Time To Live, the type is "Service".
-     */
-    public String getType() {
-        return this.type;
-    }
-
-    /**
-     * <p>
-     * The type of the identity. For Time To Live, the type is "Service".
-     * </p>
-     *
-     * @param type
-     *        The type of the identity. For Time To Live, the type is "Service".
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-    public Identity withType(String type) {
-        setType(type);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
-     *
-     * @return A string representation of this object.
-     *
-     * @see Object#toString()
-     */
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("{");
-        if (getPrincipalId() != null)
-            sb.append("PrincipalId: ").append(getPrincipalId()).append(",");
-        if (getType() != null)
-            sb.append("Type: ").append(getType());
-        sb.append("}");
-        return sb.toString();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-
-        if (obj instanceof Identity == false)
-            return false;
-        Identity other = (Identity) obj;
-        if (other.getPrincipalId() == null ^ this.getPrincipalId() == null)
-            return false;
-        if (other.getPrincipalId() != null && other.getPrincipalId().equals(this.getPrincipalId()) == false)
-            return false;
-        if (other.getType() == null ^ this.getType() == null)
-            return false;
-        if (other.getType() != null && other.getType().equals(this.getType()) == false)
-            return false;
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int hashCode = 1;
-
-        hashCode = prime * hashCode + ((getPrincipalId() == null) ? 0 : getPrincipalId().hashCode());
-        hashCode = prime * hashCode + ((getType() == null) ? 0 : getType().hashCode());
-        return hashCode;
-    }
-
-    @Override
-    public Identity clone() {
-        try {
-            return (Identity) super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new IllegalStateException("Got a CloneNotSupportedException from Object.clone() " + "even though we're Cloneable!", e);
-        }
-    }
-
 }

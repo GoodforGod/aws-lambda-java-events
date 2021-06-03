@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * represents a Lex event
  */
-public class LexEvent implements Serializable, Cloneable {
+public class LexEvent implements Serializable {
 
     private static final long serialVersionUID = 8660021082133163891L;
 
@@ -29,7 +29,7 @@ public class LexEvent implements Serializable, Cloneable {
     /**
      * Represents a Lex bot
      */
-    public class Bot implements Serializable, Cloneable {
+    public class Bot implements Serializable {
 
         private static final long serialVersionUID = -5764739951985883358L;
 
@@ -181,7 +181,7 @@ public class LexEvent implements Serializable, Cloneable {
     /**
      * models CurrentIntent of Lex event
      */
-    public class CurrentIntent implements Serializable, Cloneable {
+    public class CurrentIntent implements Serializable {
 
         private static final long serialVersionUID = 7405357938118538229L;
 

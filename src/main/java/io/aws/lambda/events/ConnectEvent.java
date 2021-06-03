@@ -20,7 +20,7 @@ import java.util.Map;
 @Builder(setterPrefix = "with")
 @NoArgsConstructor
 @AllArgsConstructor
-public class ConnectEvent implements Serializable, Cloneable {
+public class ConnectEvent implements Serializable {
 
     private Details details;
     private String name;
@@ -29,7 +29,7 @@ public class ConnectEvent implements Serializable, Cloneable {
     @Builder(setterPrefix = "with")
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class Details implements Serializable, Cloneable {
+    public static class Details implements Serializable {
         private ContactData contactData;
         private Map<String, Object> parameters;
     }
@@ -38,7 +38,7 @@ public class ConnectEvent implements Serializable, Cloneable {
     @Builder(setterPrefix = "with")
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class ContactData implements Serializable, Cloneable {
+    public static class ContactData implements Serializable {
         private Map<String, String> attributes;
         private String channel;
         private String contactId;
@@ -55,7 +55,7 @@ public class ConnectEvent implements Serializable, Cloneable {
     @Builder(setterPrefix = "with")
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class CustomerEndpoint implements Serializable, Cloneable {
+    public static class CustomerEndpoint implements Serializable {
         private String address;
         private String type;
     }
@@ -64,7 +64,7 @@ public class ConnectEvent implements Serializable, Cloneable {
     @Builder(setterPrefix = "with")
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class SystemEndpoint implements Serializable, Cloneable {
+    public static class SystemEndpoint implements Serializable {
         private String address;
         private String type;
     }

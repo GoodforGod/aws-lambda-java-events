@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Class that represents a CloudFront event
  */
-public class CloudFrontEvent implements Serializable, Cloneable {
+public class CloudFrontEvent implements Serializable {
 
     private static final long serialVersionUID = -7169297388214516660L;
 
@@ -16,7 +16,7 @@ public class CloudFrontEvent implements Serializable, Cloneable {
     /**
      *  class that represents a header
      */
-    public static class Header implements Serializable, Cloneable {
+    public static class Header implements Serializable {
 
         private static final long serialVersionUID = 7041042740552686996L;
 
@@ -139,7 +139,7 @@ public class CloudFrontEvent implements Serializable, Cloneable {
     /**
      * Class that represents the configuration of a CloudFront message
      */
-    public static class Config implements Serializable, Cloneable {
+    public static class Config implements Serializable {
 
         private static final long serialVersionUID = -286083903805870299L;
 
@@ -231,7 +231,7 @@ public class CloudFrontEvent implements Serializable, Cloneable {
     /**
      * class that represents a CLoudFront request
      */
-    public static class Request implements Serializable, Cloneable {
+    public static class Request implements Serializable {
 
         private static final long serialVersionUID = 3245036101075464149L;
 
@@ -449,7 +449,7 @@ public class CloudFrontEvent implements Serializable, Cloneable {
     /**
      * class that represents a Response object
      */
-    public static class Response implements Serializable, Cloneable {
+    public static class Response implements Serializable {
 
         private static final long serialVersionUID = -3711565862079053710L;
 
@@ -636,7 +636,7 @@ public class CloudFrontEvent implements Serializable, Cloneable {
     /**
      * class that represents the CloudFront body within a record
      */
-    public static class CF implements Serializable, Cloneable {
+    public static class CF implements Serializable {
 
         private static final long serialVersionUID = -5940167419180448832L;
 
@@ -791,7 +791,7 @@ public class CloudFrontEvent implements Serializable, Cloneable {
     /**
      * Class that represents a record in a CLoudFront event
      */
-    public static class Record implements Serializable, Cloneable {
+    public static class Record implements Serializable {
 
         private static final long serialVersionUID = -6114551370798889850L;
 

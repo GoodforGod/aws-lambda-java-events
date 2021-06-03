@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * represents a click of an IoT Button
  */
-public class IoTButtonEvent implements Serializable, Cloneable {
+public class IoTButtonEvent implements Serializable {
 
     private static final long serialVersionUID = 8699582353606993478L;
 

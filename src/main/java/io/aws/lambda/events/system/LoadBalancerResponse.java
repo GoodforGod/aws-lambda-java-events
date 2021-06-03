@@ -17,7 +17,7 @@ import java.util.Map;
 
 @NoArgsConstructor
 @Data
-public class LoadBalancerResponse implements Serializable, Cloneable {
+public class LoadBalancerResponse implements Serializable {
 
     private int statusCode;
     private String statusDescription;

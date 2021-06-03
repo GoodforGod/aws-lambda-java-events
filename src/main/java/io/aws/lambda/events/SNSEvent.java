@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Represents an Amazon SNS event.
  */
-public class SNSEvent implements Serializable, Cloneable {
+public class SNSEvent implements Serializable {
 
     private static final long serialVersionUID = -727529735144605167L;
 
@@ -20,7 +20,7 @@ public class SNSEvent implements Serializable, Cloneable {
      * Represents an SNS message attribute
      *
      */
-    public static class MessageAttribute implements Serializable, Cloneable {
+    public static class MessageAttribute implements Serializable {
 
         private static final long serialVersionUID = -5656179310535967619L;
 
@@ -148,7 +148,7 @@ public class SNSEvent implements Serializable, Cloneable {
     /**
      * Represents an SNS message
      */
-    public static class SNS implements Serializable, Cloneable {
+    public static class SNS implements Serializable {
 
         private static final long serialVersionUID = -7038894618736475592L;
 
@@ -584,7 +584,7 @@ public class SNSEvent implements Serializable, Cloneable {
      * SNS messages to Lambda Functions.
      *
      */
-    public static class SNSRecord implements Serializable, Cloneable {
+    public static class SNSRecord implements Serializable {
 
         private static final long serialVersionUID = -209065548155161859L;
 

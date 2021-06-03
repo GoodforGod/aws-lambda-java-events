@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * Represents an event for an AWS Config rule's function.
  */
-public class ConfigEvent implements Serializable, Cloneable {
+public class ConfigEvent implements Serializable {
 
     private static final long serialVersionUID = -3484211708255634243L;
 

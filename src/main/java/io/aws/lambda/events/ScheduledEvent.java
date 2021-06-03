@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * represents a scheduled event
  */
-public class ScheduledEvent implements Serializable, Cloneable {
+public class ScheduledEvent implements Serializable {
 
     private static final long serialVersionUID = -5810383198587331146L;
 

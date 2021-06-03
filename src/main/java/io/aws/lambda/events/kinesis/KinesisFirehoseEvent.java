@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by adsuresh on 7/13/17.
  */
-public class KinesisFirehoseEvent implements Serializable, Cloneable {
+public class KinesisFirehoseEvent implements Serializable {
 
     private static final long serialVersionUID = -2890373471008001695L;
 
@@ -22,7 +22,7 @@ public class KinesisFirehoseEvent implements Serializable, Cloneable {
 
     private List<Record> records;
 
-    public static class Record implements Serializable, Cloneable {
+    public static class Record implements Serializable {
 
         private static final long serialVersionUID = -7231161900431910379L;
 

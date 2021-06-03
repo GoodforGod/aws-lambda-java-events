@@ -10,7 +10,7 @@ import java.util.Map;
  * Represents an Amazon Cognito event sent to Lambda Functions
  *
  */
-public class CognitoEvent implements Serializable, Cloneable {
+public class CognitoEvent implements Serializable {
 
     private static final long serialVersionUID = -3471890133562627751L;
 
@@ -32,7 +32,7 @@ public class CognitoEvent implements Serializable, Cloneable {
 	 * DatasetRecord contains the information about each record in a data set.
 	 *
 	 */
-    public static class DatasetRecord implements Serializable, Cloneable {
+    public static class DatasetRecord implements Serializable {
 
         private static final long serialVersionUID = -8853471047466644850L;
 

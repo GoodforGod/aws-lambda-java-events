@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Class that represents an APIGatewayProxyResponseEvent object
  */
-public class APIGatewayProxyResponse implements Serializable, Cloneable {
+public class APIGatewayProxyResponse implements Serializable {
 
     private static final long serialVersionUID = 2263167344670024172L;
     

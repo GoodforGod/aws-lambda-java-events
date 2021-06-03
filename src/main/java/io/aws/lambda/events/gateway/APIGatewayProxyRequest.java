@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Class that represents an APIGatewayProxyRequestEvent
  */
-public class APIGatewayProxyRequest implements Serializable, Cloneable {
+public class APIGatewayProxyRequest implements Serializable {
 
     private static final long serialVersionUID = 4189228800688527467L;
 
@@ -38,7 +38,7 @@ public class APIGatewayProxyRequest implements Serializable, Cloneable {
     /**
      * class that represents proxy request context
      */
-    public static class ProxyRequestContext implements Serializable, Cloneable {
+    public static class ProxyRequestContext implements Serializable {
 
         private static final long serialVersionUID = 8783459961042799774L;
 
@@ -426,7 +426,7 @@ public class APIGatewayProxyRequest implements Serializable, Cloneable {
         }
     }
 
-    public static class RequestIdentity implements Serializable, Cloneable {
+    public static class RequestIdentity implements Serializable {
 
         private static final long serialVersionUID = -5283829736983640346L;
 

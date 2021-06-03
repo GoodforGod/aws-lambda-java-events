@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * References a CodeCommit event
  */
-public class CodeCommitEvent implements Serializable, Cloneable {
+public class CodeCommitEvent implements Serializable {
 
     private static final long serialVersionUID = 2404735479795009282L;
 
@@ -17,7 +17,7 @@ public class CodeCommitEvent implements Serializable, Cloneable {
     /**
      * represents a Reference object in a CodeCommit object
      */
-    public static class Reference implements Serializable, Cloneable {
+    public static class Reference implements Serializable {
 
         private static final long serialVersionUID = 9166524005926768827L;
 
@@ -171,7 +171,7 @@ public class CodeCommitEvent implements Serializable, Cloneable {
     /**
      * Represents a CodeCommit object in a record
      */
-    public static class CodeCommit implements Serializable, Cloneable {
+    public static class CodeCommit implements Serializable {
 
         private static final long serialVersionUID = 2594306162311794147L;
 
@@ -262,7 +262,7 @@ public class CodeCommitEvent implements Serializable, Cloneable {
     /**
      * represents a CodeCommit record
      */
-    public static class Record implements Serializable, Cloneable {
+    public static class Record implements Serializable {
 
         private static final long serialVersionUID = 1116409777237432728L;
 

@@ -18,7 +18,7 @@ import java.util.Map;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class KinesisTimeWindowEvent extends KinesisEvent implements Serializable, Cloneable {
+public class KinesisTimeWindowEvent extends KinesisEvent implements Serializable {
 
     private static final long serialVersionUID = 8926430039233062266L;
 

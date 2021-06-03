@@ -17,11 +17,11 @@ import java.util.Map;
 
 @NoArgsConstructor
 @Data
-public class LoadBalancerRequest implements Serializable, Cloneable  {
+public class LoadBalancerRequest implements Serializable  {
 
     @NoArgsConstructor
     @Data
-    public static class Elb implements Serializable, Cloneable {
+    public static class Elb implements Serializable {
 
         private String targetGroupArn;
 
@@ -29,7 +29,7 @@ public class LoadBalancerRequest implements Serializable, Cloneable  {
 
     @NoArgsConstructor
     @Data
-    public static class RequestContext implements Serializable, Cloneable {
+    public static class RequestContext implements Serializable {
 
         private Elb elb;
 

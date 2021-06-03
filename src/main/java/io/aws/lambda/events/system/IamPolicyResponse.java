@@ -15,7 +15,7 @@ import java.util.Map;
 @Builder(setterPrefix = "with")
 @NoArgsConstructor
 @AllArgsConstructor
-public class IamPolicyResponse implements Serializable, Cloneable {
+public class IamPolicyResponse implements Serializable {
 
     public static final String EXECUTE_API_INVOKE = "execute-api:Invoke";
     public static final String VERSION_2012_10_17 = "2012-10-17";
@@ -65,7 +65,7 @@ public class IamPolicyResponse implements Serializable, Cloneable {
     @Builder(setterPrefix = "with")
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class PolicyDocument implements Serializable, Cloneable {
+    public static class PolicyDocument implements Serializable {
 
         private String version;
         private List<Statement> statement;
@@ -75,7 +75,7 @@ public class IamPolicyResponse implements Serializable, Cloneable {
     @Builder(setterPrefix = "with")
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class Statement implements Serializable, Cloneable {
+    public static class Statement implements Serializable {
 
         private String action;
         private String effect;
