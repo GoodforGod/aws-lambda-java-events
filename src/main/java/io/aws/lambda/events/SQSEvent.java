@@ -1,6 +1,4 @@
-/*
- * Copyright 2012-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- */
+
 
 package io.aws.lambda.events;
 
