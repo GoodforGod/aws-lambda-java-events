@@ -2,23 +2,21 @@
 
 package io.aws.lambda.events.gateway;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import io.aws.lambda.events.BodyEvent;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 import java.util.Map;
 
-@AllArgsConstructor
-@Builder(setterPrefix = "with")
 @Data
-@NoArgsConstructor
-public class APIGatewayV2HTTPResponse {
+@Accessors(chain = true)
+@EqualsAndHashCode(callSuper = true)
+public class APIGatewayV2HTTPResponse extends BodyEvent {
+
     private int statusCode;
     private Map<String, String> headers;
     private Map<String, List<String>> multiValueHeaders;
     private List<String> cookies;
-    private String body;
     private boolean isBase64Encoded;
 }

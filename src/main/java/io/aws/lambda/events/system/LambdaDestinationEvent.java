@@ -15,7 +15,7 @@ import java.util.Map;
  *
  * @see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html>Asynchronous invocation</a>
  *
- * @author msailes <msailes@amazon.co.uk>
+ * 
  */
 
 @Data

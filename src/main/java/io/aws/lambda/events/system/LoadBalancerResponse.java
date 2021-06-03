@@ -12,7 +12,7 @@ import java.util.Map;
  *
  * @see <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-alb.html">Using AWS Lambda with an Application Load Balancer</a>
  *
- * @author msailes <msailes@amazon.co.uk>
+ * 
  */
 
 @NoArgsConstructor

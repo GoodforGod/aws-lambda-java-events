@@ -17,7 +17,7 @@ import java.util.Map;
  *
  * @see <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html">Using AWS Lambda with AWS CloudFormation</a>
  *
- * @author msailes <msailes@amazon.co.uk>
+ * 
  */
 
 @Data

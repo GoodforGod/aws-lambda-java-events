@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.util.Map;
 
@@ -11,11 +12,8 @@ import java.util.Map;
  * The API Gateway customer authorizer event object as described - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html
  *
  */
-
 @Data
-@Builder(setterPrefix = "with")
-@NoArgsConstructor
-@AllArgsConstructor
+@Accessors(chain = true)
 public class APIGatewayCustomAuthorizerEvent {
 
     private String version;
@@ -33,9 +31,7 @@ public class APIGatewayCustomAuthorizerEvent {
     private RequestContext requestContext;
 
     @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class RequestContext {
         private String path;
         private String accountId;
@@ -49,9 +45,7 @@ public class APIGatewayCustomAuthorizerEvent {
     }
 
     @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class Identity {
         private String apiKey;
         private String sourceIp;

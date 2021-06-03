@@ -1,14 +1,11 @@
 package io.aws.lambda.events.gateway;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
+import lombok.experimental.Accessors;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
@@ -16,11 +13,8 @@ import java.util.Map;
  * The V2 API Gateway customer authorizer event object as described - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html
  *
  */
-
 @Data
-@Builder(setterPrefix = "with")
-@NoArgsConstructor
-@AllArgsConstructor
+@Accessors(chain = true)
 public class APIGatewayV2CustomAuthorizerEvent {
 
     private String version;
@@ -38,12 +32,10 @@ public class APIGatewayV2CustomAuthorizerEvent {
     private Map<String, String> stageVariables;
 
     @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class RequestContext {
 
-        private static DateTimeFormatter fmt = DateTimeFormat.forPattern("dd/MMM/yyyy:HH:mm:ss Z");
+        private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MMM/yyyy:HH:mm:ss Z");
 
         private String accountId;
         private String apiId;
@@ -60,15 +52,13 @@ public class APIGatewayV2CustomAuthorizerEvent {
             return Instant.ofEpochMilli(timeEpoch);
         }
 
-        public DateTime getTime() {
-            return fmt.parseDateTime(time);
+        public LocalDateTime getTime() {
+            return LocalDateTime.parse(time, FORMATTER);
         }
     }
 
-    @AllArgsConstructor
-    @Builder(setterPrefix = "with")
     @Data
-    @NoArgsConstructor
+    @Accessors(chain = true)
     public static class Http {
 
         private String method;

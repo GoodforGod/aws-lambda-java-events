@@ -14,7 +14,7 @@ import java.util.Map;
  *
  * @see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html>Connect Lambda Functions</a>
  *
- * @author msailes <msailes@amazon.co.uk>
+ * 
  */
 @Data
 @Builder(setterPrefix = "with")

@@ -2,10 +2,9 @@
 
 package io.aws.lambda.events.gateway;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import io.aws.lambda.events.BodyEvent;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 import java.util.Map;
@@ -13,11 +12,10 @@ import java.util.Map;
 /**
  * API Gateway v2 event: https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
  */
-@AllArgsConstructor
-@Builder(setterPrefix = "with")
 @Data
-@NoArgsConstructor
-public class APIGatewayV2HTTPEvent {
+@Accessors(chain = true)
+@EqualsAndHashCode(callSuper = true)
+public class APIGatewayV2HTTPEvent extends BodyEvent {
 
     private String version;
     private String routeKey;
@@ -28,14 +26,11 @@ public class APIGatewayV2HTTPEvent {
     private Map<String, String> queryStringParameters;
     private Map<String, String> pathParameters;
     private Map<String, String> stageVariables;
-    private String body;
     private boolean isBase64Encoded;
     private RequestContext requestContext;
 
-    @AllArgsConstructor
-    @Builder(setterPrefix = "with")
     @Data
-    @NoArgsConstructor
+    @Accessors(chain = true)
     public static class RequestContext {
         private String routeKey;
         private String accountId;
@@ -49,29 +44,23 @@ public class APIGatewayV2HTTPEvent {
         private Authorizer authorizer;
         private String requestId;
 
-        @AllArgsConstructor
-        @Builder(setterPrefix = "with")
         @Data
-        @NoArgsConstructor
+        @Accessors(chain = true)
         public static class Authorizer {
             private JWT jwt;
-            private Map<String, Object> lambda;
             private IAM iam;
+            private Map<String, Object> lambda;
 
-            @AllArgsConstructor
-            @Builder(setterPrefix = "with")
             @Data
-            @NoArgsConstructor
+            @Accessors(chain = true)
             public static class JWT {
                 private Map<String, String> claims;
                 private List<String> scopes;
             }
         }
 
-        @AllArgsConstructor
-        @Builder(setterPrefix = "with")
         @Data
-        @NoArgsConstructor
+        @Accessors(chain = true)
         public static class Http {
             private String method;
             private String path;
@@ -80,10 +69,8 @@ public class APIGatewayV2HTTPEvent {
             private String userAgent;
         }
 
-        @AllArgsConstructor
-        @Builder(setterPrefix = "with")
         @Data
-        @NoArgsConstructor
+        @Accessors(chain = true)
         public static class IAM {
             private String accessKey;
             private String accountId;
@@ -94,10 +81,8 @@ public class APIGatewayV2HTTPEvent {
             private String userId;
         }
 
-        @AllArgsConstructor
-        @Builder(setterPrefix = "with")
         @Data
-        @NoArgsConstructor
+        @Accessors(chain = true)
         public static class CognitoIdentity {
             private List<String> amr;
             private String identityId;

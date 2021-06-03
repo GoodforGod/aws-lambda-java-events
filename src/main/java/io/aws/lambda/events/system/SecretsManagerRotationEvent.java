@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
  *
  * @see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets-lambda-function-overview.html">Rotating secrets lambda function overview</a>
  *
- * @author msailes <msailes@amazon.co.uk>
+ * 
  */
 
 @Data
