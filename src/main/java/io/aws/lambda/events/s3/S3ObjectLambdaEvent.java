@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.util.Map;
 
@@ -46,11 +47,8 @@ import java.util.Map;
  * </code>
  * </pre>
  */
-
 @Data
-@Builder(setterPrefix = "with")
-@NoArgsConstructor
-@AllArgsConstructor
+@Accessors(chain = true)
 public class S3ObjectLambdaEvent {
 
     private String xAmzRequestId;
@@ -94,9 +92,7 @@ public class S3ObjectLambdaEvent {
     }
 
     @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class GetObjectContext {
         private String inputS3Url;
         private String outputRoute;
@@ -104,9 +100,7 @@ public class S3ObjectLambdaEvent {
     }
 
     @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class Configuration {
         private String accessPointArn;
         private String supportingAccessPointArn;
@@ -114,18 +108,14 @@ public class S3ObjectLambdaEvent {
     }
 
     @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class UserRequest {
         private String url;
         private Map<String, String> headers;
     }
 
     @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class UserIdentity {
         private String type;
         private String principalId;

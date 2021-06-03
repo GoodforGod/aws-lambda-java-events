@@ -19,16 +19,19 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-public class S3EventNotificationTest {
+class S3EventNotificationTest {
 
-    private List<String> KEYS_REQUIRING_URL_ENCODE = Arrays.asList("foo bar.jpg", "foo/bar.csv", "foo<>bar");
+    private static final List<String> KEYS_REQUIRING_URL_ENCODE = Arrays.asList("foo bar.jpg", "foo/bar.csv", "foo<>bar");
 
     @Test
-    public void testGetUrlDecodedKey() {
+    void testGetUrlDecodedKey() {
         for (String testKey : KEYS_REQUIRING_URL_ENCODE) {
             String urlEncoded = HttpUtils.urlEncode(testKey, false);
-            S3EventNotification.S3ObjectEntity entity = new S3EventNotification.S3ObjectEntity(
-                    urlEncoded, 1L, "E-Tag", "versionId");
+            S3EventNotification.S3ObjectEntity entity = new S3EventNotification.S3ObjectEntity()
+                    .setKey(urlEncoded)
+                    .setSize(1L)
+                    .setETag("E-Tag")
+                    .setVersionId("versionId");
             Assertions.assertEquals(testKey, entity.getUrlDecodedKey());
         }
     }

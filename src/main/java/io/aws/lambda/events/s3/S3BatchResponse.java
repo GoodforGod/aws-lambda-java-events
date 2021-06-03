@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
@@ -13,28 +14,9 @@ import java.util.List;
  *
  * https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-invoke-lambda.html
  */
-
 @Data
-@Builder(setterPrefix = "with")
-@NoArgsConstructor
-@AllArgsConstructor
+@Accessors(chain = true)
 public class S3BatchResponse {
-
-    private String invocationSchemaVersion;
-    private ResultCode treatMissingKeysAs;
-    private String invocationId;
-    private List<Result> results;
-
-    @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class Result {
-
-        private String taskId;
-        private ResultCode resultCode;
-        private String resultString;
-    }
 
     public enum ResultCode {
 
@@ -57,9 +39,23 @@ public class S3BatchResponse {
         PermanentFailure
     }
 
-    public static S3BatchResponseBuilder fromS3BatchEvent(S3BatchEvent s3BatchEvent) {
-        return S3BatchResponse.builder()
-                .withInvocationId(s3BatchEvent.getInvocationId())
-                .withInvocationSchemaVersion(s3BatchEvent.getInvocationSchemaVersion());
+    private String invocationSchemaVersion;
+    private ResultCode treatMissingKeysAs;
+    private String invocationId;
+    private List<Result> results;
+
+    @Data
+    @Accessors(chain = true)
+    public static class Result {
+
+        private String taskId;
+        private ResultCode resultCode;
+        private String resultString;
+    }
+
+    public static S3BatchResponse fromS3BatchEvent(S3BatchEvent s3BatchEvent) {
+        return new S3BatchResponse()
+                .setInvocationId(s3BatchEvent.getInvocationId())
+                .setInvocationSchemaVersion(s3BatchEvent.getInvocationSchemaVersion());
     }
 }

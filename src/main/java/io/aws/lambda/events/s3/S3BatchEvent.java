@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
@@ -13,11 +14,8 @@ import java.util.List;
  *
  * https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-invoke-lambda.html
  */
-
 @Data
-@Builder(setterPrefix = "with")
-@NoArgsConstructor
-@AllArgsConstructor
+@Accessors(chain = true)
 public class S3BatchEvent {
 
     private String invocationSchemaVersion;
@@ -26,18 +24,14 @@ public class S3BatchEvent {
     private List<Task> tasks;
 
     @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class Job {
 
         private String id;
     }
 
     @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class Task {
 
         private String taskId;
