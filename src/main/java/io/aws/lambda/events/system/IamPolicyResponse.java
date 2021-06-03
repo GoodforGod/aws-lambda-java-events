@@ -4,17 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Data
-@Builder(setterPrefix = "with")
-@NoArgsConstructor
-@AllArgsConstructor
+@Accessors(chain = true)
 public class IamPolicyResponse implements Serializable {
 
     public static final String EXECUTE_API_INVOKE = "execute-api:Invoke";
@@ -27,54 +27,48 @@ public class IamPolicyResponse implements Serializable {
     private Map<String, Object> context;
 
     public Map<String, Object> getPolicyDocument() {
-        Map<String, Object> serializablePolicy = new HashMap<>();
-        serializablePolicy.put("Version", policyDocument.getVersion());
+        final List<Map<String, Object>> statements = policyDocument.getStatement().stream()
+                .map(statement -> Map.of(
+                        "Effect", statement.getEffect(),
+                        "Action", statement.getAction(),
+                        "Resource", statement.getResource().toArray(new String[0]),
+                        "Condition", statement.getCondition()))
+                .collect(Collectors.toList());
 
-        int numberOfStatements = policyDocument.getStatement().size();
-        Map<String, Object>[] serializableStatementArray = new Map[numberOfStatements];
-        for (int i = 0; i < numberOfStatements; i++) {
-            Statement statement = policyDocument.getStatement().get(i);
-            Map<String, Object> serializableStatement = new HashMap<>();
-            serializableStatement.put("Effect", statement.getEffect());
-            serializableStatement.put("Action", statement.getAction());
-            serializableStatement.put("Resource", statement.getResource().toArray(new String[0]));
-            serializableStatement.put("Condition", statement.getCondition());
-            serializableStatementArray[i] = serializableStatement;
-        }
-        serializablePolicy.put("Statement", serializableStatementArray);
-        return serializablePolicy;
+
+        return Map.of(
+        "Version", policyDocument.getVersion(),
+        "Statement", statements );
     }
 
     public static Statement allowStatement(String resource) {
-        return Statement.builder()
-                .withEffect(ALLOW)
-                .withResource(Collections.singletonList(resource))
-                .withAction(EXECUTE_API_INVOKE)
-                .build();
+        return new Statement()
+                .setEffect(ALLOW)
+                .setResource(Collections.singletonList(resource))
+                .setAction(EXECUTE_API_INVOKE);
     }
 
     public static Statement denyStatement(String resource) {
-        return Statement.builder()
-                .withEffect(DENY)
-                .withResource(Collections.singletonList(resource))
-                .withAction(EXECUTE_API_INVOKE)
-                .build();
+        return new Statement()
+                .setEffect(DENY)
+                .setResource(Collections.singletonList(resource))
+                .setAction(EXECUTE_API_INVOKE);
     }
 
     @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class PolicyDocument implements Serializable {
 
         private String version;
         private List<Statement> statement;
+
+        public List<Statement> getStatement() {
+            return statement == null ? Collections.emptyList() : statement;
+        }
     }
 
     @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class Statement implements Serializable {
 
         private String action;

@@ -17,12 +17,12 @@ import static java.util.Collections.singletonList;
 import static java.util.Collections.singletonMap;
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 
-public class IamPolicyResponseTest {
+class IamPolicyResponseTest {
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     @Test
-    public void testAllowStatement() throws JsonProcessingException {
+    void testAllowStatement() throws JsonProcessingException {
         IamPolicyResponse iamPolicyResponse = IamPolicyResponse.builder()
                 .withPrincipalId("me")
                 .withPolicyDocument(IamPolicyResponse.PolicyDocument.builder()
@@ -37,7 +37,7 @@ public class IamPolicyResponseTest {
     }
 
     @Test
-    public void testDenyStatement() throws JsonProcessingException {
+    void testDenyStatement() throws JsonProcessingException {
         IamPolicyResponse iamPolicyResponse = IamPolicyResponse.builder()
                 .withPrincipalId("me")
                 .withPolicyDocument(IamPolicyResponse.PolicyDocument.builder()
@@ -52,7 +52,7 @@ public class IamPolicyResponseTest {
     }
 
     @Test
-    public void testStatementWithCondition() throws JsonProcessingException {
+    void testStatementWithCondition() throws JsonProcessingException {
         Map<String, Map<String, Object>> conditions = new HashMap<>();
         conditions.put("DateGreaterThan", singletonMap("aws:TokenIssueTime", "2020-01-01T00:00:01Z"));
 

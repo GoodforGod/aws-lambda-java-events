@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -16,14 +17,9 @@ import java.util.Map;
  * is responsible for returning a response to the callback URL that indicates success or failure.
  *
  * @see <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html">Using AWS Lambda with AWS CloudFormation</a>
- *
- * 
  */
-
 @Data
-@Builder(setterPrefix = "with")
-@NoArgsConstructor
-@AllArgsConstructor
+@Accessors(chain = true)
 public class CloudFormationCustomResourceEvent implements Serializable  {
 
     private String requestType;
