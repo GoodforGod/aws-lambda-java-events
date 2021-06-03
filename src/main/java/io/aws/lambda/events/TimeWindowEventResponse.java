@@ -2,10 +2,13 @@
 
 package io.aws.lambda.events;
 
+import io.aws.lambda.events.dynamodb.DynamodbTimeWindowEvent;
+import io.aws.lambda.events.kinesis.KinesisTimeWindowEvent;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,11 +19,8 @@ import java.util.Map;
  * https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder(setterPrefix = "with")
+@Accessors(chain = true)
 public class TimeWindowEventResponse implements Serializable {
-    private static final long serialVersionUID = 2259096191791166028L;
 
     /**
      * New state after processing a batch of records.
@@ -33,15 +33,12 @@ public class TimeWindowEventResponse implements Serializable {
     private List<BatchItemFailure> batchItemFailures;
 
     @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Builder(setterPrefix = "with")
+    @Accessors(chain = true)
     public static class BatchItemFailure implements Serializable {
-        private static final long serialVersionUID = 5224634072234167773L;
 
         /**
          * Sequence number of the record which failed processing.
          */
-        String itemIdentifier;
+        private String itemIdentifier;
     }
 }

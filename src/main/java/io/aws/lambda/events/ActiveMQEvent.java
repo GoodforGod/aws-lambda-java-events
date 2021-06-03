@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+
 import java.util.List;
 
 /**
@@ -13,19 +15,17 @@ import java.util.List;
 * <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html">Onboarding Amazon MQ as event source to Lambda</a>
 */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder(setterPrefix = "with")
+@Accessors(chain = true)
 public class ActiveMQEvent {
+
     private String eventSource;
     private String eventSourceArn;
     private List<ActiveMQMessage> messages;
 
     @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Builder(setterPrefix = "with")
+    @Accessors(chain = true)
     public static class ActiveMQMessage {
+
         private String messageID;
         private String messageType;
         private long timestamp;
@@ -44,10 +44,9 @@ public class ActiveMQEvent {
     }
 
     @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Builder(setterPrefix = "with")
+    @Accessors(chain = true)
     public static class Destination {
+
         /** Queue Name **/
         private String physicalName;
     }

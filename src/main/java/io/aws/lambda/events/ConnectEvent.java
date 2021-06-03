@@ -5,40 +5,34 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Map;
 
 /**
  * Class to represent an Amazon Connect contact flow event.
- *
  * @see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html>Connect Lambda Functions</a>
- *
- * 
  */
 @Data
-@Builder(setterPrefix = "with")
-@NoArgsConstructor
-@AllArgsConstructor
+@Accessors(chain = true)
 public class ConnectEvent implements Serializable {
 
     private Details details;
     private String name;
 
     @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class Details implements Serializable {
+
         private ContactData contactData;
         private Map<String, Object> parameters;
     }
 
     @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class ContactData implements Serializable {
+
         private Map<String, String> attributes;
         private String channel;
         private String contactId;
@@ -52,19 +46,17 @@ public class ConnectEvent implements Serializable {
     }
 
     @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class CustomerEndpoint implements Serializable {
+
         private String address;
         private String type;
     }
 
     @Data
-    @Builder(setterPrefix = "with")
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class SystemEndpoint implements Serializable {
+
         private String address;
         private String type;
     }

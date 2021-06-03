@@ -5,7 +5,7 @@ import lombok.experimental.Accessors;
 
 @Data
 @Accessors(chain = true)
-public class BodyEvent {
+public abstract class BodyEvent {
 
     private String body;
 }
