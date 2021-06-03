@@ -1,6 +1,9 @@
 
 package io.aws.lambda.events.kinesis;
 
+import lombok.Data;
+import lombok.experimental.Accessors;
+
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.util.List;
@@ -9,147 +12,31 @@ import java.util.List;
  * Event model for pre-processing Kinesis Streams records through Kinesis
  * Analytics Lambda pre-processing function.
  */
+@Data
+@Accessors(chain = true)
 public class KinesisAnalyticsStreamsInputPreprocessingEvent implements Serializable {
-    private static final long serialVersionUID = 1770320710876513596L;
-    public String invocationId;
-    public String applicationArn;
-    public String streamArn;
-    public List<Record> records;
 
-    public KinesisAnalyticsStreamsInputPreprocessingEvent() {
-    }
+    private String invocationId;
+    private String applicationArn;
+    private String streamArn;
+    private List<Record> records;
 
-    public KinesisAnalyticsStreamsInputPreprocessingEvent(String invocationId, String applicationArn, String streamArn,
-            List<Record> records) {
-        super();
-        this.invocationId = invocationId;
-        this.applicationArn = applicationArn;
-        this.streamArn = streamArn;
-        this.records = records;
-    }
-
-    public String getInvocationId() {
-        return invocationId;
-    }
-
-    public void setInvocationId(String invocationId) {
-        this.invocationId = invocationId;
-    }
-
-    public String getApplicationArn() {
-        return applicationArn;
-    }
-
-    public void setApplicationArn(String applicationArn) {
-        this.applicationArn = applicationArn;
-    }
-
-    public String getStreamArn() {
-        return streamArn;
-    }
-
-    public void setStreamArn(String streamArn) {
-        this.streamArn = streamArn;
-    }
-
-    public List<Record> getRecords() {
-        return records;
-    }
-
-    public void setRecords(List<Record> records) {
-        this.records = records;
-    }
-
+    @Data
+    @Accessors(chain = true)
     public static class Record implements Serializable {
-        private static final long serialVersionUID = -2070268774061223434L;
-        public String recordId;
-        public KinesisStreamRecordMetadata kinesisStreamRecordMetadata;
-        public ByteBuffer data;
 
-        public Record() {
-        }
+        private String recordId;
+        private KinesisStreamRecordMetadata kinesisStreamRecordMetadata;
+        private byte[] data;
 
-        public Record(String recordId, KinesisStreamRecordMetadata kinesisStreamRecordMetadata, ByteBuffer data) {
-            super();
-            this.recordId = recordId;
-            this.kinesisStreamRecordMetadata = kinesisStreamRecordMetadata;
-            this.data = data;
-        }
-
-        public String getRecordId() {
-            return recordId;
-        }
-
-        public void setRecordId(String recordId) {
-            this.recordId = recordId;
-        }
-
-        public ByteBuffer getData() {
-            return data;
-        }
-
-        public void setData(ByteBuffer data) {
-            this.data = data;
-        }
-
-        public KinesisStreamRecordMetadata getKinesisStreamRecordMetadata() {
-            return kinesisStreamRecordMetadata;
-        }
-
-        public void setKinesisStreamRecordMetadata(KinesisStreamRecordMetadata kinesisStreamRecordMetadata) {
-            this.kinesisStreamRecordMetadata = kinesisStreamRecordMetadata;
-        }
-
+        @Data
+        @Accessors(chain = true)
         public static class KinesisStreamRecordMetadata implements Serializable {
-            private static final long serialVersionUID = 8831719215562345916L;
-            public String sequenceNumber;
-            public String partitionKey;
-            public String shardId;
-            public Long approximateArrivalTimestamp;
 
-            public KinesisStreamRecordMetadata() {
-            }
-
-            public KinesisStreamRecordMetadata(String sequenceNumber, String partitionKey, String shardId,
-                    Long approximateArrivalTimestamp) {
-                super();
-                this.sequenceNumber = sequenceNumber;
-                this.partitionKey = partitionKey;
-                this.shardId = shardId;
-                this.approximateArrivalTimestamp = approximateArrivalTimestamp;
-            }
-
-            public String getSequenceNumber() {
-                return sequenceNumber;
-            }
-
-            public void setSequenceNumber(String sequenceNumber) {
-                this.sequenceNumber = sequenceNumber;
-            }
-
-            public String getPartitionKey() {
-                return partitionKey;
-            }
-
-            public void setPartitionKey(String partitionKey) {
-                this.partitionKey = partitionKey;
-            }
-
-            public String getShardId() {
-                return shardId;
-            }
-
-            public void setShardId(String shardId) {
-                this.shardId = shardId;
-            }
-
-            public Long getApproximateArrivalTimestamp() {
-                return approximateArrivalTimestamp;
-            }
-
-            public void setApproximateArrivalTimestamp(Long approximateArrivalTimestamp) {
-                this.approximateArrivalTimestamp = approximateArrivalTimestamp;
-            }
+            private String sequenceNumber;
+            private String partitionKey;
+            private String shardId;
+            private Long approximateArrivalTimestamp;
         }
     }
 }
