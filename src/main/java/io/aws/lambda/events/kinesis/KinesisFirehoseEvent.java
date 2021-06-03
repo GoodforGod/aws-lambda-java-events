@@ -1,12 +1,10 @@
 
-
 package io.aws.lambda.events.kinesis;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Map;
 
@@ -24,8 +22,8 @@ public class KinesisFirehoseEvent implements Serializable {
     public static class Record implements Serializable {
 
         /**
-         * The data blob, which is base64-encoded when the blob is serialized. The maximum size of the data blob, before
-         * base64-encoding, is 1,000 KB.
+         * The data blob, which is base64-encoded when the blob is serialized. The
+         * maximum size of the data blob, before base64-encoding, is 1,000 KB.
          */
         private byte[] data;
         private String recordId;

@@ -50,8 +50,8 @@ public class SNSEvent implements Serializable {
     }
 
     /**
-     * Represents an SNS message record. SNS message records are used to send
-     * SNS messages to Lambda Functions.
+     * Represents an SNS message record. SNS message records are used to send SNS
+     * messages to Lambda Functions.
      */
     @Data
     @Accessors(chain = true)

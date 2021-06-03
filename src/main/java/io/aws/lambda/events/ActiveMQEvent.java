@@ -1,19 +1,16 @@
 
 package io.aws.lambda.events;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
 
 /**
-* Represents an Active MQ event sent to Lambda
-* <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html">Onboarding Amazon MQ as event source to Lambda</a>
-*/
+ * Represents an Active MQ event sent to Lambda <a href=
+ * "https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html">Onboarding Amazon
+ * MQ as event source to Lambda</a>
+ */
 @Data
 @Accessors(chain = true)
 public class ActiveMQEvent {

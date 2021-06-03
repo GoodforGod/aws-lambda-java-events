@@ -27,7 +27,8 @@ class IamPolicyResponseTest {
                 .withPrincipalId("me")
                 .withPolicyDocument(IamPolicyResponse.PolicyDocument.builder()
                         .withVersion(IamPolicyResponse.VERSION_2012_10_17)
-                        .withStatement(singletonList(IamPolicyResponse.allowStatement("arn:aws:execute-api:eu-west-1:123456789012:1234abc/$deafult/*/*")))
+                        .withStatement(singletonList(
+                                IamPolicyResponse.allowStatement("arn:aws:execute-api:eu-west-1:123456789012:1234abc/$deafult/*/*")))
                         .build())
                 .build();
 
@@ -42,7 +43,8 @@ class IamPolicyResponseTest {
                 .withPrincipalId("me")
                 .withPolicyDocument(IamPolicyResponse.PolicyDocument.builder()
                         .withVersion(IamPolicyResponse.VERSION_2012_10_17)
-                        .withStatement(singletonList(IamPolicyResponse.denyStatement("arn:aws:execute-api:eu-west-1:123456789012:1234abc/$deafult/*/*")))
+                        .withStatement(singletonList(
+                                IamPolicyResponse.denyStatement("arn:aws:execute-api:eu-west-1:123456789012:1234abc/$deafult/*/*")))
                         .build())
                 .build();
 

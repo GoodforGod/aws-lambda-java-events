@@ -1,10 +1,7 @@
 
 package io.aws.lambda.events.system;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -13,7 +10,10 @@ import java.util.Map;
 
 /**
  * Class to represent an invocation record for a Lambda event.
- * @see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html>Asynchronous invocation</a>
+ * 
+ * @see <a
+ *      href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html>Asynchronous
+ *      invocation</a>
  */
 @Data
 @Accessors(chain = true)
@@ -33,6 +33,7 @@ public class LambdaDestinationEvent implements Serializable {
     @Data
     @Accessors(chain = true)
     public static class RequestContext implements Serializable {
+
         private String requestId;
         private String functionArn;
         private String condition;

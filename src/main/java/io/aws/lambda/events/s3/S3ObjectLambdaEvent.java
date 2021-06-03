@@ -1,19 +1,19 @@
 package io.aws.lambda.events.s3;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.Map;
 
 /**
- * Event to allow transformations to occur before an S3 object is returned to the calling service.
+ * Event to allow transformations to occur before an S3 object is returned to
+ * the calling service.
  *
  * <strong>Documentation</strong>
  *
- * <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-writing-lambda.html">Writing and debugging Lambda functions for S3 Object Lambda Access Points</a>
+ * <a href=
+ * "https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-writing-lambda.html">Writing
+ * and debugging Lambda functions for S3 Object Lambda Access Points</a>
  *
  * <strong>Example:</strong>
  *
@@ -59,21 +59,24 @@ public class S3ObjectLambdaEvent {
     private String protocolVersion;
 
     /**
-     * A pre-signed URL that can be used to fetch the original object from Amazon S3.
+     * A pre-signed URL that can be used to fetch the original object from Amazon
+     * S3.
      *
      * The URL is signed using the original caller's identity, and their permissions
      * will apply when the URL is used. If there are signed headers in the URL, the
-     * Lambda function must include these in the call to Amazon S3, except for the Host.
+     * Lambda function must include these in the call to Amazon S3, except for the
+     * Host.
      *
-     * @return A pre-signed URL that can be used to fetch the original object from Amazon S3.
+     * @return A pre-signed URL that can be used to fetch the original object from
+     *         Amazon S3.
      */
     public String inputS3Url() {
         return getGetObjectContext().getInputS3Url();
     }
 
     /**
-     * A routing token that is added to the S3 Object Lambda URL when the Lambda function
-     * calls the S3 API WriteGetObjectResponse.
+     * A routing token that is added to the S3 Object Lambda URL when the Lambda
+     * function calls the S3 API WriteGetObjectResponse.
      *
      * @return the outputRoute
      */
@@ -82,8 +85,8 @@ public class S3ObjectLambdaEvent {
     }
 
     /**
-     * An opaque token used by S3 Object Lambda to match the WriteGetObjectResponse call
-     * with the original caller.
+     * An opaque token used by S3 Object Lambda to match the WriteGetObjectResponse
+     * call with the original caller.
      *
      * @return the outputToken
      */
@@ -94,6 +97,7 @@ public class S3ObjectLambdaEvent {
     @Data
     @Accessors(chain = true)
     public static class GetObjectContext {
+
         private String inputS3Url;
         private String outputRoute;
         private String outputToken;
@@ -102,6 +106,7 @@ public class S3ObjectLambdaEvent {
     @Data
     @Accessors(chain = true)
     public static class Configuration {
+
         private String accessPointArn;
         private String supportingAccessPointArn;
         private String payload;
@@ -110,6 +115,7 @@ public class S3ObjectLambdaEvent {
     @Data
     @Accessors(chain = true)
     public static class UserRequest {
+
         private String url;
         private Map<String, String> headers;
     }
@@ -117,6 +123,7 @@ public class S3ObjectLambdaEvent {
     @Data
     @Accessors(chain = true)
     public static class UserIdentity {
+
         private String type;
         private String principalId;
         private String arn;

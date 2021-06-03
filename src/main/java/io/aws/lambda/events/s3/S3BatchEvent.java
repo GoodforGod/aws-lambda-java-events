@@ -1,16 +1,13 @@
 package io.aws.lambda.events.s3;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
 
 /**
- * Event to represent the payload which is sent to Lambda by S3 Batch to perform a custom
- * action.
+ * Event to represent the payload which is sent to Lambda by S3 Batch to perform
+ * a custom action.
  *
  * https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-invoke-lambda.html
  */

@@ -1,14 +1,10 @@
 package io.aws.lambda.events.system;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -35,10 +31,9 @@ public class IamPolicyResponse implements Serializable {
                         "Condition", statement.getCondition()))
                 .collect(Collectors.toList());
 
-
         return Map.of(
-        "Version", policyDocument.getVersion(),
-        "Statement", statements );
+                "Version", policyDocument.getVersion(),
+                "Statement", statements);
     }
 
     public static Statement allowStatement(String resource) {

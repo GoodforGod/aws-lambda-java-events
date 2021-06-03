@@ -8,7 +8,10 @@ import java.io.Serializable;
 
 /**
  * A description of a unique event within a stream.
- * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/streams-dynamodb-2012-08-10/Record" target="_top">AWS API Documentation</a>
+ * 
+ * @see <a href=
+ *      "http://docs.aws.amazon.com/goto/WebAPI/streams-dynamodb-2012-08-10/Record"
+ *      target="_top">AWS API Documentation</a>
  */
 @Data
 @Accessors(chain = true)
@@ -22,28 +25,31 @@ public class Record implements Serializable {
     }
 
     /**
-     * A globally unique identifier for the event that was recorded in this stream record.
+     * A globally unique identifier for the event that was recorded in this stream
+     * record.
      */
     private String eventID;
 
     /**
      * The type of data modification that was performed on the DynamoDB table:
-     * <code>INSERT</code> - a new item was added to the table.
-     * <code>MODIFY</code> - one or more of an existing item's attributes were modified.
+     * <code>INSERT</code> - a new item was added to the table. <code>MODIFY</code>
+     * - one or more of an existing item's attributes were modified.
      * <code>REMOVE</code> - the item was deleted from the table
      */
     private OperationType eventName;
     /**
-     * The version number of the stream record format. This number is updated whenever the structure of
-     * <code>Record</code> is modified.
-     * Client applications must not assume that <code>eventVersion</code> will remain at a particular value, as this
-     * number is subject to change at any time. In general, <code>eventVersion</code> will only increase as the
-     * low-level DynamoDB Streams API evolves.
+     * The version number of the stream record format. This number is updated
+     * whenever the structure of <code>Record</code> is modified. Client
+     * applications must not assume that <code>eventVersion</code> will remain at a
+     * particular value, as this number is subject to change at any time. In
+     * general, <code>eventVersion</code> will only increase as the low-level
+     * DynamoDB Streams API evolves.
      */
     private String eventVersion;
 
     /**
-     * The AWS service from which the stream record originated. For DynamoDB Streams, this is <code>aws:dynamodb</code>.
+     * The AWS service from which the stream record originated. For DynamoDB
+     * Streams, this is <code>aws:dynamodb</code>.
      */
     private String eventSource;
 
@@ -53,12 +59,13 @@ public class Record implements Serializable {
     private String awsRegion;
 
     /**
-     * The main body of the stream record, containing all of the DynamoDB-specific fields.
+     * The main body of the stream record, containing all of the DynamoDB-specific
+     * fields.
      */
     private StreamRecord dynamodb;
     /**
-     * Items that are deleted by the Time to Live process after expiration have the following fields:
-     * Records[].userIdentity.type "Service"
+     * Items that are deleted by the Time to Live process after expiration have the
+     * following fields: Records[].userIdentity.type "Service"
      * Records[].userIdentity.principalId "dynamodb.amazonaws.com"
      */
     private Identity userIdentity;

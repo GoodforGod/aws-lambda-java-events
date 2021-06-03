@@ -1,10 +1,7 @@
 
 package io.aws.lambda.events;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -12,7 +9,10 @@ import java.util.Map;
 
 /**
  * Class to represent an Amazon Connect contact flow event.
- * @see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html>Connect Lambda Functions</a>
+ * 
+ * @see <a
+ *      href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html>Connect
+ *      Lambda Functions</a>
  */
 @Data
 @Accessors(chain = true)

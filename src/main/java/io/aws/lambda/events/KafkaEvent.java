@@ -1,10 +1,7 @@
 
 package io.aws.lambda.events;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -37,12 +34,12 @@ public class KafkaEvent {
     @Accessors(chain = true)
     public static class TopicPartition {
 
-        private  String topic;
-        private  int partition;
+        private String topic;
+        private int partition;
 
         @Override
         public String toString() {
-            //Kafka also uses '-' for toString()
+            // Kafka also uses '-' for toString()
             return topic + "-" + partition;
         }
     }

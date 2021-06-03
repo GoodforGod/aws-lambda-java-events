@@ -10,8 +10,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * A description of a single data modification that was performed on an item in a DynamoDB table.
- * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/streams-dynamodb-2012-08-10/StreamRecord" target="_top">AWS API Documentation</a>
+ * A description of a single data modification that was performed on an item in
+ * a DynamoDB table.
+ * 
+ * @see <a href=
+ *      "http://docs.aws.amazon.com/goto/WebAPI/streams-dynamodb-2012-08-10/StreamRecord"
+ *      target="_top">AWS API Documentation</a>
  */
 @Data
 @Accessors(chain = true)
@@ -26,7 +30,8 @@ public class StreamRecord implements Serializable {
     }
 
     /**
-     * The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.
+     * The approximate date and time when the stream record was created, in
+     * <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.
      */
     private Date approximateCreationDateTime;
 
@@ -56,11 +61,12 @@ public class StreamRecord implements Serializable {
     private Long sizeBytes;
 
     /**
-     * The type of data from the modified DynamoDB item that was captured in this stream record:
-     * <code>KEYS_ONLY</code> - only the key attributes of the modified item.
-     * <code>NEW_IMAGE</code> - the entire item, as it appeared after it was modified.
-     * <code>OLD_IMAGE</code> - the entire item, as it appeared before it was modified.
-     * <code>NEW_AND_OLD_IMAGES</code> - both the new and the old item images of the item.
+     * The type of data from the modified DynamoDB item that was captured in this
+     * stream record: <code>KEYS_ONLY</code> - only the key attributes of the
+     * modified item. <code>NEW_IMAGE</code> - the entire item, as it appeared after
+     * it was modified. <code>OLD_IMAGE</code> - the entire item, as it appeared
+     * before it was modified. <code>NEW_AND_OLD_IMAGES</code> - both the new and
+     * the old item images of the item.
      */
     private StreamViewType streamViewType;
 
@@ -78,7 +84,8 @@ public class StreamRecord implements Serializable {
     /**
      * Removes all the entries added into Keys.
      *
-     * @return Returns a reference to this object so that method calls can be chained together.
+     * @return Returns a reference to this object so that method calls can be
+     *         chained together.
      */
     public StreamRecord clearKeysEntries() {
         this.keys = null;
@@ -98,12 +105,15 @@ public class StreamRecord implements Serializable {
 
     /**
      * Removes all the entries added into NewImage.
-     * @return Returns a reference to this object so that method calls can be chained together.
+     * 
+     * @return Returns a reference to this object so that method calls can be
+     *         chained together.
      */
     public StreamRecord clearNewImageEntries() {
         this.newImage = null;
         return this;
     }
+
     public StreamRecord addOldImageEntry(String key, AttributeValue value) {
         if (null == this.oldImage)
             this.oldImage = new HashMap<>();
@@ -117,7 +127,9 @@ public class StreamRecord implements Serializable {
 
     /**
      * Removes all the entries added into OldImage.
-     * @return Returns a reference to this object so that method calls can be chained together.
+     * 
+     * @return Returns a reference to this object so that method calls can be
+     *         chained together.
      */
     public StreamRecord clearOldImageEntries() {
         this.oldImage = null;

@@ -10,7 +10,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The V2 API Gateway customer authorizer event object as described - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html
+ * The V2 API Gateway customer authorizer event object as described -
+ * https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html
  *
  */
 @Data

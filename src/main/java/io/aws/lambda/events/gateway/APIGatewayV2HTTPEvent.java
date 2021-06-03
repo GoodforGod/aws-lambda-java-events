@@ -1,16 +1,17 @@
 
-
 package io.aws.lambda.events.gateway;
 
 import io.aws.lambda.events.BodyEvent;
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.util.List;
 import java.util.Map;
 
 /**
- * API Gateway v2 event: https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
+ * API Gateway v2 event:
+ * https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
  */
 @Data
 @Accessors(chain = true)
@@ -32,6 +33,7 @@ public class APIGatewayV2HTTPEvent extends BodyEvent {
     @Data
     @Accessors(chain = true)
     public static class RequestContext {
+
         private String routeKey;
         private String accountId;
         private String stage;
@@ -47,6 +49,7 @@ public class APIGatewayV2HTTPEvent extends BodyEvent {
         @Data
         @Accessors(chain = true)
         public static class Authorizer {
+
             private JWT jwt;
             private IAM iam;
             private Map<String, Object> lambda;
@@ -54,6 +57,7 @@ public class APIGatewayV2HTTPEvent extends BodyEvent {
             @Data
             @Accessors(chain = true)
             public static class JWT {
+
                 private Map<String, String> claims;
                 private List<String> scopes;
             }
@@ -62,6 +66,7 @@ public class APIGatewayV2HTTPEvent extends BodyEvent {
         @Data
         @Accessors(chain = true)
         public static class Http {
+
             private String method;
             private String path;
             private String protocol;
@@ -72,6 +77,7 @@ public class APIGatewayV2HTTPEvent extends BodyEvent {
         @Data
         @Accessors(chain = true)
         public static class IAM {
+
             private String accessKey;
             private String accountId;
             private String callerId;
@@ -84,6 +90,7 @@ public class APIGatewayV2HTTPEvent extends BodyEvent {
         @Data
         @Accessors(chain = true)
         public static class CognitoIdentity {
+
             private List<String> amr;
             private String identityId;
             private String identityPoolId;

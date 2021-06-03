@@ -27,7 +27,7 @@ public class KinesisEvent implements Serializable {
 
         private String kinesisSchemaVersion;
     }
-    
+
     /**
      * Kinesis event records provide contextual data about a Kinesis record
      *

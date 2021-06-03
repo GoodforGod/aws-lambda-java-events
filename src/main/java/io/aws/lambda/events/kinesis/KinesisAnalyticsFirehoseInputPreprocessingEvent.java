@@ -2,11 +2,9 @@
 package io.aws.lambda.events.kinesis;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-import java.nio.ByteBuffer;
 import java.util.List;
 
 /**

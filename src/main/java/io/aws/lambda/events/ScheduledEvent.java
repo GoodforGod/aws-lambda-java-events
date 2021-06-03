@@ -1,5 +1,4 @@
 
-
 package io.aws.lambda.events;
 
 import lombok.Data;

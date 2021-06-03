@@ -1,15 +1,13 @@
 package io.aws.lambda.events.gateway;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.Map;
 
 /**
- * The API Gateway customer authorizer event object as described - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html
+ * The API Gateway customer authorizer event object as described -
+ * https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html
  *
  */
 @Data
@@ -33,6 +31,7 @@ public class APIGatewayCustomAuthorizerEvent {
     @Data
     @Accessors(chain = true)
     public static class RequestContext {
+
         private String path;
         private String accountId;
         private String resourceId;
@@ -47,6 +46,7 @@ public class APIGatewayCustomAuthorizerEvent {
     @Data
     @Accessors(chain = true)
     public static class Identity {
+
         private String apiKey;
         private String sourceIp;
     }

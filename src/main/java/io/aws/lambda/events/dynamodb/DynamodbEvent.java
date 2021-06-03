@@ -1,7 +1,6 @@
 
 package io.aws.lambda.events.dynamodb;
 
-import io.aws.lambda.events.dynamodb.Record;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

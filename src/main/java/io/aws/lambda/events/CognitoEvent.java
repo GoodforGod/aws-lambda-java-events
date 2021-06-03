@@ -1,5 +1,4 @@
 
-
 package io.aws.lambda.events;
 
 import lombok.Data;
@@ -23,9 +22,9 @@ public class CognitoEvent implements Serializable {
     private String eventType;
     private Integer version;
 
-	/**
-	 * DatasetRecord contains the information about each record in a data set.
-	 */
+    /**
+     * DatasetRecord contains the information about each record in a data set.
+     */
     @Data
     @Accessors(chain = true)
     public static class DatasetRecord implements Serializable {

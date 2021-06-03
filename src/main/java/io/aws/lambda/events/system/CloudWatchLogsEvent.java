@@ -1,5 +1,4 @@
 
-
 package io.aws.lambda.events.system;
 
 import lombok.Data;
@@ -8,7 +7,8 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 
 /**
- * Class representing CloudWatchLogs event (callback when cloud watch logs something)
+ * Class representing CloudWatchLogs event (callback when cloud watch logs
+ * something)
  */
 @Data
 @Accessors(chain = true)

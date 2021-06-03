@@ -17,7 +17,7 @@ public class CloudFrontEvent implements Serializable {
     private List<Record> records;
 
     /**
-     *  class that represents a header
+     * class that represents a header
      */
     @Data
     @Accessors(chain = true)
