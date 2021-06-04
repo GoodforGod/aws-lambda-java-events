@@ -3,8 +3,10 @@ package io.aws.lambda.events;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -27,13 +29,16 @@ public class ConnectEvent implements Serializable {
 
         private ContactData contactData;
         private Map<String, Object> parameters;
+
+        public @NotNull Map<String, Object> getParameters() {
+            return parameters == null ? Collections.emptyMap() : parameters;
+        }
     }
 
     @Data
     @Accessors(chain = true)
     public static class ContactData implements Serializable {
 
-        private Map<String, String> attributes;
         private String channel;
         private String contactId;
         private CustomerEndpoint customerEndpoint;
@@ -43,6 +48,11 @@ public class ConnectEvent implements Serializable {
         private String previousContactId;
         private String queue;
         private SystemEndpoint systemEndpoint;
+        private Map<String, String> attributes;
+
+        public @NotNull Map<String, String> getAttributes() {
+            return attributes == null ? Collections.emptyMap() : attributes;
+        }
     }
 
     @Data

@@ -2,9 +2,11 @@ package io.aws.lambda.events.system;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,6 +17,10 @@ import java.util.List;
 public class CodeCommitEvent implements Serializable {
 
     private List<Record> records;
+
+    public @NotNull List<Record> getRecords() {
+        return records == null ? Collections.emptyList() : records;
+    }
 
     /**
      * represents a Reference object in a CodeCommit object
@@ -36,6 +42,10 @@ public class CodeCommitEvent implements Serializable {
     public static class CodeCommit implements Serializable {
 
         private List<Reference> references;
+
+        public @NotNull List<Reference> getReferences() {
+            return references == null ? Collections.emptyList() : references;
+        }
     }
 
     /**

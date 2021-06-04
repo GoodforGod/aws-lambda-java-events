@@ -3,8 +3,10 @@ package io.aws.lambda.events;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -17,10 +19,14 @@ public class LexEvent implements Serializable {
     private String messageVersion;
     private String invocationSource;
     private String userId;
-    private Map<String, String> sessionAttributes;
     private String outputDialogMode;
     private CurrentIntent currentIntent;
     private Bot bot;
+    private Map<String, String> sessionAttributes;
+
+    public @NotNull Map<String, String> getSessionAttributes() {
+        return sessionAttributes == null ? Collections.emptyMap() : sessionAttributes;
+    }
 
     /**
      * Represents a Lex bot
@@ -42,7 +48,11 @@ public class LexEvent implements Serializable {
     public class CurrentIntent implements Serializable {
 
         private String name;
-        private Map<String, String> slots;
         private String confirmationStatus;
+        private Map<String, String> slots;
+
+        public @NotNull Map<String, String> getSlots() {
+            return slots == null ? Collections.emptyMap() : slots;
+        }
     }
 }

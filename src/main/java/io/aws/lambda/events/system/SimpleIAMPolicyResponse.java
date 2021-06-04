@@ -2,7 +2,9 @@ package io.aws.lambda.events.system;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -15,4 +17,8 @@ public class SimpleIAMPolicyResponse {
 
     private boolean isAuthorized;
     private Map<String, String> context;
+
+    public @NotNull Map<String, String> getContext() {
+        return context == null ? Collections.emptyMap() : context;
+    }
 }

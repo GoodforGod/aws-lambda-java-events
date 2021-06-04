@@ -3,10 +3,12 @@ package io.aws.lambda.events.s3;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,6 +20,10 @@ import java.util.List;
 public class S3EventNotification {
 
     private List<S3EventNotificationRecord> records;
+
+    public @NotNull List<S3EventNotificationRecord> getRecords() {
+        return records == null ? Collections.emptyList() : records;
+    }
 
     @Data
     @Accessors(chain = true)
@@ -54,9 +60,7 @@ public class S3EventNotification {
          * @return The URL decoded object key.
          */
         public String getUrlDecodedKey() {
-            return (key == null)
-                    ? null
-                    : URLDecoder.decode(key, StandardCharsets.UTF_8);
+            return (key == null) ? null : URLDecoder.decode(key, StandardCharsets.UTF_8);
         }
     }
 

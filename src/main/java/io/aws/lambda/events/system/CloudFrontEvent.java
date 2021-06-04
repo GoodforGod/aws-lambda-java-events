@@ -2,8 +2,10 @@ package io.aws.lambda.events.system;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +17,10 @@ import java.util.Map;
 public class CloudFrontEvent implements Serializable {
 
     private List<Record> records;
+
+    public @NotNull List<Record> getRecords() {
+        return records == null ? Collections.emptyList() : records;
+    }
 
     /**
      * class that represents a header
@@ -49,6 +55,10 @@ public class CloudFrontEvent implements Serializable {
         private String httpVersion;
         private String clientIp;
         private Map<String, List<Header>> headers;
+
+        public @NotNull Map<String, List<Header>> getHeaders() {
+            return headers == null ? Collections.emptyMap() : headers;
+        }
     }
 
     /**
@@ -62,6 +72,10 @@ public class CloudFrontEvent implements Serializable {
         private String statusDescription;
         private String httpVersion;
         private Map<String, List<Header>> headers;
+
+        public @NotNull Map<String, List<Header>> getHeaders() {
+            return headers == null ? Collections.emptyMap() : headers;
+        }
     }
 
     /**

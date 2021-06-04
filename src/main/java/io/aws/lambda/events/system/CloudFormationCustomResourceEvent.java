@@ -3,8 +3,10 @@ package io.aws.lambda.events.system;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -32,4 +34,12 @@ public class CloudFormationCustomResourceEvent implements Serializable {
     private String resourceType;
     private Map<String, Object> resourceProperties;
     private Map<String, Object> oldResourceProperties;
+
+    public @NotNull Map<String, Object> getResourceProperties() {
+        return resourceProperties == null ? Collections.emptyMap() : resourceProperties;
+    }
+
+    public @NotNull Map<String, Object> getOldResourceProperties() {
+        return oldResourceProperties == null ? Collections.emptyMap() : oldResourceProperties;
+    }
 }

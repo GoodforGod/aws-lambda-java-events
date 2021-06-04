@@ -2,6 +2,7 @@ package io.aws.lambda.events.system;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 import java.util.Collections;
@@ -21,6 +22,10 @@ public class IamPolicyResponse implements Serializable {
     private String principalId;
     private PolicyDocument policyDocument;
     private Map<String, Object> context;
+
+    public @NotNull Map<String, Object> getContext() {
+        return context == null ? Collections.emptyMap() : context;
+    }
 
     public Map<String, Object> getPolicyDocument() {
         final List<Map<String, Object>> statements = policyDocument.getStatement().stream()
@@ -57,7 +62,7 @@ public class IamPolicyResponse implements Serializable {
         private String version;
         private List<Statement> statement;
 
-        public List<Statement> getStatement() {
+        public @NotNull List<Statement> getStatement() {
             return statement == null ? Collections.emptyList() : statement;
         }
     }
@@ -70,5 +75,13 @@ public class IamPolicyResponse implements Serializable {
         private String effect;
         private List<String> resource;
         private Map<String, Map<String, Object>> condition;
+
+        public @NotNull List<String> getResource() {
+            return resource == null ? Collections.emptyList() : resource;
+        }
+
+        public @NotNull Map<String, Map<String, Object>> getCondition() {
+            return condition == null ? Collections.emptyMap() : condition;
+        }
     }
 }

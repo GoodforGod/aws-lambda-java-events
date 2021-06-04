@@ -3,8 +3,11 @@ package io.aws.lambda.events.kinesis;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,6 +18,10 @@ import java.util.List;
 public class KinesisEvent implements Serializable {
 
     private List<KinesisEventRecord> records;
+
+    public @NotNull List<KinesisEventRecord> getRecords() {
+        return records == null ? Collections.emptyList() : records;
+    }
 
     /**
      * The unit of data of an Amazon Kinesis stream
@@ -37,7 +44,7 @@ public class KinesisEvent implements Serializable {
         /**
          * The approximate time that the record was inserted into the stream.
          */
-        private java.util.Date approximateArrivalTimestamp;
+        private Date approximateArrivalTimestamp;
 
         /**
          * The data blob. The data in the blob is both opaque and immutable to Kinesis

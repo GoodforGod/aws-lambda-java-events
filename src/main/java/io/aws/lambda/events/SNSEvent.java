@@ -3,9 +3,11 @@ package io.aws.lambda.events;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +19,10 @@ import java.util.Map;
 public class SNSEvent implements Serializable {
 
     private List<SNSRecord> records;
+
+    public @NotNull List<SNSRecord> getRecords() {
+        return records == null ? Collections.emptyList() : records;
+    }
 
     /**
      * Represents an SNS message attribute
@@ -36,7 +42,6 @@ public class SNSEvent implements Serializable {
     @Accessors(chain = true)
     public static class SNS implements Serializable {
 
-        private Map<String, MessageAttribute> messageAttributes;
         private String signingCertUrl;
         private String messageId;
         private String message;
@@ -45,8 +50,17 @@ public class SNSEvent implements Serializable {
         private String type;
         private String signatureVersion;
         private String signature;
-        private LocalDateTime timestamp;
+        private String timestamp;
         private String topicArn;
+        private Map<String, MessageAttribute> messageAttributes;
+
+        public LocalDateTime getDateTime() {
+            return LocalDateTime.parse(timestamp);
+        }
+
+        public @NotNull Map<String, MessageAttribute> getMessageAttributes() {
+            return messageAttributes == null ? Collections.emptyMap() : messageAttributes;
+        }
     }
 
     /**

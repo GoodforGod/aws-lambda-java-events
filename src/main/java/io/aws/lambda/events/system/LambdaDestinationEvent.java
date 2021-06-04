@@ -3,9 +3,11 @@ package io.aws.lambda.events.system;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -25,6 +27,10 @@ public class LambdaDestinationEvent implements Serializable {
     private Map<String, Object> requestPayload;
     private Object responseContext;
     private Object responsePayload;
+
+    public @NotNull Map<String, Object> getRequestPayload() {
+        return requestPayload == null ? Collections.emptyMap() : requestPayload;
+    }
 
     public LocalDateTime getTimestampAsDateTime() {
         return LocalDateTime.parse(timestamp);

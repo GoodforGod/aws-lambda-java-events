@@ -3,8 +3,10 @@ package io.aws.lambda.events;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -15,12 +17,16 @@ import java.util.Map;
 public class CognitoEvent implements Serializable {
 
     private String region;
-    private Map<String, DatasetRecord> datasetRecords;
     private String identityPoolId;
     private String identityId;
     private String datasetName;
     private String eventType;
     private Integer version;
+    private Map<String, DatasetRecord> datasetRecords;
+
+    public @NotNull Map<String, DatasetRecord> getDatasetRecords() {
+        return datasetRecords == null ? Collections.emptyMap() : datasetRecords;
+    }
 
     /**
      * DatasetRecord contains the information about each record in a data set.
@@ -32,6 +38,5 @@ public class CognitoEvent implements Serializable {
         private String oldValue;
         private String newValue;
         private String op;
-
     }
 }

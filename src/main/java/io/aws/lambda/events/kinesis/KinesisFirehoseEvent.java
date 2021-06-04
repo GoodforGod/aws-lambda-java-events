@@ -3,8 +3,10 @@ package io.aws.lambda.events.kinesis;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +18,10 @@ public class KinesisFirehoseEvent implements Serializable {
     private String deliveryStreamArn;
     private String region;
     private List<Record> records;
+
+    public @NotNull List<Record> getRecords() {
+        return records == null ? Collections.emptyList() : records;
+    }
 
     @Data
     @Accessors(chain = true)
@@ -30,5 +36,9 @@ public class KinesisFirehoseEvent implements Serializable {
         private Long approximateArrivalEpoch;
         private Long approximateArrivalTimestamp;
         private Map<String, String> kinesisRecordMetadata;
+
+        public @NotNull Map<String, String> getKinesisRecordMetadata() {
+            return kinesisRecordMetadata == null ? Collections.emptyMap() : kinesisRecordMetadata;
+        }
     }
 }

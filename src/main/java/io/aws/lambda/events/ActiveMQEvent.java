@@ -3,7 +3,9 @@ package io.aws.lambda.events;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,6 +20,10 @@ public class ActiveMQEvent {
     private String eventSource;
     private String eventSourceArn;
     private List<ActiveMQMessage> messages;
+
+    public @NotNull List<ActiveMQMessage> getMessages() {
+        return messages == null ? Collections.emptyList() : messages;
+    }
 
     @Data
     @Accessors(chain = true)

@@ -2,7 +2,9 @@ package io.aws.lambda.events.s3;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -19,6 +21,10 @@ public class S3BatchEvent {
     private String invocationId;
     private Job job;
     private List<Task> tasks;
+
+    public @NotNull List<Task> getTasks() {
+        return tasks == null ? Collections.emptyList() : tasks;
+    }
 
     @Data
     @Accessors(chain = true)

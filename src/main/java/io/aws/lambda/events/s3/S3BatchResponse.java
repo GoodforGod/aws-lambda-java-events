@@ -2,7 +2,9 @@ package io.aws.lambda.events.s3;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -40,6 +42,10 @@ public class S3BatchResponse {
     private ResultCode treatMissingKeysAs;
     private String invocationId;
     private List<Result> results;
+
+    public @NotNull List<Result> getResults() {
+        return results == null ? Collections.emptyList() : results;
+    }
 
     @Data
     @Accessors(chain = true)

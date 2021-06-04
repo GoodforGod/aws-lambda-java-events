@@ -5,8 +5,10 @@ import io.aws.lambda.events.dynamodb.DynamodbEvent;
 import io.aws.lambda.events.kinesis.KinesisEvent;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,6 +25,10 @@ public class StreamsEventResponse implements Serializable {
      * failed would retry all remaining records from the batch.
      */
     private List<BatchItemFailure> batchItemFailures;
+
+    public @NotNull List<BatchItemFailure> getBatchItemFailures() {
+        return batchItemFailures == null ? Collections.emptyList() : batchItemFailures;
+    }
 
     @Data
     @Accessors(chain = true)

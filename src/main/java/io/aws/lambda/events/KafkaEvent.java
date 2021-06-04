@@ -3,7 +3,9 @@ package io.aws.lambda.events;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -12,10 +14,14 @@ import java.util.Map;
 @Accessors(chain = true)
 public class KafkaEvent {
 
-    private Map<String, List<KafkaEventRecord>> records;
     private String eventSource;
     private String eventSourceArn;
     private String bootstrapServers;
+    private Map<String, List<KafkaEventRecord>> records;
+
+    public @NotNull Map<String, List<KafkaEventRecord>> getRecords() {
+        return records == null ? Collections.emptyMap() : records;
+    }
 
     @Data
     @Accessors(chain = true)

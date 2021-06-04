@@ -5,8 +5,10 @@ import io.aws.lambda.events.dynamodb.DynamodbTimeWindowEvent;
 import io.aws.lambda.events.kinesis.KinesisTimeWindowEvent;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -30,6 +32,14 @@ public class TimeWindowEventResponse implements Serializable {
      * failed would retry all remaining records from the batch.
      */
     private List<BatchItemFailure> batchItemFailures;
+
+    public @NotNull Map<String, String> getState() {
+        return state == null ? Collections.emptyMap() : state;
+    }
+
+    public @NotNull List<BatchItemFailure> getBatchItemFailures() {
+        return batchItemFailures == null ? Collections.emptyList() : batchItemFailures;
+    }
 
     @Data
     @Accessors(chain = true)

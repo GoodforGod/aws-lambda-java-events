@@ -3,8 +3,10 @@ package io.aws.lambda.events.kinesis;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -33,6 +35,10 @@ public class KinesisAnalyticsInputPreprocessingResponse implements Serializable 
     }
 
     private List<Record> records;
+
+    public @NotNull List<Record> getRecords() {
+        return records == null ? Collections.emptyList() : records;
+    }
 
     @Data
     @Accessors(chain = true)
