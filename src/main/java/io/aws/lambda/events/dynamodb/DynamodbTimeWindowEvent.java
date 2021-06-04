@@ -5,8 +5,10 @@ import io.aws.lambda.events.TimeWindow;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -50,4 +52,8 @@ public class DynamodbTimeWindowEvent extends DynamodbEvent implements Serializab
      * continue the same window with a fresh state.
      */
     private Boolean isWindowTerminatedEarly;
+
+    public @NotNull Map<String, String> getState() {
+        return state == null ? Collections.emptyMap() : state;
+    }
 }

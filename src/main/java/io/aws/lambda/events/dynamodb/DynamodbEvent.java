@@ -3,8 +3,10 @@ package io.aws.lambda.events.dynamodb;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,6 +17,10 @@ import java.util.List;
 public class DynamodbEvent implements Serializable {
 
     private List<DynamodbStreamRecord> records;
+
+    public @NotNull List<DynamodbStreamRecord> getRecords() {
+        return records == null ? Collections.emptyList() : records;
+    }
 
     /**
      * The unit of data of an Amazon DynamoDB event

@@ -3,6 +3,7 @@ package io.aws.lambda.events.dynamodb;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 import java.util.Collections;
@@ -86,6 +87,22 @@ public class AttributeValue implements Serializable {
      * An attribute of type Boolean. For example: <code>"BOOL": true</code>
      */
     private Boolean bOOL;
+
+    public @NotNull List<String> getsS() {
+        return sS == null ? Collections.emptyList() : sS;
+    }
+
+    public @NotNull List<String> getnS() {
+        return nS == null ? Collections.emptyList() : nS;
+    }
+
+    public @NotNull Map<String, AttributeValue> getM() {
+        return m == null ? Collections.emptyMap() : m;
+    }
+
+    public @NotNull List<AttributeValue> getL() {
+        return l == null ? Collections.emptyList() : l;
+    }
 
     public AttributeValue addMEntry(String key, AttributeValue value) {
         if (null == this.m)

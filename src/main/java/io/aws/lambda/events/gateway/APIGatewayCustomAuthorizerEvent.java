@@ -2,7 +2,9 @@ package io.aws.lambda.events.gateway;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -27,6 +29,22 @@ public class APIGatewayCustomAuthorizerEvent {
     private Map<String, String> pathParameters;
     private Map<String, String> stageVariables;
     private RequestContext requestContext;
+
+    public @NotNull Map<String, String> getHeaders() {
+        return headers == null ? Collections.emptyMap() : headers;
+    }
+
+    public @NotNull Map<String, String> getQueryStringParameters() {
+        return queryStringParameters == null ? Collections.emptyMap() : queryStringParameters;
+    }
+
+    public @NotNull Map<String, String> getPathParameters() {
+        return pathParameters == null ? Collections.emptyMap() : pathParameters;
+    }
+
+    public @NotNull Map<String, String> getStageVariables() {
+        return stageVariables == null ? Collections.emptyMap() : stageVariables;
+    }
 
     @Data
     @Accessors(chain = true)

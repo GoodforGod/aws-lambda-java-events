@@ -3,8 +3,10 @@ package io.aws.lambda.events.dynamodb;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -134,5 +136,17 @@ public class StreamRecord implements Serializable {
     public StreamRecord clearOldImageEntries() {
         this.oldImage = null;
         return this;
+    }
+
+    public @NotNull Map<String, AttributeValue> getKeys() {
+        return keys == null ? Collections.emptyMap() : keys;
+    }
+
+    public @NotNull Map<String, AttributeValue> getNewImage() {
+        return newImage == null ? Collections.emptyMap() : newImage;
+    }
+
+    public @NotNull Map<String, AttributeValue> getOldImage() {
+        return oldImage == null ? Collections.emptyMap() : oldImage;
     }
 }

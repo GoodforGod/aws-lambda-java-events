@@ -1,11 +1,13 @@
 
 package io.aws.lambda.events.gateway;
 
-import io.aws.lambda.events.BodyEvent;
+import io.aws.lambda.events.BodyEncodedEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +18,7 @@ import java.util.Map;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public class APIGatewayV2HTTPEvent extends BodyEvent {
+public class APIGatewayV2HTTPEvent extends BodyEncodedEvent {
 
     private String version;
     private String routeKey;
@@ -27,8 +29,33 @@ public class APIGatewayV2HTTPEvent extends BodyEvent {
     private Map<String, String> queryStringParameters;
     private Map<String, String> pathParameters;
     private Map<String, String> stageVariables;
-    private boolean isBase64Encoded;
     private RequestContext requestContext;
+    private boolean isBase64Encoded = false;
+
+    @Override
+    protected boolean isEncoded() {
+        return isBase64Encoded;
+    }
+
+    public @NotNull Map<String, String> getHeaders() {
+        return headers == null ? Collections.emptyMap() : headers;
+    }
+
+    public @NotNull Map<String, String> getQueryStringParameters() {
+        return queryStringParameters == null ? Collections.emptyMap() : queryStringParameters;
+    }
+
+    public @NotNull Map<String, String> getPathParameters() {
+        return pathParameters == null ? Collections.emptyMap() : pathParameters;
+    }
+
+    public @NotNull Map<String, String> getStageVariables() {
+        return stageVariables == null ? Collections.emptyMap() : stageVariables;
+    }
+
+    public @NotNull List<String> getCookies() {
+        return cookies == null ? Collections.emptyList() : cookies;
+    }
 
     @Data
     @Accessors(chain = true)
@@ -54,12 +81,24 @@ public class APIGatewayV2HTTPEvent extends BodyEvent {
             private IAM iam;
             private Map<String, Object> lambda;
 
+            public @NotNull Map<String, Object> getLambda() {
+                return lambda == null ? Collections.emptyMap() : lambda;
+            }
+
             @Data
             @Accessors(chain = true)
             public static class JWT {
 
                 private Map<String, String> claims;
                 private List<String> scopes;
+
+                public @NotNull Map<String, String> getClaims() {
+                    return claims == null ? Collections.emptyMap() : claims;
+                }
+
+                public @NotNull List<String> getScopes() {
+                    return scopes == null ? Collections.emptyList() : scopes;
+                }
             }
         }
 
@@ -94,6 +133,10 @@ public class APIGatewayV2HTTPEvent extends BodyEvent {
             private List<String> amr;
             private String identityId;
             private String identityPoolId;
+
+            public @NotNull List<String> getAmr() {
+                return amr == null ? Collections.emptyList() : amr;
+            }
         }
     }
 }

@@ -2,10 +2,12 @@ package io.aws.lambda.events.gateway;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -21,16 +23,40 @@ public class APIGatewayV2CustomAuthorizerEvent {
     private String version;
     private String type;
     private String routeArn;
-    private List<String> identitySource;
     private String routeKey;
     private String rawPath;
     private String rawQueryString;
+    private List<String> identitySource;
     private List<String> cookies;
     private Map<String, String> headers;
     private Map<String, String> queryStringParameters;
-    private RequestContext requestContext;
     private Map<String, String> pathParameters;
     private Map<String, String> stageVariables;
+    private RequestContext requestContext;
+
+    public @NotNull Map<String, String> getHeaders() {
+        return headers == null ? Collections.emptyMap() : headers;
+    }
+
+    public @NotNull Map<String, String> getQueryStringParameters() {
+        return queryStringParameters == null ? Collections.emptyMap() : queryStringParameters;
+    }
+
+    public @NotNull Map<String, String> getPathParameters() {
+        return pathParameters == null ? Collections.emptyMap() : pathParameters;
+    }
+
+    public @NotNull Map<String, String> getStageVariables() {
+        return stageVariables == null ? Collections.emptyMap() : stageVariables;
+    }
+
+    public @NotNull List<String> getIdentitySource() {
+        return identitySource == null ? Collections.emptyList() : identitySource;
+    }
+
+    public @NotNull List<String> getCookies() {
+        return cookies == null ? Collections.emptyList() : cookies;
+    }
 
     @Data
     @Accessors(chain = true)
@@ -53,7 +79,7 @@ public class APIGatewayV2CustomAuthorizerEvent {
             return Instant.ofEpochMilli(timeEpoch);
         }
 
-        public LocalDateTime getTime() {
+        public LocalDateTime getDateTime() {
             return LocalDateTime.parse(time, FORMATTER);
         }
     }

@@ -1,18 +1,20 @@
 package io.aws.lambda.events.gateway;
 
-import io.aws.lambda.events.BodyEvent;
+import io.aws.lambda.events.BodyEncodedEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public class APIGatewayV2WebSocketEvent extends BodyEvent implements Serializable {
+public class APIGatewayV2WebSocketEvent extends BodyEncodedEvent implements Serializable {
 
     private String resource;
     private String path;
@@ -25,6 +27,35 @@ public class APIGatewayV2WebSocketEvent extends BodyEvent implements Serializabl
     private Map<String, String> stageVariables;
     private RequestContext requestContext;
     private boolean isBase64Encoded = false;
+
+    @Override
+    protected boolean isEncoded() {
+        return isBase64Encoded;
+    }
+
+    public @NotNull Map<String, String> getHeaders() {
+        return headers == null ? Collections.emptyMap() : headers;
+    }
+
+    public @NotNull Map<String, String> getQueryStringParameters() {
+        return queryStringParameters == null ? Collections.emptyMap() : queryStringParameters;
+    }
+
+    public @NotNull Map<String, String> getPathParameters() {
+        return pathParameters == null ? Collections.emptyMap() : pathParameters;
+    }
+
+    public @NotNull Map<String, String> getStageVariables() {
+        return stageVariables == null ? Collections.emptyMap() : stageVariables;
+    }
+
+    public @NotNull Map<String, List<String>> getMultiValueHeaders() {
+        return multiValueHeaders == null ? Collections.emptyMap() : multiValueHeaders;
+    }
+
+    public @NotNull Map<String, List<String>> getMultiValueQueryStringParameters() {
+        return multiValueQueryStringParameters == null ? Collections.emptyMap() : multiValueQueryStringParameters;
+    }
 
     @Data
     @Accessors(chain = true)
@@ -70,5 +101,9 @@ public class APIGatewayV2WebSocketEvent extends BodyEvent implements Serializabl
         private long requestTimeEpoch;
         private String routeKey;
         private String status;
+
+        public @NotNull Map<String, Object> getAuthorizer() {
+            return authorizer == null ? Collections.emptyMap() : authorizer;
+        }
     }
 }

@@ -25,16 +25,15 @@ public class HttpUtils {
      */
     private static final Pattern ENCODED_CHARACTERS_PATTERN;
     static {
-        StringBuilder pattern = new StringBuilder()
-                .append(Pattern.quote("+"))
-                .append("|")
-                .append(Pattern.quote("*"))
-                .append("|")
-                .append(Pattern.quote("%7E"))
-                .append("|")
-                .append(Pattern.quote("%2F"));
 
-        ENCODED_CHARACTERS_PATTERN = Pattern.compile(pattern.toString());
+        String pattern = Pattern.quote("+") +
+                "|" +
+                Pattern.quote("*") +
+                "|" +
+                Pattern.quote("%7E") +
+                "|" +
+                Pattern.quote("%2F");
+        ENCODED_CHARACTERS_PATTERN = Pattern.compile(pattern);
     }
 
     /**
@@ -56,7 +55,7 @@ public class HttpUtils {
             String encoded = URLEncoder.encode(value, DEFAULT_ENCODING);
 
             Matcher matcher = ENCODED_CHARACTERS_PATTERN.matcher(encoded);
-            StringBuffer buffer = new StringBuffer(encoded.length());
+            StringBuilder buffer = new StringBuilder(encoded.length());
 
             while (matcher.find()) {
                 String replacement = matcher.group(0);

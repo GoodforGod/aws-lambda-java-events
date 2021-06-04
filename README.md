@@ -20,6 +20,10 @@ dependencies {
 </dependency>
 ```
 
+## The Why
+
+
+
 ### Events
 * DynamoDB
   * `DynamodbEvent`
