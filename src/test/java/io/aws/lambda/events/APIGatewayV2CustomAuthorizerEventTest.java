@@ -15,22 +15,18 @@ class APIGatewayV2CustomAuthorizerEventTest {
 
     @Test
     void testEpochLongAsAnInstant() {
-        APIGatewayV2CustomAuthorizerEvent customAuthorizerEvent = APIGatewayV2CustomAuthorizerEvent.builder()
-                .withRequestContext(APIGatewayV2CustomAuthorizerEvent.RequestContext.builder()
-                        .withTimeEpoch(TIME_EPOCH)
-                        .build())
-                .build();
+        APIGatewayV2CustomAuthorizerEvent customAuthorizerEvent = new APIGatewayV2CustomAuthorizerEvent()
+                .setRequestContext(new APIGatewayV2CustomAuthorizerEvent.RequestContext()
+                        .setTimeEpoch(TIME_EPOCH));
 
         assertEquals(Instant.ofEpochMilli(1601306426515L), customAuthorizerEvent.getRequestContext().getTimeEpoch());
     }
 
     @Test
     void testTimeStringAsDateTime() {
-        APIGatewayV2CustomAuthorizerEvent customAuthorizerEvent = APIGatewayV2CustomAuthorizerEvent.builder()
-                .withRequestContext(APIGatewayV2CustomAuthorizerEvent.RequestContext.builder()
-                        .withTime(TIME)
-                        .build())
-                .build();
+        APIGatewayV2CustomAuthorizerEvent customAuthorizerEvent = new APIGatewayV2CustomAuthorizerEvent()
+                .setRequestContext(new APIGatewayV2CustomAuthorizerEvent.RequestContext()
+                        .setTime(TIME));
 
         assertNotNull(customAuthorizerEvent.getRequestContext().getTime());
     }
