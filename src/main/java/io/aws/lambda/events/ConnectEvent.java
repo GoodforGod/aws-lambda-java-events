@@ -11,10 +11,8 @@ import java.util.Map;
 
 /**
  * Class to represent an Amazon Connect contact flow event.
- * 
- * @see <a
- *      href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html>Connect
- *      Lambda Functions</a>
+ *
+ * https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html
  */
 @Data
 @Accessors(chain = true)

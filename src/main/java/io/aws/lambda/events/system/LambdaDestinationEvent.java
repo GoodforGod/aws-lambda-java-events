@@ -12,10 +12,7 @@ import java.util.Map;
 
 /**
  * Class to represent an invocation record for a Lambda event.
- * 
- * @see <a
- *      href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html>Asynchronous
- *      invocation</a>
+ * https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html
  */
 @Data
 @Accessors(chain = true)
