@@ -1,6 +1,6 @@
 package io.aws.lambda.events.gateway;
 
-import io.aws.lambda.events.BodyEncodedEvent;
+import io.aws.lambda.events.BodyBase64Event;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -14,7 +14,7 @@ import java.util.Map;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public class APIGatewayV2WebSocketEvent extends BodyEncodedEvent implements Serializable {
+public class APIGatewayV2WebSocketEvent extends BodyBase64Event implements Serializable {
 
     private String resource;
     private String path;
@@ -26,12 +26,6 @@ public class APIGatewayV2WebSocketEvent extends BodyEncodedEvent implements Seri
     private Map<String, String> pathParameters;
     private Map<String, String> stageVariables;
     private RequestContext requestContext;
-    private boolean isBase64Encoded = false;
-
-    @Override
-    protected boolean isEncoded() {
-        return isBase64Encoded;
-    }
 
     public @NotNull Map<String, String> getHeaders() {
         return headers == null ? Collections.emptyMap() : headers;

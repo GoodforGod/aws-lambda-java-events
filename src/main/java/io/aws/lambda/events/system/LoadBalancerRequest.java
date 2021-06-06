@@ -1,6 +1,6 @@
 package io.aws.lambda.events.system;
 
-import io.aws.lambda.events.BodyEncodedEvent;
+import io.aws.lambda.events.BodyBase64Event;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -21,7 +21,7 @@ import java.util.Map;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public class LoadBalancerRequest extends BodyEncodedEvent implements Serializable {
+public class LoadBalancerRequest extends BodyBase64Event implements Serializable {
 
     private RequestContext requestContext;
     private String httpMethod;
@@ -30,12 +30,6 @@ public class LoadBalancerRequest extends BodyEncodedEvent implements Serializabl
     private Map<String, List<String>> multiValueQueryStringParameters;
     private Map<String, String> headers;
     private Map<String, List<String>> multiValueHeaders;
-    private boolean isBase64Encoded;
-
-    @Override
-    protected boolean isEncoded() {
-        return isBase64Encoded;
-    }
 
     public @NotNull Map<String, String> getHeaders() {
         return headers == null ? Collections.emptyMap() : headers;

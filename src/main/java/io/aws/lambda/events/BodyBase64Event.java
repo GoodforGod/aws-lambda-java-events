@@ -10,18 +10,18 @@ import java.util.Base64;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public abstract class BodyEncodedEvent extends BodyEvent {
+public abstract class BodyBase64Event extends BodyEvent {
 
     private static final Base64.Decoder DEFAULT_DECODER = Base64.getMimeDecoder();
 
+    private boolean isBase64Encoded = false;
+
     /**
-     * @return body decoded if that was the case {@link #isEncoded}
+     * @return body decoded if that was the case {@link #isBase64Encoded}
      */
     public String getBodyDecoded() {
-        return isEncoded() ? decode(getBody()) : getBody();
+        return isBase64Encoded() ? decode(getBody()) : getBody();
     }
-
-    protected abstract boolean isEncoded();
 
     protected String decode(String stringAsBase64) {
         return new String(DEFAULT_DECODER.decode(stringAsBase64), StandardCharsets.UTF_8);

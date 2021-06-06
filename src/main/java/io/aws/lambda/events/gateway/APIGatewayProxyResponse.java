@@ -1,8 +1,6 @@
 package io.aws.lambda.events.gateway;
 
-import io.aws.lambda.events.BodyEncodedEvent;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,18 +15,13 @@ import java.util.Map;
  */
 @Data
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper = true)
-public class APIGatewayProxyResponse extends BodyEncodedEvent implements Serializable {
+public class APIGatewayProxyResponse implements Serializable {
 
-    private Integer statusCode;
+    private Object body;
+    private boolean isBase64Encoded = false;
+    private int statusCode = 200;
     private Map<String, String> headers;
     private Map<String, List<String>> multiValueHeaders;
-    private boolean isBase64Encoded = false;
-
-    @Override
-    protected boolean isEncoded() {
-        return isBase64Encoded;
-    }
 
     public @NotNull Map<String, String> getHeaders() {
         return headers == null ? Collections.emptyMap() : headers;
