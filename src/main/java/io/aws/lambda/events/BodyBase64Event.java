@@ -10,7 +10,7 @@ import java.util.Base64;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public abstract class BodyBase64Event extends BodyEvent {
+public class BodyBase64Event extends BodyEvent {
 
     private static final Base64.Decoder DEFAULT_DECODER = Base64.getMimeDecoder();
 
