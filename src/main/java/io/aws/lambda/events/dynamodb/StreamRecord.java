@@ -7,7 +7,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,7 +34,7 @@ public class StreamRecord implements Serializable {
      * The approximate date and time when the stream record was created, in
      * <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.
      */
-    private Date approximateCreationDateTime;
+    private long approximateCreationDateTime;
 
     /**
      * The primary key attribute(s) for the DynamoDB item that was modified.

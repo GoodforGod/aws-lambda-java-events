@@ -7,7 +7,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -44,7 +43,7 @@ public class KinesisEvent implements Serializable {
         /**
          * The approximate time that the record was inserted into the stream.
          */
-        private Date approximateArrivalTimestamp;
+        private long approximateArrivalTimestamp;
 
         /**
          * The data blob. The data in the blob is both opaque and immutable to Kinesis

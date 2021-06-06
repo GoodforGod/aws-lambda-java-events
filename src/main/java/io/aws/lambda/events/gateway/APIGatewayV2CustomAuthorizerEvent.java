@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
@@ -74,10 +73,6 @@ public class APIGatewayV2CustomAuthorizerEvent {
         private String stage;
         private String time;
         private long timeEpoch;
-
-        public Instant getTimeEpoch() {
-            return Instant.ofEpochMilli(timeEpoch);
-        }
 
         public LocalDateTime getDateTime() {
             return LocalDateTime.parse(time, FORMATTER);

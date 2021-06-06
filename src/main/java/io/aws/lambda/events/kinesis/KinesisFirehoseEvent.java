@@ -33,8 +33,8 @@ public class KinesisFirehoseEvent implements Serializable {
          */
         private byte[] data;
         private String recordId;
-        private Long approximateArrivalEpoch;
-        private Long approximateArrivalTimestamp;
+        private long approximateArrivalEpoch;
+        private long approximateArrivalTimestamp;
         private Map<String, String> kinesisRecordMetadata;
 
         public @NotNull Map<String, String> getKinesisRecordMetadata() {
