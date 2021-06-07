@@ -79,7 +79,7 @@ publishing {
                 description = "Event interface definitions AWS services supported by AWS Lambda."
 
                 license {
-                    name = "MIT License"
+                    name = "Apache License 2.0"
                     url = "https://github.com/GoodforGod/$artifactId/blob/master/LICENSE"
                     distribution = "repo"
                 }
