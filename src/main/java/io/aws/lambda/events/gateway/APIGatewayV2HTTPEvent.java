@@ -18,7 +18,7 @@ import java.util.Map;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public class APIGatewayV2HTTPEvent extends BodyBase64Event {
+public class APIGatewayV2HTTPEvent extends BodyBase64Event<APIGatewayV2HTTPEvent> {
 
     private String version;
     private String routeKey;

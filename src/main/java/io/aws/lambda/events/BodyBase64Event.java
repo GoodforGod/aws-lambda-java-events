@@ -1,16 +1,10 @@
 package io.aws.lambda.events;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
-
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import java.util.Objects;
 
-@Data
-@Accessors(chain = true)
-@EqualsAndHashCode(callSuper = true)
-public class BodyBase64Event extends BodyEvent {
+public class BodyBase64Event<T extends BodyBase64Event<T>> extends BodyEvent<T> {
 
     private static final Base64.Decoder DEFAULT_DECODER = Base64.getMimeDecoder();
 
@@ -23,7 +17,39 @@ public class BodyBase64Event extends BodyEvent {
         return isBase64Encoded() ? decode(getBody()) : getBody();
     }
 
+    public boolean isBase64Encoded() {
+        return isBase64Encoded;
+    }
+
+    @SuppressWarnings("unchecked")
+    public T setBase64Encoded(boolean base64Encoded) {
+        isBase64Encoded = base64Encoded;
+        return (T) this;
+    }
+
     protected String decode(String stringAsBase64) {
         return new String(DEFAULT_DECODER.decode(stringAsBase64), StandardCharsets.UTF_8);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        if (!super.equals(o))
+            return false;
+        BodyBase64Event<?> that = (BodyBase64Event<?>) o;
+        return isBase64Encoded == that.isBase64Encoded;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), isBase64Encoded);
+    }
+
+    @Override
+    public String toString() {
+        return "[isBase64Encoded=" + isBase64Encoded + ']';
     }
 }
