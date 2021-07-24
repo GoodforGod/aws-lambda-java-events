@@ -7,7 +7,7 @@ This is fork of [official AWS Lambda Java Events](https://github.com/aws/aws-lam
 **Gradle**
 ```groovy
 dependencies {
-    compile 'com.github.goodforgod:aws-lambda-java-events:0.9.0-SNAPSHOT'
+    compile 'com.github.goodforgod:aws-lambda-java-events:1.0.0'
 }
 ```
 
@@ -16,15 +16,19 @@ dependencies {
 <dependency>
     <groupId>com.github.goodforgod</groupId>
     <artifactId>aws-lambda-java-events</artifactId>
-    <version>0.9.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
 ## The Why
 
+Library provides:
+- All models provided as simple POJOs 
+- All models have unified structure so that all models can be easily build via *ObjectMapper* or other serialization engine.
+- All models are build with *Lombok* to provide boiler-less source code for easier reading and understanding of model internals.
+- All models use *java.time.* classes for time serialization.
 
-
-### Events
+## Events
 * DynamoDB
   * `DynamodbEvent`
   * `DynamodbTimeWindowEvent`
@@ -64,9 +68,20 @@ dependencies {
   * `IamPolicyResponse`
   * `SecretsManagerRotationEvent`
   * `SimpleIAMPolicyResponse`
+* Cognito
+  * `CognitoEvent`
+  * `CognitoUserPoolCreateAuthChallengeEvent`
+  * `CognitoUserPoolCustomMessageEvent`
+  * `CognitoUserPoolDefineAuthChallengeEvent`
+  * `CognitoUserPoolMigrateUserEvent`
+  * `CognitoUserPoolPostAuthenticationEvent`
+  * `CognitoUserPoolPostConfirmationEvent`
+  * `CognitoUserPoolPreAuthenticationEvent`
+  * `CognitoUserPoolPreSignUpEvent`
+  * `CognitoUserPoolPreTokenGenerationEvent`
+  * `CognitoUserPoolVerifyAuthChallengeResponseEvent`
 * Common
   * `ActiveMQEvent`
-  * `CognitoEvent`
   * `ConnectEvent`
   * `IoTButtonEvent`
   * `KafkaEvent`
