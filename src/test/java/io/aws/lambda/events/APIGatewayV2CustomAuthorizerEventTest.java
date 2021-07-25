@@ -3,8 +3,6 @@ package io.aws.lambda.events;
 import io.aws.lambda.events.gateway.APIGatewayV2CustomAuthorizerEvent;
 import org.junit.jupiter.api.Test;
 
-import java.time.Instant;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -19,7 +17,7 @@ class APIGatewayV2CustomAuthorizerEventTest {
                 .setRequestContext(new APIGatewayV2CustomAuthorizerEvent.RequestContext()
                         .setTimeEpoch(TIME_EPOCH));
 
-        assertEquals(Instant.ofEpochMilli(1601306426515L), customAuthorizerEvent.getRequestContext().getTimeEpoch());
+        assertEquals(1601306426515L, customAuthorizerEvent.getRequestContext().getTimeEpoch());
     }
 
     @Test
