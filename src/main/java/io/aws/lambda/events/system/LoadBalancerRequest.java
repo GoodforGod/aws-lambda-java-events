@@ -21,7 +21,7 @@ import java.util.Map;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public class LoadBalancerRequest extends BodyBase64Event implements Serializable {
+public class LoadBalancerRequest extends BodyBase64Event<LoadBalancerRequest> implements Serializable {
 
     private RequestContext requestContext;
     private String httpMethod;

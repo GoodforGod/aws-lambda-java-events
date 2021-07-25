@@ -1,5 +1,5 @@
 
-package io.aws.lambda.events;
+package io.aws.lambda.events.cognito;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

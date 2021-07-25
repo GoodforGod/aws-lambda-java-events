@@ -17,7 +17,7 @@ import java.util.Map;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public class APIGatewayProxyEvent extends BodyBase64Event implements Serializable {
+public class APIGatewayProxyEvent extends BodyBase64Event<APIGatewayProxyEvent> implements Serializable {
 
     private String resource;
     private String path;
@@ -87,6 +87,7 @@ public class APIGatewayProxyEvent extends BodyBase64Event implements Serializabl
         private String cognitoIdentityId;
         private String caller;
         private String apiKey;
+        private String principalOrgId;
         private String sourceIp;
         private String cognitoAuthenticationType;
         private String cognitoAuthenticationProvider;

@@ -14,7 +14,7 @@ import java.util.Map;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public class APIGatewayV2WebSocketEvent extends BodyBase64Event implements Serializable {
+public class APIGatewayV2WebSocketEvent extends BodyBase64Event<APIGatewayV2WebSocketEvent> implements Serializable {
 
     private String resource;
     private String path;
