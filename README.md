@@ -7,14 +7,14 @@ This is fork of [official AWS Lambda Java Events](https://github.com/aws/aws-lam
 **Gradle**
 ```groovy
 dependencies {
-    compile 'com.github.goodforgod:aws-lambda-java-events:1.0.0'
+  implementation "io.goodforgod:aws-lambda-java-events:1.0.0"
 }
 ```
 
 **Maven**
 ```xml
 <dependency>
-    <groupId>com.github.goodforgod</groupId>
+    <groupId>io.goodforgod</groupId>
     <artifactId>aws-lambda-java-events</artifactId>
     <version>1.0.0</version>
 </dependency>
