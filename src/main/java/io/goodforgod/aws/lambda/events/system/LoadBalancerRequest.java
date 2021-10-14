@@ -1,6 +1,6 @@
 package io.goodforgod.aws.lambda.events.system;
 
-import io.goodforgod.aws.lambda.events.BodyBase64Event;
+import io.goodforgod.aws.lambda.events.Base64BodyEvent;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public class LoadBalancerRequest extends BodyBase64Event<LoadBalancerRequest> implements Serializable {
+public class LoadBalancerRequest extends Base64BodyEvent<LoadBalancerRequest> implements Serializable {
 
     private RequestContext requestContext;
     private String httpMethod;

@@ -1,6 +1,6 @@
 package io.goodforgod.aws.lambda.events.gateway;
 
-import io.goodforgod.aws.lambda.events.BodyBase64Event;
+import io.goodforgod.aws.lambda.events.Base64BodyEvent;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public class APIGatewayProxyEvent extends BodyBase64Event<APIGatewayProxyEvent> implements Serializable {
+public class APIGatewayProxyEvent extends Base64BodyEvent<APIGatewayProxyEvent> implements Serializable {
 
     private String resource;
     private String path;

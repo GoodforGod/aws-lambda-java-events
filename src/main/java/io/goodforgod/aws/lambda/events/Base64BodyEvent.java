@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Objects;
 
-public class BodyBase64Event<T extends BodyBase64Event<T>> extends BodyEvent<T> {
+public class Base64BodyEvent<T extends Base64BodyEvent<T>> extends BodyEvent<T> {
 
     private static final Base64.Decoder DEFAULT_DECODER = Base64.getMimeDecoder();
 
@@ -13,12 +13,19 @@ public class BodyBase64Event<T extends BodyBase64Event<T>> extends BodyEvent<T> 
     /**
      * @return body decoded if that was the case {@link #isBase64Encoded}
      */
-    public String getBodyDecoded() {
-        return isBase64Encoded() ? decode(getBody()) : getBody();
+    public String getBodyRaw() {
+        return super.getBody();
     }
 
     public boolean isBase64Encoded() {
         return isBase64Encoded;
+    }
+
+    @Override
+    public String getBody() {
+        return isBase64Encoded()
+                ? decode(getBodyRaw())
+                : getBodyRaw();
     }
 
     @SuppressWarnings("unchecked")
@@ -39,7 +46,7 @@ public class BodyBase64Event<T extends BodyBase64Event<T>> extends BodyEvent<T> 
             return false;
         if (!super.equals(o))
             return false;
-        BodyBase64Event<?> that = (BodyBase64Event<?>) o;
+        Base64BodyEvent<?> that = (Base64BodyEvent<?>) o;
         return isBase64Encoded == that.isBase64Encoded;
     }
 

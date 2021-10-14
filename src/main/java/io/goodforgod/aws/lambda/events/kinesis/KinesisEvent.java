@@ -31,7 +31,7 @@ public class KinesisEvent implements Serializable {
         public enum EncryptionType {
 
             NONE,
-            KMS;
+            KMS
         }
 
         /**

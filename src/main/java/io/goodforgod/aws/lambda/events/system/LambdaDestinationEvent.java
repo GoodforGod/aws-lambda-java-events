@@ -21,8 +21,8 @@ public class LambdaDestinationEvent implements Serializable {
     private String timestamp;
     private RequestContext requestContext;
     private Map<String, Object> requestPayload;
-    private Object responseContext;
-    private Object responsePayload;
+    private Map<String, Object> responseContext;
+    private Map<String, Object> responsePayload;
 
     public @NotNull Map<String, Object> getRequestPayload() {
         return requestPayload == null ? Collections.emptyMap() : requestPayload;

@@ -1,6 +1,6 @@
 package io.goodforgod.aws.lambda.events.gateway;
 
-import io.goodforgod.aws.lambda.events.BodyBase64Event;
+import io.goodforgod.aws.lambda.events.Base64BodyEvent;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public class APIGatewayV2WebSocketEvent extends BodyBase64Event<APIGatewayV2WebSocketEvent> implements Serializable {
+public class APIGatewayV2WebSocketEvent extends Base64BodyEvent<APIGatewayV2WebSocketEvent> implements Serializable {
 
     private String resource;
     private String path;

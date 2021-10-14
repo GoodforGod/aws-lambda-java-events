@@ -1,7 +1,7 @@
 
 package io.goodforgod.aws.lambda.events.gateway;
 
-import io.goodforgod.aws.lambda.events.BodyBase64Event;
+import io.goodforgod.aws.lambda.events.Base64BodyEvent;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public class APIGatewayV2HTTPEvent extends BodyBase64Event<APIGatewayV2HTTPEvent> {
+public class APIGatewayV2HTTPEvent extends Base64BodyEvent<APIGatewayV2HTTPEvent> {
 
     private String version;
     private String routeKey;
