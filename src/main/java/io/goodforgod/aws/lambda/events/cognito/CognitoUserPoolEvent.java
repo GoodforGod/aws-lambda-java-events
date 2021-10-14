@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
- * Please Add Description Here.
- *
  * @author Anton Kurako (GoodforGod)
  * @since 24.07.2021
  */

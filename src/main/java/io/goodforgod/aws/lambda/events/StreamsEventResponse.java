@@ -1,7 +1,7 @@
 
 package io.goodforgod.aws.lambda.events;
 
-import io.goodforgod.aws.lambda.events.dynamodb.DynamodbEvent;
+import io.goodforgod.aws.lambda.events.dynamodb.DynamoDBEvent;
 import io.goodforgod.aws.lambda.events.kinesis.KinesisEvent;
 import java.io.Serializable;
 import java.util.Collections;
@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * Function response type to report batch item failures for {@link KinesisEvent}
- * and {@link DynamodbEvent}.
+ * and {@link DynamoDBEvent}.
  * https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-batchfailurereporting
  */
 @Data

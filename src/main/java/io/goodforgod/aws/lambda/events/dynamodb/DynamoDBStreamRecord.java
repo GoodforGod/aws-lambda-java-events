@@ -19,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
  */
 @Data
 @Accessors(chain = true)
-public class StreamRecord implements Serializable {
+public class DynamoDBStreamRecord implements Serializable {
 
     public enum StreamViewType {
 
@@ -38,17 +38,17 @@ public class StreamRecord implements Serializable {
     /**
      * The primary key attribute(s) for the DynamoDB item that was modified.
      */
-    private Map<String, AttributeValue> keys;
+    private Map<String, DynamoDBAttributeValue> keys;
 
     /**
      * The item in the DynamoDB table as it appeared after it was modified.
      */
-    private Map<String, AttributeValue> newImage;
+    private Map<String, DynamoDBAttributeValue> newImage;
 
     /**
      * The item in the DynamoDB table as it appeared before it was modified.
      */
-    private Map<String, AttributeValue> oldImage;
+    private Map<String, DynamoDBAttributeValue> oldImage;
 
     /**
      * The sequence number of the stream record.
@@ -70,7 +70,7 @@ public class StreamRecord implements Serializable {
      */
     private StreamViewType streamViewType;
 
-    public StreamRecord addKeysEntry(String key, AttributeValue value) {
+    public DynamoDBStreamRecord addKeysEntry(String key, DynamoDBAttributeValue value) {
         if (null == this.keys)
             this.keys = new HashMap<>();
 
@@ -87,12 +87,12 @@ public class StreamRecord implements Serializable {
      * @return Returns a reference to this object so that method calls can be
      *         chained together.
      */
-    public StreamRecord clearKeysEntries() {
+    public DynamoDBStreamRecord clearKeysEntries() {
         this.keys = null;
         return this;
     }
 
-    public StreamRecord addNewImageEntry(String key, AttributeValue value) {
+    public DynamoDBStreamRecord addNewImageEntry(String key, DynamoDBAttributeValue value) {
         if (null == this.newImage)
             this.newImage = new HashMap<>();
 
@@ -109,12 +109,12 @@ public class StreamRecord implements Serializable {
      * @return Returns a reference to this object so that method calls can be
      *         chained together.
      */
-    public StreamRecord clearNewImageEntries() {
+    public DynamoDBStreamRecord clearNewImageEntries() {
         this.newImage = null;
         return this;
     }
 
-    public StreamRecord addOldImageEntry(String key, AttributeValue value) {
+    public DynamoDBStreamRecord addOldImageEntry(String key, DynamoDBAttributeValue value) {
         if (null == this.oldImage)
             this.oldImage = new HashMap<>();
 
@@ -131,20 +131,20 @@ public class StreamRecord implements Serializable {
      * @return Returns a reference to this object so that method calls can be
      *         chained together.
      */
-    public StreamRecord clearOldImageEntries() {
+    public DynamoDBStreamRecord clearOldImageEntries() {
         this.oldImage = null;
         return this;
     }
 
-    public @NotNull Map<String, AttributeValue> getKeys() {
+    public @NotNull Map<String, DynamoDBAttributeValue> getKeys() {
         return keys == null ? Collections.emptyMap() : keys;
     }
 
-    public @NotNull Map<String, AttributeValue> getNewImage() {
+    public @NotNull Map<String, DynamoDBAttributeValue> getNewImage() {
         return newImage == null ? Collections.emptyMap() : newImage;
     }
 
-    public @NotNull Map<String, AttributeValue> getOldImage() {
+    public @NotNull Map<String, DynamoDBAttributeValue> getOldImage() {
         return oldImage == null ? Collections.emptyMap() : oldImage;
     }
 }

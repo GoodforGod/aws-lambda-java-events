@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class Identity implements Serializable {
+public class DynamoDBIdentity implements Serializable {
 
     /**
      * A unique identifier for the entity that made the call. For Time To Live, the

@@ -18,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
-public class DynamodbTimeWindowEvent extends DynamodbEvent implements Serializable {
+public class DynamoDBTimeWindowEvent extends DynamoDBEvent implements Serializable {
 
     /**
      * Time window for the records in the event.

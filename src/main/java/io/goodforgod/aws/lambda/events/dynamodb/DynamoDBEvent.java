@@ -13,11 +13,11 @@ import org.jetbrains.annotations.NotNull;
  */
 @Data
 @Accessors(chain = true)
-public class DynamodbEvent implements Serializable {
+public class DynamoDBEvent implements Serializable {
 
-    private List<DynamodbStreamRecord> records;
+    private List<DynamoDBStreamRecord> records;
 
-    public @NotNull List<DynamodbStreamRecord> getRecords() {
+    public @NotNull List<DynamoDBStreamRecord> getRecords() {
         return records == null ? Collections.emptyList() : records;
     }
 
@@ -26,7 +26,7 @@ public class DynamodbEvent implements Serializable {
      */
     @Data
     @Accessors(chain = true)
-    public static class DynamodbStreamRecord {
+    public static class DynamoDBStreamRecord {
 
         public enum OperationType {
 
@@ -74,14 +74,14 @@ public class DynamodbEvent implements Serializable {
          * The main body of the stream record, containing all of the DynamoDB-specific
          * fields.
          */
-        private StreamRecord dynamodb;
+        private io.goodforgod.aws.lambda.events.dynamodb.DynamoDBStreamRecord dynamodb;
 
         /**
          * Items that are deleted by the Time to Live process after expiration have the
          * following fields: Records[].userIdentity.type "Service"
          * Records[].userIdentity.principalId "dynamodb.amazonaws.com"
          */
-        private Identity userIdentity;
+        private DynamoDBIdentity userIdentity;
 
         private String eventSourceARN;
     }

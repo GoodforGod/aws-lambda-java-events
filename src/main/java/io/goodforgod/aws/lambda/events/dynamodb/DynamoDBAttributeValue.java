@@ -23,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
  */
 @Data
 @Accessors(chain = true)
-public class AttributeValue implements Serializable {
+public class DynamoDBAttributeValue implements Serializable {
 
     /**
      * An attribute of type String. For example: <code>"S": "Hello"</code>
@@ -42,7 +42,7 @@ public class AttributeValue implements Serializable {
      * An attribute of type Binary. For example:
      * <code>"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"</code>
      */
-    private byte[] b;
+    private String b;
 
     /**
      * An attribute of type String Set. For example:
@@ -63,19 +63,19 @@ public class AttributeValue implements Serializable {
      * An attribute of type Binary Set. For example:
      * <code>"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]</code>
      */
-    private byte[][] bS;
+    private List<String> bS;
 
     /**
      * An attribute of type Map. For example:
      * <code>"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}</code>
      */
-    private Map<String, AttributeValue> m;
+    private Map<String, DynamoDBAttributeValue> m;
 
     /**
      * An attribute of type List. For example:
      * <code>"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]</code>
      */
-    private List<AttributeValue> l;
+    private List<DynamoDBAttributeValue> l;
 
     /**
      * An attribute of type Null. For example: <code>"NULL": true</code>
@@ -95,15 +95,19 @@ public class AttributeValue implements Serializable {
         return nS == null ? Collections.emptyList() : nS;
     }
 
-    public @NotNull Map<String, AttributeValue> getM() {
+    public @NotNull List<String> getbS() {
+        return bS == null ? Collections.emptyList() : bS;
+    }
+
+    public @NotNull Map<String, DynamoDBAttributeValue> getM() {
         return m == null ? Collections.emptyMap() : m;
     }
 
-    public @NotNull List<AttributeValue> getL() {
+    public @NotNull List<DynamoDBAttributeValue> getL() {
         return l == null ? Collections.emptyList() : l;
     }
 
-    public AttributeValue addMEntry(String key, AttributeValue value) {
+    public DynamoDBAttributeValue addMEntry(String key, DynamoDBAttributeValue value) {
         if (null == this.m)
             this.m = new HashMap<>();
 
@@ -120,12 +124,12 @@ public class AttributeValue implements Serializable {
      * @return Returns a reference to this object so that method calls can be
      *         chained together.
      */
-    public AttributeValue clearMEntries() {
+    public DynamoDBAttributeValue clearMEntries() {
         this.m = null;
         return this;
     }
 
-    public AttributeValue withL(AttributeValue... l) {
+    public DynamoDBAttributeValue withL(DynamoDBAttributeValue... l) {
         if (this.l == null)
             return this;
 
