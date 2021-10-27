@@ -7,13 +7,11 @@ import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Event to allow transformations to occur before an S3 object is returned to
- * the calling service.
+ * Event to allow transformations to occur before an S3 object is returned to the calling service.
  *
  * <strong>Documentation</strong>
  *
- * <a href=
- * "https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-writing-lambda.html">Writing
+ * <a href= "https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-writing-lambda.html">Writing
  * and debugging Lambda functions for S3 Object Lambda Access Points</a>
  *
  * <strong>Example:</strong>
@@ -60,24 +58,21 @@ public class S3ObjectLambdaEvent {
     private String protocolVersion;
 
     /**
-     * A pre-signed URL that can be used to fetch the original object from Amazon
-     * S3.
+     * A pre-signed URL that can be used to fetch the original object from Amazon S3.
      *
-     * The URL is signed using the original caller's identity, and their permissions
-     * will apply when the URL is used. If there are signed headers in the URL, the
-     * Lambda function must include these in the call to Amazon S3, except for the
-     * Host.
+     * The URL is signed using the original caller's identity, and their permissions will apply when the
+     * URL is used. If there are signed headers in the URL, the Lambda function must include these in
+     * the call to Amazon S3, except for the Host.
      *
-     * @return A pre-signed URL that can be used to fetch the original object from
-     *         Amazon S3.
+     * @return A pre-signed URL that can be used to fetch the original object from Amazon S3.
      */
     public String inputS3Url() {
         return getGetObjectContext().getInputS3Url();
     }
 
     /**
-     * A routing token that is added to the S3 Object Lambda URL when the Lambda
-     * function calls the S3 API WriteGetObjectResponse.
+     * A routing token that is added to the S3 Object Lambda URL when the Lambda function calls the S3
+     * API WriteGetObjectResponse.
      *
      * @return the outputRoute
      */
@@ -86,8 +81,8 @@ public class S3ObjectLambdaEvent {
     }
 
     /**
-     * An opaque token used by S3 Object Lambda to match the WriteGetObjectResponse
-     * call with the original caller.
+     * An opaque token used by S3 Object Lambda to match the WriteGetObjectResponse call with the
+     * original caller.
      *
      * @return the outputToken
      */

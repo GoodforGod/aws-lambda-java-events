@@ -6,8 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * Represent the class for the Cognito User Pool Verify Auth Challenge Response
- * Lambda Trigger
+ * Represent the class for the Cognito User Pool Verify Auth Challenge Response Lambda Trigger
  *
  * @see <a href=
  *      "https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-verify-auth-challenge-response.html">Verify
@@ -35,15 +34,14 @@ public class CognitoUserPoolVerifyAuthChallengeResponseEvent extends CognitoUser
     public static class Request extends CognitoUserPoolEvent.Request {
 
         /**
-         * One or more key-value pairs that you can provide as custom input to the
-         * Lambda function that you specify for the verify auth challenge trigger.
+         * One or more key-value pairs that you can provide as custom input to the Lambda function that you
+         * specify for the verify auth challenge trigger.
          */
         private Map<String, String> clientMetadata;
 
         /**
-         * This parameter comes from the Create Auth Challenge trigger, and is compared
-         * against a user's challengeAnswer to determine whether the user passed the
-         * challenge.
+         * This parameter comes from the Create Auth Challenge trigger, and is compared against a user's
+         * challengeAnswer to determine whether the user passed the challenge.
          */
         private Map<String, String> privateChallengeParameters;
 
@@ -53,8 +51,8 @@ public class CognitoUserPoolVerifyAuthChallengeResponseEvent extends CognitoUser
         private Map<String, String> challengeAnswer;
 
         /**
-         * This boolean is populated when PreventUserExistenceErrors is set to ENABLED
-         * for your User Pool client
+         * This boolean is populated when PreventUserExistenceErrors is set to ENABLED for your User Pool
+         * client
          */
         private boolean userNotFound;
     }
@@ -63,8 +61,7 @@ public class CognitoUserPoolVerifyAuthChallengeResponseEvent extends CognitoUser
     public static class Response {
 
         /**
-         * Set to true if the user has successfully completed the challenge, or false
-         * otherwise.
+         * Set to true if the user has successfully completed the challenge, or false otherwise.
          */
         private boolean answerCorrect;
     }

@@ -10,11 +10,9 @@ import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * A description of a single data modification that was performed on an item in
- * a DynamoDB table.
+ * A description of a single data modification that was performed on an item in a DynamoDB table.
  * 
- * @see <a href=
- *      "http://docs.aws.amazon.com/goto/WebAPI/streams-dynamodb-2012-08-10/StreamRecord"
+ * @see <a href= "http://docs.aws.amazon.com/goto/WebAPI/streams-dynamodb-2012-08-10/StreamRecord"
  *      target="_top">AWS API Documentation</a>
  */
 @Data
@@ -61,12 +59,11 @@ public class DynamoDBStreamRecord implements Serializable {
     private Long sizeBytes;
 
     /**
-     * The type of data from the modified DynamoDB item that was captured in this
-     * stream record: <code>KEYS_ONLY</code> - only the key attributes of the
-     * modified item. <code>NEW_IMAGE</code> - the entire item, as it appeared after
-     * it was modified. <code>OLD_IMAGE</code> - the entire item, as it appeared
-     * before it was modified. <code>NEW_AND_OLD_IMAGES</code> - both the new and
-     * the old item images of the item.
+     * The type of data from the modified DynamoDB item that was captured in this stream record:
+     * <code>KEYS_ONLY</code> - only the key attributes of the modified item. <code>NEW_IMAGE</code> -
+     * the entire item, as it appeared after it was modified. <code>OLD_IMAGE</code> - the entire item,
+     * as it appeared before it was modified. <code>NEW_AND_OLD_IMAGES</code> - both the new and the old
+     * item images of the item.
      */
     private StreamViewType streamViewType;
 
@@ -84,8 +81,7 @@ public class DynamoDBStreamRecord implements Serializable {
     /**
      * Removes all the entries added into Keys.
      *
-     * @return Returns a reference to this object so that method calls can be
-     *         chained together.
+     * @return Returns a reference to this object so that method calls can be chained together.
      */
     public DynamoDBStreamRecord clearKeysEntries() {
         this.keys = null;
@@ -106,8 +102,7 @@ public class DynamoDBStreamRecord implements Serializable {
     /**
      * Removes all the entries added into NewImage.
      * 
-     * @return Returns a reference to this object so that method calls can be
-     *         chained together.
+     * @return Returns a reference to this object so that method calls can be chained together.
      */
     public DynamoDBStreamRecord clearNewImageEntries() {
         this.newImage = null;
@@ -128,8 +123,7 @@ public class DynamoDBStreamRecord implements Serializable {
     /**
      * Removes all the entries added into OldImage.
      * 
-     * @return Returns a reference to this object so that method calls can be
-     *         chained together.
+     * @return Returns a reference to this object so that method calls can be chained together.
      */
     public DynamoDBStreamRecord clearOldImageEntries() {
         this.oldImage = null;

@@ -41,14 +41,14 @@ public class KinesisTimeWindowEvent extends KinesisEvent implements Serializable
     private String eventSourceArn;
 
     /**
-     * Set to true for the last invoke of the time window. Subsequent invoke will
-     * start a new time window along with a fresh state.
+     * Set to true for the last invoke of the time window. Subsequent invoke will start a new time
+     * window along with a fresh state.
      */
     private Boolean isFinalInvokeForWindow;
 
     /**
-     * Set to true if window is terminated prematurely. Subsequent invoke will
-     * continue the same window with a fresh state.
+     * Set to true if window is terminated prematurely. Subsequent invoke will continue the same window
+     * with a fresh state.
      */
     private Boolean isWindowTerminatedEarly;
 

@@ -34,20 +34,18 @@ public class CognitoUserPoolCustomMessageEvent extends CognitoUserPoolEvent {
     public static class Request extends CognitoUserPoolEvent.Request {
 
         /**
-         * One or more key-value pairs that you can provide as custom input to the
-         * Lambda function that you specify for the custom message trigger.
+         * One or more key-value pairs that you can provide as custom input to the Lambda function that you
+         * specify for the custom message trigger.
          */
         private Map<String, String> clientMetadata;
 
         /**
-         * A string for you to use as the placeholder for the verification code in the
-         * custom message.
+         * A string for you to use as the placeholder for the verification code in the custom message.
          */
         private String codeParameter;
 
         /**
-         * The username parameter. It is a required request parameter for the admin
-         * create user flow.
+         * The username parameter. It is a required request parameter for the admin create user flow.
          */
         private String usernameParameter;
     }
@@ -56,14 +54,14 @@ public class CognitoUserPoolCustomMessageEvent extends CognitoUserPoolEvent {
     public static class Response {
 
         /**
-         * The custom SMS message to be sent to your users. Must include the
-         * codeParameter value received in the request.
+         * The custom SMS message to be sent to your users. Must include the codeParameter value received in
+         * the request.
          */
         private String smsMessage;
 
         /**
-         * The custom email message to be sent to your users. Must include the
-         * codeParameter value received in the request.
+         * The custom email message to be sent to your users. Must include the codeParameter value received
+         * in the request.
          */
         private String emailMessage;
 

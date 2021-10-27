@@ -6,8 +6,7 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
- * Class representing CloudWatchLogs event (callback when cloud watch logs
- * something)
+ * Class representing CloudWatchLogs event (callback when cloud watch logs something)
  */
 @Data
 @Accessors(chain = true)

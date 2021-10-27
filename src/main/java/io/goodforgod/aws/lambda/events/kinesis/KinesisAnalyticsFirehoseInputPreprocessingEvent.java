@@ -9,8 +9,8 @@ import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Event model for pre-processing Kinesis Firehose records through Kinesis
- * Analytics Lambda pre-processing function.
+ * Event model for pre-processing Kinesis Firehose records through Kinesis Analytics Lambda
+ * pre-processing function.
  */
 @Data
 @Accessors(chain = true)

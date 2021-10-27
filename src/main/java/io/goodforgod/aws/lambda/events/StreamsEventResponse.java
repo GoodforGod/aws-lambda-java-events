@@ -11,8 +11,8 @@ import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Function response type to report batch item failures for {@link KinesisEvent}
- * and {@link DynamoDBEvent}.
+ * Function response type to report batch item failures for {@link KinesisEvent} and
+ * {@link DynamoDBEvent}.
  * https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-batchfailurereporting
  */
 @Data
@@ -20,8 +20,8 @@ import org.jetbrains.annotations.NotNull;
 public class StreamsEventResponse implements Serializable {
 
     /**
-     * A list of records which failed processing. Returning the first record which
-     * failed would retry all remaining records from the batch.
+     * A list of records which failed processing. Returning the first record which failed would retry
+     * all remaining records from the batch.
      */
     private List<BatchItemFailure> batchItemFailures;
 

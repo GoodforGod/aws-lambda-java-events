@@ -5,8 +5,7 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
- * Class to represent the events which are sent during a Secrets Manager
- * rotation process.
+ * Class to represent the events which are sent during a Secrets Manager rotation process.
  * 
  * @see <a href=
  *      "https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets-lambda-function-overview.html">Rotating

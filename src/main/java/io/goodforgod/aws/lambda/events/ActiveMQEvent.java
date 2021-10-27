@@ -8,9 +8,9 @@ import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Represents an Active MQ event sent to Lambda <a href=
- * "https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html">Onboarding Amazon
- * MQ as event source to Lambda</a>
+ * Represents an Active MQ event sent to Lambda
+ * <a href= "https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html">Onboarding Amazon MQ as
+ * event source to Lambda</a>
  */
 @Data
 @Accessors(chain = true)

@@ -34,15 +34,14 @@ public class CognitoUserPoolPreSignUpEvent extends CognitoUserPoolEvent {
     public static class Request extends CognitoUserPoolEvent.Request {
 
         /**
-         * One or more name-value pairs containing the validation data in the request to
-         * register a user. The validation data is set and then passed from the client
-         * in the request to register a user.
+         * One or more name-value pairs containing the validation data in the request to register a user.
+         * The validation data is set and then passed from the client in the request to register a user.
          */
         private Map<String, String> validationData;
 
         /**
-         * One or more key-value pairs that you can provide as custom input to the
-         * Lambda function that you specify for the pre sign-up trigger.
+         * One or more key-value pairs that you can provide as custom input to the Lambda function that you
+         * specify for the pre sign-up trigger.
          */
         private Map<String, String> clientMetadata;
     }
@@ -56,16 +55,14 @@ public class CognitoUserPoolPreSignUpEvent extends CognitoUserPoolEvent {
         private boolean autoConfirmUser;
 
         /**
-         * Set to true to set as verified the phone number of a user who is signing up,
-         * or false otherwise. If autoVerifyPhone is set to true, the phone_number
-         * attribute must have a valid, non-null value.
+         * Set to true to set as verified the phone number of a user who is signing up, or false otherwise.
+         * If autoVerifyPhone is set to true, the phone_number attribute must have a valid, non-null value.
          */
         private boolean autoVerifyPhone;
 
         /**
-         * Set to true to set as verified the email of a user who is signing up, or
-         * false otherwise. If autoVerifyEmail is set to true, the email attribute must
-         * have a valid, non-null value.
+         * Set to true to set as verified the email of a user who is signing up, or false otherwise. If
+         * autoVerifyEmail is set to true, the email attribute must have a valid, non-null value.
          */
         private boolean autoVerifyEmail;
     }

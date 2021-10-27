@@ -11,8 +11,7 @@ import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * API Gateway v2 event:
- * https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
+ * API Gateway v2 event: https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
  */
 @Data
 @Accessors(chain = true)

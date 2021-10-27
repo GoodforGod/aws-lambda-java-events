@@ -6,8 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * Represent the class for the Cognito User Pool Pre Authentication Lambda
- * Trigger
+ * Represent the class for the Cognito User Pool Pre Authentication Lambda Trigger
  *
  * @see <a href=
  *      "https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html">Pre
@@ -30,15 +29,14 @@ public class CognitoUserPoolPreAuthenticationEvent extends CognitoUserPoolEvent 
     public static class Request extends CognitoUserPoolEvent.Request {
 
         /**
-         * One or more name-value pairs containing the validation data in the request to
-         * register a user. The validation data is set and then passed from the client
-         * in the request to register a user.
+         * One or more name-value pairs containing the validation data in the request to register a user.
+         * The validation data is set and then passed from the client in the request to register a user.
          */
         private Map<String, String> validationData;
 
         /**
-         * This boolean is populated when PreventUserExistenceErrors is set to ENABLED
-         * for your User Pool client.
+         * This boolean is populated when PreventUserExistenceErrors is set to ENABLED for your User Pool
+         * client.
          */
         private boolean userNotFound;
     }

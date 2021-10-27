@@ -11,8 +11,8 @@ import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * A helper class that represents a strongly typed S3 EventNotification item
- * sent to SQS, SNS, or Lambda.
+ * A helper class that represents a strongly typed S3 EventNotification item sent to SQS, SNS, or
+ * Lambda.
  */
 @Data
 @Accessors(chain = true)
@@ -53,8 +53,8 @@ public class S3EventNotification {
         private String sequencer;
 
         /**
-         * S3 URL encodes the key of the object involved in the event. This is a
-         * convenience method to automatically URL decode the key.
+         * S3 URL encodes the key of the object involved in the event. This is a convenience method to
+         * automatically URL decode the key.
          * 
          * @return The URL decoded object key.
          */

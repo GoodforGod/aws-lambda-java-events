@@ -6,8 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * Represent the class for the Cognito User Pool Pre Token Generation Lambda
- * Trigger
+ * Represent the class for the Cognito User Pool Pre Token Generation Lambda Trigger
  *
  * @see <a href=
  *      "https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html">Pre
@@ -35,8 +34,8 @@ public class CognitoUserPoolPreTokenGenerationEvent extends CognitoUserPoolEvent
     public static class Request extends CognitoUserPoolEvent.Request {
 
         /**
-         * One or more key-value pairs that you can provide as custom input to the
-         * Lambda function that you specify for the pre token generation trigger.
+         * One or more key-value pairs that you can provide as custom input to the Lambda function that you
+         * specify for the pre token generation trigger.
          */
         private Map<String, String> clientMetadata;
 
@@ -50,8 +49,8 @@ public class CognitoUserPoolPreTokenGenerationEvent extends CognitoUserPoolEvent
     public static class GroupConfiguration {
 
         /**
-         * A list of the group names that are associated with the user that the identity
-         * token is issued for.
+         * A list of the group names that are associated with the user that the identity token is issued
+         * for.
          */
         private String[] groupsToOverride;
 
@@ -76,8 +75,8 @@ public class CognitoUserPoolPreTokenGenerationEvent extends CognitoUserPoolEvent
     public static class ClaimsOverrideDetails {
 
         /**
-         * A map of one or more key-value pairs of claims to add or override. For group
-         * related claims, use groupOverrideDetails instead.
+         * A map of one or more key-value pairs of claims to add or override. For group related claims, use
+         * groupOverrideDetails instead.
          */
         private Map<String, String> claimsToAddOrOverride;
 

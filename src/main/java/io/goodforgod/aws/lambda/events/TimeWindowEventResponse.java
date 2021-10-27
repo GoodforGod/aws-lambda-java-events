@@ -12,9 +12,8 @@ import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Response type to return a new state for the time window and to report batch
- * item failures. This should be used along with {@link KinesisTimeWindowEvent}
- * or {@link DynamoDBTimeWindowEvent}.
+ * Response type to return a new state for the time window and to report batch item failures. This
+ * should be used along with {@link KinesisTimeWindowEvent} or {@link DynamoDBTimeWindowEvent}.
  * https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows
  */
 @Data
@@ -27,8 +26,8 @@ public class TimeWindowEventResponse implements Serializable {
     private Map<String, String> state;
 
     /**
-     * A list of records which failed processing. Returning the first record which
-     * failed would retry all remaining records from the batch.
+     * A list of records which failed processing. Returning the first record which failed would retry
+     * all remaining records from the batch.
      */
     private List<BatchItemFailure> batchItemFailures;
 

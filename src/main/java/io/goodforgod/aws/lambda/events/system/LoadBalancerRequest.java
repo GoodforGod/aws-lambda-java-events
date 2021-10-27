@@ -13,9 +13,8 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Class to represent the request event from Application Load Balancer.
  * 
- * @see <a href=
- *      "https://docs.aws.amazon.com/lambda/latest/dg/services-alb.html">Using
- *      AWS Lambda with an Application Load Balancer</a>
+ * @see <a href= "https://docs.aws.amazon.com/lambda/latest/dg/services-alb.html">Using AWS Lambda
+ *      with an Application Load Balancer</a>
  */
 @Data
 @Accessors(chain = true)

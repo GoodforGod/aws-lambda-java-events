@@ -11,8 +11,8 @@ import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Represents an Amazon Dynamodb event when using <a href=
- * "https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-windows">time
+ * Represents an Amazon Dynamodb event when using
+ * <a href= "https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-windows">time
  * windows</a>.
  */
 @Data
@@ -41,14 +41,14 @@ public class DynamoDBTimeWindowEvent extends DynamoDBEvent implements Serializab
     private String eventSourceArn;
 
     /**
-     * Set to true for the last invoke of the time window. Subsequent invoke will
-     * start a new time window along with a fresh state.
+     * Set to true for the last invoke of the time window. Subsequent invoke will start a new time
+     * window along with a fresh state.
      */
     private Boolean isFinalInvokeForWindow;
 
     /**
-     * Set to true if window is terminated prematurely. Subsequent invoke will
-     * continue the same window with a fresh state.
+     * Set to true if window is terminated prematurely. Subsequent invoke will continue the same window
+     * with a fresh state.
      */
     private Boolean isWindowTerminatedEarly;
 

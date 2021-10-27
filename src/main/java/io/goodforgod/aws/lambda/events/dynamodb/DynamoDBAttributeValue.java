@@ -11,15 +11,13 @@ import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Represents the data for an attribute. Each attribute value is described as a
- * name-value pair. The name is the data type, and the value is the data itself.
- * For more information, see <a href=
+ * Represents the data for an attribute. Each attribute value is described as a name-value pair. The
+ * name is the data type, and the value is the data itself. For more information, see <a href=
  * "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes"
  * >Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.
  * 
- * @see <a href=
- *      "http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/AttributeValue"
- *      target="_top">AWS API Documentation</a>
+ * @see <a href= "http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/AttributeValue" target=
+ *      "_top">AWS API Documentation</a>
  */
 @Data
 @Accessors(chain = true)
@@ -31,10 +29,9 @@ public class DynamoDBAttributeValue implements Serializable {
     private String s;
 
     /**
-     * An attribute of type Number. For example: <code>"N": "123.45"</code> Numbers
-     * are sent across the network to DynamoDB as strings, to maximize compatibility
-     * across languages and libraries. However, DynamoDB treats them as number type
-     * attributes for mathematical operations.
+     * An attribute of type Number. For example: <code>"N": "123.45"</code> Numbers are sent across the
+     * network to DynamoDB as strings, to maximize compatibility across languages and libraries.
+     * However, DynamoDB treats them as number type attributes for mathematical operations.
      */
     private String n;
 
@@ -45,17 +42,15 @@ public class DynamoDBAttributeValue implements Serializable {
     private String b;
 
     /**
-     * An attribute of type String Set. For example:
-     * <code>"SS": ["Giraffe", "Hippo" ,"Zebra"]</code>
+     * An attribute of type String Set. For example: <code>"SS": ["Giraffe", "Hippo" ,"Zebra"]</code>
      */
     private List<String> sS;
 
     /**
-     * An attribute of type Number Set. For example:
-     * <code>"NS": ["42.2", "-19", "7.5", "3.14"]</code> Numbers are sent across the
-     * network to DynamoDB as strings, to maximize compatibility across languages
-     * and libraries. However, DynamoDB treats them as number type attributes for
-     * mathematical operations.
+     * An attribute of type Number Set. For example: <code>"NS": ["42.2", "-19", "7.5", "3.14"]</code>
+     * Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across
+     * languages and libraries. However, DynamoDB treats them as number type attributes for mathematical
+     * operations.
      */
     private List<String> nS;
 
@@ -121,8 +116,7 @@ public class DynamoDBAttributeValue implements Serializable {
     /**
      * Removes all the entries added into M.
      * 
-     * @return Returns a reference to this object so that method calls can be
-     *         chained together.
+     * @return Returns a reference to this object so that method calls can be chained together.
      */
     public DynamoDBAttributeValue clearMEntries() {
         this.m = null;

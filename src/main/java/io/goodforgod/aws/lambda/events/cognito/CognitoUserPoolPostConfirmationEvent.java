@@ -6,8 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * Represent the class for the Cognito User Pool Post Confirmation Lambda
- * Trigger
+ * Represent the class for the Cognito User Pool Post Confirmation Lambda Trigger
  *
  * @see <a href=
  *      "https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html">Post
@@ -30,8 +29,8 @@ public class CognitoUserPoolPostConfirmationEvent extends CognitoUserPoolEvent {
     public static class Request extends CognitoUserPoolEvent.Request {
 
         /**
-         * One or more key-value pairs that you can provide as custom input to the
-         * Lambda function that you specify for the post confirmation trigger.
+         * One or more key-value pairs that you can provide as custom input to the Lambda function that you
+         * specify for the post confirmation trigger.
          */
         private Map<String, String> clientMetadata;
     }

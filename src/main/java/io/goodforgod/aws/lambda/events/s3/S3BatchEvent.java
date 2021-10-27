@@ -7,8 +7,7 @@ import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Event to represent the payload which is sent to Lambda by S3 Batch to perform
- * a custom action.
+ * Event to represent the payload which is sent to Lambda by S3 Batch to perform a custom action.
  *
  * https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-invoke-lambda.html
  */
