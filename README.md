@@ -1,5 +1,7 @@
 # AWS Lambda Java Events v3
 
+![GraalVM Enabled](https://img.shields.io/badge/GraalVM-Ready-orange?style=plastic)
+
 This is fork of [official AWS Lambda Java Events](https://github.com/aws/aws-lambda-java-libs) that aims to provide simplified Java models **without JodaTime**.
 
 ## Dependency :rocket:
@@ -7,26 +9,27 @@ This is fork of [official AWS Lambda Java Events](https://github.com/aws/aws-lam
 **Gradle**
 ```groovy
 dependencies {
-    compile 'com.github.goodforgod:aws-lambda-java-events:1.0.0'
+  implementation "io.goodforgod:aws-lambda-java-events:1.0.0"
 }
 ```
 
 **Maven**
 ```xml
 <dependency>
-    <groupId>com.github.goodforgod</groupId>
+    <groupId>io.goodforgod</groupId>
     <artifactId>aws-lambda-java-events</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
 
-## The Why
+## Features
 
 Library provides:
 - All models provided as simple POJOs 
 - All models have unified structure so that all models can be easily build via *ObjectMapper* or other serialization engine.
 - All models are build with *Lombok* to provide boiler-less source code for easier reading and understanding of model internals.
 - All models use *java.time.* classes for time serialization.
+- All models are Gson/Jackson compatible
 
 ## Events
 * DynamoDB
