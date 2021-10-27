@@ -18,6 +18,7 @@ import org.jetbrains.annotations.NotNull;
 @EqualsAndHashCode(callSuper = true)
 public class APIGatewayProxyEvent extends Base64BodyEvent<APIGatewayProxyEvent> implements Serializable {
 
+    private String version;
     private String resource;
     private String path;
     private String httpMethod;

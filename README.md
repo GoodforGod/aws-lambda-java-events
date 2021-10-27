@@ -1,5 +1,7 @@
 # AWS Lambda Java Events v3
 
+![GraalVM Enabled](https://img.shields.io/badge/GraalVM-Ready-orange?style=plastic)
+
 This is fork of [official AWS Lambda Java Events](https://github.com/aws/aws-lambda-java-libs) that aims to provide simplified Java models **without JodaTime**.
 
 ## Dependency :rocket:
