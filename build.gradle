@@ -28,14 +28,6 @@ spotless {
     }
 }
 
-sonarqube {
-    properties {
-        property 'sonar.host.url', 'https://sonarcloud.io'
-        property 'sonar.organization', 'goodforgod'
-        property 'sonar.projectKey', 'GoodforGod_aws-lambda-java-events'
-    }
-}
-
 dependencies {
     annotationProcessor "org.projectlombok:lombok:1.18.20"
     compileOnly "org.projectlombok:lombok:1.18.20"
