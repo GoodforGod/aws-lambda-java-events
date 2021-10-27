@@ -22,13 +22,14 @@ dependencies {
 </dependency>
 ```
 
-## The Why
+## Features
 
 Library provides:
 - All models provided as simple POJOs 
 - All models have unified structure so that all models can be easily build via *ObjectMapper* or other serialization engine.
 - All models are build with *Lombok* to provide boiler-less source code for easier reading and understanding of model internals.
 - All models use *java.time.* classes for time serialization.
+- All models are Gson/Jackson compatible
 
 ## Events
 * DynamoDB
