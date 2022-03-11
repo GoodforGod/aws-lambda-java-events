@@ -2,15 +2,13 @@
 
 ![GraalVM Enabled](https://img.shields.io/badge/GraalVM-Ready-orange?style=plastic)
 
-This is fork of [official AWS Lambda Java Events](https://github.com/aws/aws-lambda-java-libs) that aims to provide simplified Java models **without JodaTime**.
+This is based on [official AWS Lambda Java Events v3.11.0](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-events) that aims to provide simplified Java models **without JodaTime**.
 
 ## Dependency :rocket:
 
 **Gradle**
 ```groovy
-dependencies {
-  implementation "io.goodforgod:aws-lambda-java-events:1.0.0"
-}
+implementation "io.goodforgod:aws-lambda-java-events:1.1.0"
 ```
 
 **Maven**
@@ -18,7 +16,7 @@ dependencies {
 <dependency>
     <groupId>io.goodforgod</groupId>
     <artifactId>aws-lambda-java-events</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
