@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events;
 
 import io.goodforgod.aws.lambda.events.dynamodb.DynamoDBTimeWindowEvent;
@@ -32,11 +31,15 @@ public class TimeWindowEventResponse implements Serializable {
     private List<BatchItemFailure> batchItemFailures;
 
     public @NotNull Map<String, String> getState() {
-        return state == null ? Collections.emptyMap() : state;
+        return state == null
+                ? Collections.emptyMap()
+                : state;
     }
 
     public @NotNull List<BatchItemFailure> getBatchItemFailures() {
-        return batchItemFailures == null ? Collections.emptyList() : batchItemFailures;
+        return batchItemFailures == null
+                ? Collections.emptyList()
+                : batchItemFailures;
     }
 
     @Data

@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events.kinesis;
 
 import java.io.Serializable;
@@ -18,7 +17,9 @@ public class KinesisEvent implements Serializable {
     private List<KinesisEventRecord> records;
 
     public @NotNull List<KinesisEventRecord> getRecords() {
-        return records == null ? Collections.emptyList() : records;
+        return records == null
+                ? Collections.emptyList()
+                : records;
     }
 
     /**
@@ -68,7 +69,6 @@ public class KinesisEvent implements Serializable {
 
     /**
      * Kinesis event records provide contextual data about a Kinesis record
-     *
      */
     @Data
     @Accessors(chain = true)

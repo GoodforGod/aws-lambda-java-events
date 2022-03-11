@@ -23,7 +23,9 @@ public class IamPolicyResponse implements Serializable {
     private Map<String, Object> context;
 
     public @NotNull Map<String, Object> getContext() {
-        return context == null ? Collections.emptyMap() : context;
+        return context == null
+                ? Collections.emptyMap()
+                : context;
     }
 
     public Map<String, Object> getPolicyDocument() {
@@ -62,7 +64,9 @@ public class IamPolicyResponse implements Serializable {
         private List<Statement> statement;
 
         public @NotNull List<Statement> getStatement() {
-            return statement == null ? Collections.emptyList() : statement;
+            return statement == null
+                    ? Collections.emptyList()
+                    : statement;
         }
     }
 
@@ -76,11 +80,15 @@ public class IamPolicyResponse implements Serializable {
         private Map<String, Map<String, Object>> condition;
 
         public @NotNull List<String> getResource() {
-            return resource == null ? Collections.emptyList() : resource;
+            return resource == null
+                    ? Collections.emptyList()
+                    : resource;
         }
 
         public @NotNull Map<String, Map<String, Object>> getCondition() {
-            return condition == null ? Collections.emptyMap() : condition;
+            return condition == null
+                    ? Collections.emptyMap()
+                    : condition;
         }
     }
 }

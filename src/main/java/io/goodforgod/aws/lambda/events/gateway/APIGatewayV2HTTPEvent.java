@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events.gateway;
 
 import io.goodforgod.aws.lambda.events.Base64BodyEvent;
@@ -30,23 +29,33 @@ public class APIGatewayV2HTTPEvent extends Base64BodyEvent<APIGatewayV2HTTPEvent
     private RequestContext requestContext;
 
     public @NotNull Map<String, String> getHeaders() {
-        return headers == null ? Collections.emptyMap() : headers;
+        return headers == null
+                ? Collections.emptyMap()
+                : headers;
     }
 
     public @NotNull Map<String, String> getQueryStringParameters() {
-        return queryStringParameters == null ? Collections.emptyMap() : queryStringParameters;
+        return queryStringParameters == null
+                ? Collections.emptyMap()
+                : queryStringParameters;
     }
 
     public @NotNull Map<String, String> getPathParameters() {
-        return pathParameters == null ? Collections.emptyMap() : pathParameters;
+        return pathParameters == null
+                ? Collections.emptyMap()
+                : pathParameters;
     }
 
     public @NotNull Map<String, String> getStageVariables() {
-        return stageVariables == null ? Collections.emptyMap() : stageVariables;
+        return stageVariables == null
+                ? Collections.emptyMap()
+                : stageVariables;
     }
 
     public @NotNull List<String> getCookies() {
-        return cookies == null ? Collections.emptyList() : cookies;
+        return cookies == null
+                ? Collections.emptyList()
+                : cookies;
     }
 
     @Data
@@ -74,7 +83,9 @@ public class APIGatewayV2HTTPEvent extends Base64BodyEvent<APIGatewayV2HTTPEvent
             private Map<String, Object> lambda;
 
             public @NotNull Map<String, Object> getLambda() {
-                return lambda == null ? Collections.emptyMap() : lambda;
+                return lambda == null
+                        ? Collections.emptyMap()
+                        : lambda;
             }
 
             @Data
@@ -85,11 +96,15 @@ public class APIGatewayV2HTTPEvent extends Base64BodyEvent<APIGatewayV2HTTPEvent
                 private List<String> scopes;
 
                 public @NotNull Map<String, String> getClaims() {
-                    return claims == null ? Collections.emptyMap() : claims;
+                    return claims == null
+                            ? Collections.emptyMap()
+                            : claims;
                 }
 
                 public @NotNull List<String> getScopes() {
-                    return scopes == null ? Collections.emptyList() : scopes;
+                    return scopes == null
+                            ? Collections.emptyList()
+                            : scopes;
                 }
             }
         }
@@ -127,7 +142,9 @@ public class APIGatewayV2HTTPEvent extends Base64BodyEvent<APIGatewayV2HTTPEvent
             private String identityPoolId;
 
             public @NotNull List<String> getAmr() {
-                return amr == null ? Collections.emptyList() : amr;
+                return amr == null
+                        ? Collections.emptyList()
+                        : amr;
             }
         }
     }

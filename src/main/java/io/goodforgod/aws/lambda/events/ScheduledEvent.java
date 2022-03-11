@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events;
 
 import java.io.Serializable;
@@ -27,10 +26,14 @@ public class ScheduledEvent implements Serializable {
     private Map<String, Object> detail;
 
     public @NotNull List<String> getResources() {
-        return resources == null ? Collections.emptyList() : resources;
+        return resources == null
+                ? Collections.emptyList()
+                : resources;
     }
 
     public @NotNull Map<String, Object> getDetail() {
-        return detail == null ? Collections.emptyMap() : detail;
+        return detail == null
+                ? Collections.emptyMap()
+                : detail;
     }
 }

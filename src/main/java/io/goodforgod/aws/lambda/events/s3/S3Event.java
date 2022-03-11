@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events.s3;
 
 import java.io.Serializable;

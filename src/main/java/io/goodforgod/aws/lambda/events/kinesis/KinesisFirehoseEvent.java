@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events.kinesis;
 
 import java.io.Serializable;
@@ -19,7 +18,9 @@ public class KinesisFirehoseEvent implements Serializable {
     private List<Record> records;
 
     public @NotNull List<Record> getRecords() {
-        return records == null ? Collections.emptyList() : records;
+        return records == null
+                ? Collections.emptyList()
+                : records;
     }
 
     @Data
@@ -37,7 +38,9 @@ public class KinesisFirehoseEvent implements Serializable {
         private Map<String, String> kinesisRecordMetadata;
 
         public @NotNull Map<String, String> getKinesisRecordMetadata() {
-            return kinesisRecordMetadata == null ? Collections.emptyMap() : kinesisRecordMetadata;
+            return kinesisRecordMetadata == null
+                    ? Collections.emptyMap()
+                    : kinesisRecordMetadata;
         }
     }
 }

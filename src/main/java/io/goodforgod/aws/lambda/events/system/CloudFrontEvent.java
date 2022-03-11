@@ -18,7 +18,9 @@ public class CloudFrontEvent implements Serializable {
     private List<Record> records;
 
     public @NotNull List<Record> getRecords() {
-        return records == null ? Collections.emptyList() : records;
+        return records == null
+                ? Collections.emptyList()
+                : records;
     }
 
     /**
@@ -56,7 +58,9 @@ public class CloudFrontEvent implements Serializable {
         private Map<String, List<Header>> headers;
 
         public @NotNull Map<String, List<Header>> getHeaders() {
-            return headers == null ? Collections.emptyMap() : headers;
+            return headers == null
+                    ? Collections.emptyMap()
+                    : headers;
         }
     }
 
@@ -73,7 +77,9 @@ public class CloudFrontEvent implements Serializable {
         private Map<String, List<Header>> headers;
 
         public @NotNull Map<String, List<Header>> getHeaders() {
-            return headers == null ? Collections.emptyMap() : headers;
+            return headers == null
+                    ? Collections.emptyMap()
+                    : headers;
         }
     }
 

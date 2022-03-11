@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events;
 
 import java.io.Serializable;
@@ -10,7 +9,6 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * Class to represent an Amazon Connect contact flow event.
- *
  * https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html
  */
 @Data
@@ -28,7 +26,9 @@ public class ConnectEvent implements Serializable {
         private Map<String, Object> parameters;
 
         public @NotNull Map<String, Object> getParameters() {
-            return parameters == null ? Collections.emptyMap() : parameters;
+            return parameters == null
+                    ? Collections.emptyMap()
+                    : parameters;
         }
     }
 
@@ -48,7 +48,9 @@ public class ConnectEvent implements Serializable {
         private Map<String, String> attributes;
 
         public @NotNull Map<String, String> getAttributes() {
-            return attributes == null ? Collections.emptyMap() : attributes;
+            return attributes == null
+                    ? Collections.emptyMap()
+                    : attributes;
         }
     }
 

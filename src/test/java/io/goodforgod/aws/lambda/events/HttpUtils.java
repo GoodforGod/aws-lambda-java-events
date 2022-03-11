@@ -22,7 +22,6 @@ public class HttpUtils {
      */
     private static final Pattern ENCODED_CHARACTERS_PATTERN;
     static {
-
         String pattern = Pattern.quote("+") +
                 "|" +
                 Pattern.quote("*") +
@@ -72,7 +71,6 @@ public class HttpUtils {
 
             matcher.appendTail(buffer);
             return buffer.toString();
-
         } catch (UnsupportedEncodingException ex) {
             throw new RuntimeException(ex);
         }

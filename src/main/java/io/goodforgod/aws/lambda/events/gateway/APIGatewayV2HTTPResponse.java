@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events.gateway;
 
 import java.util.List;

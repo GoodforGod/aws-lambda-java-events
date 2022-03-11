@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events.dynamodb;
 
 import java.io.Serializable;
@@ -17,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
  * >Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.
  * 
  * @see <a href= "http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/AttributeValue" target=
- *      "_top">AWS API Documentation</a>
+ *          "_top">AWS API Documentation</a>
  */
 @Data
 @Accessors(chain = true)
@@ -83,23 +82,33 @@ public class DynamoDBAttributeValue implements Serializable {
     private Boolean bOOL;
 
     public @NotNull List<String> getsS() {
-        return sS == null ? Collections.emptyList() : sS;
+        return sS == null
+                ? Collections.emptyList()
+                : sS;
     }
 
     public @NotNull List<String> getnS() {
-        return nS == null ? Collections.emptyList() : nS;
+        return nS == null
+                ? Collections.emptyList()
+                : nS;
     }
 
     public @NotNull List<String> getbS() {
-        return bS == null ? Collections.emptyList() : bS;
+        return bS == null
+                ? Collections.emptyList()
+                : bS;
     }
 
     public @NotNull Map<String, DynamoDBAttributeValue> getM() {
-        return m == null ? Collections.emptyMap() : m;
+        return m == null
+                ? Collections.emptyMap()
+                : m;
     }
 
     public @NotNull List<DynamoDBAttributeValue> getL() {
-        return l == null ? Collections.emptyList() : l;
+        return l == null
+                ? Collections.emptyList()
+                : l;
     }
 
     public DynamoDBAttributeValue addMEntry(String key, DynamoDBAttributeValue value) {

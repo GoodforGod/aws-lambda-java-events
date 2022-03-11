@@ -18,7 +18,9 @@ public class CodeCommitEvent implements Serializable {
     private List<Record> records;
 
     public @NotNull List<Record> getRecords() {
-        return records == null ? Collections.emptyList() : records;
+        return records == null
+                ? Collections.emptyList()
+                : records;
     }
 
     /**
@@ -43,7 +45,9 @@ public class CodeCommitEvent implements Serializable {
         private List<Reference> references;
 
         public @NotNull List<Reference> getReferences() {
-            return references == null ? Collections.emptyList() : references;
+            return references == null
+                    ? Collections.emptyList()
+                    : references;
         }
     }
 

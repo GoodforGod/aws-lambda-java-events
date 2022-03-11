@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events.kinesis;
 
 import java.io.Serializable;
@@ -20,7 +19,9 @@ public class KinesisAnalyticsOutputDeliveryEvent implements Serializable {
     private List<Record> records;
 
     public @NotNull List<Record> getRecords() {
-        return records == null ? Collections.emptyList() : records;
+        return records == null
+                ? Collections.emptyList()
+                : records;
     }
 
     @Data

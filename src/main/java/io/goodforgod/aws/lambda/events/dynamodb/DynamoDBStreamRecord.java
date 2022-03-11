@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events.dynamodb;
 
 import java.io.Serializable;
@@ -13,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
  * A description of a single data modification that was performed on an item in a DynamoDB table.
  * 
  * @see <a href= "http://docs.aws.amazon.com/goto/WebAPI/streams-dynamodb-2012-08-10/StreamRecord"
- *      target="_top">AWS API Documentation</a>
+ *          target="_top">AWS API Documentation</a>
  */
 @Data
 @Accessors(chain = true)
@@ -131,14 +130,20 @@ public class DynamoDBStreamRecord implements Serializable {
     }
 
     public @NotNull Map<String, DynamoDBAttributeValue> getKeys() {
-        return keys == null ? Collections.emptyMap() : keys;
+        return keys == null
+                ? Collections.emptyMap()
+                : keys;
     }
 
     public @NotNull Map<String, DynamoDBAttributeValue> getNewImage() {
-        return newImage == null ? Collections.emptyMap() : newImage;
+        return newImage == null
+                ? Collections.emptyMap()
+                : newImage;
     }
 
     public @NotNull Map<String, DynamoDBAttributeValue> getOldImage() {
-        return oldImage == null ? Collections.emptyMap() : oldImage;
+        return oldImage == null
+                ? Collections.emptyMap()
+                : oldImage;
     }
 }

@@ -1,13 +1,9 @@
 package io.goodforgod.aws.lambda.events;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
-
 import java.util.List;
 import java.util.Map;
+import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * Class that represents the output from an AppSync Lambda authorizer invocation.

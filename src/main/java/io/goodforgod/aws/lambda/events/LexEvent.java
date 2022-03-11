@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events;
 
 import java.io.Serializable;
@@ -24,7 +23,9 @@ public class LexEvent implements Serializable {
     private Map<String, String> sessionAttributes;
 
     public @NotNull Map<String, String> getSessionAttributes() {
-        return sessionAttributes == null ? Collections.emptyMap() : sessionAttributes;
+        return sessionAttributes == null
+                ? Collections.emptyMap()
+                : sessionAttributes;
     }
 
     /**
@@ -51,7 +52,9 @@ public class LexEvent implements Serializable {
         private Map<String, String> slots;
 
         public @NotNull Map<String, String> getSlots() {
-            return slots == null ? Collections.emptyMap() : slots;
+            return slots == null
+                    ? Collections.emptyMap()
+                    : slots;
         }
     }
 }

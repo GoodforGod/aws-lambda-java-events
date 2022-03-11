@@ -12,7 +12,6 @@ import org.jetbrains.annotations.NotNull;
 /**
  * The V2 API Gateway customer authorizer event object as described -
  * https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html
- *
  */
 @Data
 @Accessors(chain = true)
@@ -33,27 +32,39 @@ public class APIGatewayV2CustomAuthorizerEvent {
     private RequestContext requestContext;
 
     public @NotNull Map<String, String> getHeaders() {
-        return headers == null ? Collections.emptyMap() : headers;
+        return headers == null
+                ? Collections.emptyMap()
+                : headers;
     }
 
     public @NotNull Map<String, String> getQueryStringParameters() {
-        return queryStringParameters == null ? Collections.emptyMap() : queryStringParameters;
+        return queryStringParameters == null
+                ? Collections.emptyMap()
+                : queryStringParameters;
     }
 
     public @NotNull Map<String, String> getPathParameters() {
-        return pathParameters == null ? Collections.emptyMap() : pathParameters;
+        return pathParameters == null
+                ? Collections.emptyMap()
+                : pathParameters;
     }
 
     public @NotNull Map<String, String> getStageVariables() {
-        return stageVariables == null ? Collections.emptyMap() : stageVariables;
+        return stageVariables == null
+                ? Collections.emptyMap()
+                : stageVariables;
     }
 
     public @NotNull List<String> getIdentitySource() {
-        return identitySource == null ? Collections.emptyList() : identitySource;
+        return identitySource == null
+                ? Collections.emptyList()
+                : identitySource;
     }
 
     public @NotNull List<String> getCookies() {
-        return cookies == null ? Collections.emptyList() : cookies;
+        return cookies == null
+                ? Collections.emptyList()
+                : cookies;
     }
 
     @Data

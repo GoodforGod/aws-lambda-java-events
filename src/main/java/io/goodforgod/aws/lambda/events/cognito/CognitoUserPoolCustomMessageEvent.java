@@ -9,8 +9,8 @@ import lombok.experimental.Accessors;
  * Represent the class for the Cognito User Pool Custom Message Lambda Trigger
  *
  * @see <a href=
- *      "https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html">Custom
- *      Message Lambda Trigger</a>
+ *          "https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html">Custom
+ *          Message Lambda Trigger</a>
  * @author Anton Kurako (GoodforGod)
  * @since 24.07.2021
  */

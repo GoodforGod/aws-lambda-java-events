@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events;
 
 import java.util.Collections;
@@ -21,7 +20,9 @@ public class ActiveMQEvent {
     private List<ActiveMQMessage> messages;
 
     public @NotNull List<ActiveMQMessage> getMessages() {
-        return messages == null ? Collections.emptyList() : messages;
+        return messages == null
+                ? Collections.emptyList()
+                : messages;
     }
 
     @Data

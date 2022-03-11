@@ -8,7 +8,6 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * Event to represent the response which should be returned as part of a S3 Batch custom action.
- *
  * https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-invoke-lambda.html
  */
 @Data
@@ -42,7 +41,9 @@ public class S3BatchResponse {
     private List<Result> results;
 
     public @NotNull List<Result> getResults() {
-        return results == null ? Collections.emptyList() : results;
+        return results == null
+                ? Collections.emptyList()
+                : results;
     }
 
     @Data

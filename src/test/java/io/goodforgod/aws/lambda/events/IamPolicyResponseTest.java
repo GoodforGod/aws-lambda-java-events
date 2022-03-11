@@ -33,7 +33,8 @@ class IamPolicyResponseTest extends Assertions {
                 .setPolicyDocument(new IamPolicyResponse.PolicyDocument()
                         .setVersion(IamPolicyResponse.VERSION_2012_10_17)
                         .setStatement(List
-                                .of(IamPolicyResponse.allowStatement("arn:aws:execute-api:eu-west-1:123456789012:1234abc/$deafult/*/*"))));
+                                .of(IamPolicyResponse
+                                        .allowStatement("arn:aws:execute-api:eu-west-1:123456789012:1234abc/$deafult/*/*"))));
 
         String json = OBJECT_MAPPER.writeValueAsString(iamPolicyResponse);
 
@@ -51,7 +52,8 @@ class IamPolicyResponseTest extends Assertions {
                 .setPolicyDocument(new IamPolicyResponse.PolicyDocument()
                         .setVersion(IamPolicyResponse.VERSION_2012_10_17)
                         .setStatement(List
-                                .of(IamPolicyResponse.denyStatement("arn:aws:execute-api:eu-west-1:123456789012:1234abc/$deafult/*/*"))));
+                                .of(IamPolicyResponse
+                                        .denyStatement("arn:aws:execute-api:eu-west-1:123456789012:1234abc/$deafult/*/*"))));
 
         String json = OBJECT_MAPPER.writeValueAsString(iamPolicyResponse);
 

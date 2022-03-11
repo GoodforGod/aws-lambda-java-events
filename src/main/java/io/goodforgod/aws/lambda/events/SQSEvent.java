@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events;
 
 import java.io.Serializable;
@@ -19,7 +18,9 @@ public class SQSEvent implements Serializable {
     private List<SQSMessage> records;
 
     public @NotNull List<SQSMessage> getRecords() {
-        return records == null ? Collections.emptyList() : records;
+        return records == null
+                ? Collections.emptyList()
+                : records;
     }
 
     @Data
@@ -33,7 +34,9 @@ public class SQSEvent implements Serializable {
         private List<String> stringListValues;
 
         public @NotNull List<String> getStringListValues() {
-            return stringListValues == null ? Collections.emptyList() : stringListValues;
+            return stringListValues == null
+                    ? Collections.emptyList()
+                    : stringListValues;
         }
     }
 
@@ -53,11 +56,15 @@ public class SQSEvent implements Serializable {
         private Map<String, MessageAttribute> messageAttributes;
 
         public @NotNull Map<String, String> getAttributes() {
-            return attributes == null ? Collections.emptyMap() : attributes;
+            return attributes == null
+                    ? Collections.emptyMap()
+                    : attributes;
         }
 
         public @NotNull Map<String, MessageAttribute> getMessageAttributes() {
-            return messageAttributes == null ? Collections.emptyMap() : messageAttributes;
+            return messageAttributes == null
+                    ? Collections.emptyMap()
+                    : messageAttributes;
         }
     }
 }

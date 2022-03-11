@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events.system;
 
 import java.io.Serializable;
@@ -25,7 +24,9 @@ public class LambdaDestinationEvent implements Serializable {
     private Map<String, Object> responsePayload;
 
     public @NotNull Map<String, Object> getRequestPayload() {
-        return requestPayload == null ? Collections.emptyMap() : requestPayload;
+        return requestPayload == null
+                ? Collections.emptyMap()
+                : requestPayload;
     }
 
     public LocalDateTime getTimestampAsDateTime() {
