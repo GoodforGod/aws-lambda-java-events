@@ -23,11 +23,15 @@ public class APIGatewayProxyResponse implements Serializable {
     private Map<String, List<String>> multiValueHeaders;
 
     public @NotNull Map<String, String> getHeaders() {
-        return headers == null ? Collections.emptyMap() : headers;
+        return headers == null
+                ? Collections.emptyMap()
+                : headers;
     }
 
     public @NotNull Map<String, List<String>> getMultiValueHeaders() {
-        return multiValueHeaders == null ? Collections.emptyMap() : multiValueHeaders;
+        return multiValueHeaders == null
+                ? Collections.emptyMap()
+                : multiValueHeaders;
     }
 
     public APIGatewayProxyResponse addHeader(@NotNull String name, @NotNull String value) {

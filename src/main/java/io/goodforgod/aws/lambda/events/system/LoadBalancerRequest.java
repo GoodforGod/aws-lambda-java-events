@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
  * Class to represent the request event from Application Load Balancer.
  * 
  * @see <a href= "https://docs.aws.amazon.com/lambda/latest/dg/services-alb.html">Using AWS Lambda
- *      with an Application Load Balancer</a>
+ *          with an Application Load Balancer</a>
  */
 @Data
 @Accessors(chain = true)
@@ -30,19 +30,27 @@ public class LoadBalancerRequest extends Base64BodyEvent<LoadBalancerRequest> im
     private Map<String, List<String>> multiValueHeaders;
 
     public @NotNull Map<String, String> getHeaders() {
-        return headers == null ? Collections.emptyMap() : headers;
+        return headers == null
+                ? Collections.emptyMap()
+                : headers;
     }
 
     public @NotNull Map<String, List<String>> getMultiValueHeaders() {
-        return multiValueHeaders == null ? Collections.emptyMap() : multiValueHeaders;
+        return multiValueHeaders == null
+                ? Collections.emptyMap()
+                : multiValueHeaders;
     }
 
     public @NotNull Map<String, String> getQueryStringParameters() {
-        return queryStringParameters == null ? Collections.emptyMap() : queryStringParameters;
+        return queryStringParameters == null
+                ? Collections.emptyMap()
+                : queryStringParameters;
     }
 
     public @NotNull Map<String, List<String>> getMultiValueQueryStringParameters() {
-        return multiValueQueryStringParameters == null ? Collections.emptyMap() : multiValueQueryStringParameters;
+        return multiValueQueryStringParameters == null
+                ? Collections.emptyMap()
+                : multiValueQueryStringParameters;
     }
 
     @Data

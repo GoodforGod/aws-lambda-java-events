@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events;
 
 import io.goodforgod.aws.lambda.events.dynamodb.DynamoDBEvent;
@@ -26,7 +25,9 @@ public class StreamsEventResponse implements Serializable {
     private List<BatchItemFailure> batchItemFailures;
 
     public @NotNull List<BatchItemFailure> getBatchItemFailures() {
-        return batchItemFailures == null ? Collections.emptyList() : batchItemFailures;
+        return batchItemFailures == null
+                ? Collections.emptyList()
+                : batchItemFailures;
     }
 
     @Data

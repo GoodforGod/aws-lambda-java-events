@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
  * Class to represent the response event to Application Load Balancer.
  * 
  * @see <a href= "https://docs.aws.amazon.com/lambda/latest/dg/services-alb.html">Using AWS Lambda
- *      with an Application Load Balancer</a>
+ *          with an Application Load Balancer</a>
  */
 @Data
 @Accessors(chain = true)
@@ -26,10 +26,14 @@ public class LoadBalancerResponse implements Serializable {
     private Map<String, List<String>> multiValueHeaders;
 
     public @NotNull Map<String, String> getHeaders() {
-        return headers == null ? Collections.emptyMap() : headers;
+        return headers == null
+                ? Collections.emptyMap()
+                : headers;
     }
 
     public @NotNull Map<String, List<String>> getMultiValueHeaders() {
-        return multiValueHeaders == null ? Collections.emptyMap() : multiValueHeaders;
+        return multiValueHeaders == null
+                ? Collections.emptyMap()
+                : multiValueHeaders;
     }
 }

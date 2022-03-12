@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events.dynamodb;
 
 import io.goodforgod.aws.lambda.events.TimeWindow;
@@ -53,6 +52,8 @@ public class DynamoDBTimeWindowEvent extends DynamoDBEvent implements Serializab
     private Boolean isWindowTerminatedEarly;
 
     public @NotNull Map<String, String> getState() {
-        return state == null ? Collections.emptyMap() : state;
+        return state == null
+                ? Collections.emptyMap()
+                : state;
     }
 }

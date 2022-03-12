@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events.s3;
 
 import java.net.URLDecoder;
@@ -21,7 +20,9 @@ public class S3EventNotification {
     private List<S3EventNotificationRecord> records;
 
     public @NotNull List<S3EventNotificationRecord> getRecords() {
-        return records == null ? Collections.emptyList() : records;
+        return records == null
+                ? Collections.emptyList()
+                : records;
     }
 
     @Data
@@ -59,7 +60,9 @@ public class S3EventNotification {
          * @return The URL decoded object key.
          */
         public String getUrlDecodedKey() {
-            return (key == null) ? null : URLDecoder.decode(key, StandardCharsets.UTF_8);
+            return (key == null)
+                    ? null
+                    : URLDecoder.decode(key, StandardCharsets.UTF_8);
         }
     }
 

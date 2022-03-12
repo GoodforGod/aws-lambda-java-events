@@ -9,8 +9,8 @@ import lombok.experimental.Accessors;
  * Represent the class for the Cognito User Pool Pre Authentication Lambda Trigger
  *
  * @see <a href=
- *      "https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html">Pre
- *      Authentication Lambda Trigger</a>
+ *          "https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html">Pre
+ *          Authentication Lambda Trigger</a>
  * @author Anton Kurako (GoodforGod)
  * @since 24.07.2021
  */

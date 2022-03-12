@@ -31,27 +31,39 @@ public class APIGatewayProxyEvent extends Base64BodyEvent<APIGatewayProxyEvent> 
     private ProxyRequestContext requestContext;
 
     public @NotNull Map<String, String> getHeaders() {
-        return headers == null ? Collections.emptyMap() : headers;
+        return headers == null
+                ? Collections.emptyMap()
+                : headers;
     }
 
     public @NotNull Map<String, String> getQueryStringParameters() {
-        return queryStringParameters == null ? Collections.emptyMap() : queryStringParameters;
+        return queryStringParameters == null
+                ? Collections.emptyMap()
+                : queryStringParameters;
     }
 
     public @NotNull Map<String, String> getPathParameters() {
-        return pathParameters == null ? Collections.emptyMap() : pathParameters;
+        return pathParameters == null
+                ? Collections.emptyMap()
+                : pathParameters;
     }
 
     public @NotNull Map<String, String> getStageVariables() {
-        return stageVariables == null ? Collections.emptyMap() : stageVariables;
+        return stageVariables == null
+                ? Collections.emptyMap()
+                : stageVariables;
     }
 
     public @NotNull Map<String, List<String>> getMultiValueHeaders() {
-        return multiValueHeaders == null ? Collections.emptyMap() : multiValueHeaders;
+        return multiValueHeaders == null
+                ? Collections.emptyMap()
+                : multiValueHeaders;
     }
 
     public @NotNull Map<String, List<String>> getMultiValueQueryStringParameters() {
-        return multiValueQueryStringParameters == null ? Collections.emptyMap() : multiValueQueryStringParameters;
+        return multiValueQueryStringParameters == null
+                ? Collections.emptyMap()
+                : multiValueQueryStringParameters;
     }
 
     /**
@@ -74,7 +86,9 @@ public class APIGatewayProxyEvent extends Base64BodyEvent<APIGatewayProxyEvent> 
         private Map<String, Object> authorizer;
 
         public @NotNull Map<String, Object> getAuthorizer() {
-            return authorizer == null ? Collections.emptyMap() : authorizer;
+            return authorizer == null
+                    ? Collections.emptyMap()
+                    : authorizer;
         }
     }
 

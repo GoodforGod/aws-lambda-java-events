@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events;
 
 import java.io.Serializable;
@@ -20,7 +19,9 @@ public class SNSEvent implements Serializable {
     private List<SNSRecord> records;
 
     public @NotNull List<SNSRecord> getRecords() {
-        return records == null ? Collections.emptyList() : records;
+        return records == null
+                ? Collections.emptyList()
+                : records;
     }
 
     /**
@@ -58,7 +59,9 @@ public class SNSEvent implements Serializable {
         }
 
         public @NotNull Map<String, MessageAttribute> getMessageAttributes() {
-            return messageAttributes == null ? Collections.emptyMap() : messageAttributes;
+            return messageAttributes == null
+                    ? Collections.emptyMap()
+                    : messageAttributes;
         }
     }
 

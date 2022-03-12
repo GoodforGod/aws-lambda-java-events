@@ -8,12 +8,9 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * Event to allow transformations to occur before an S3 object is returned to the calling service.
- *
  * <strong>Documentation</strong>
- *
  * <a href= "https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-writing-lambda.html">Writing
  * and debugging Lambda functions for S3 Object Lambda Access Points</a>
- *
  * <strong>Example:</strong>
  *
  * <pre>
@@ -59,7 +56,6 @@ public class S3ObjectLambdaEvent {
 
     /**
      * A pre-signed URL that can be used to fetch the original object from Amazon S3.
-     *
      * The URL is signed using the original caller's identity, and their permissions will apply when the
      * URL is used. If there are signed headers in the URL, the Lambda function must include these in
      * the call to Amazon S3, except for the Host.
@@ -116,7 +112,9 @@ public class S3ObjectLambdaEvent {
         private Map<String, String> headers;
 
         public @NotNull Map<String, String> getHeaders() {
-            return headers == null ? Collections.emptyMap() : headers;
+            return headers == null
+                    ? Collections.emptyMap()
+                    : headers;
         }
     }
 

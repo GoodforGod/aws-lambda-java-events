@@ -9,7 +9,6 @@ import org.jetbrains.annotations.NotNull;
 /**
  * The API Gateway customer authorizer event object as described -
  * https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html
- *
  */
 @Data
 @Accessors(chain = true)
@@ -30,19 +29,27 @@ public class APIGatewayCustomAuthorizerEvent {
     private RequestContext requestContext;
 
     public @NotNull Map<String, String> getHeaders() {
-        return headers == null ? Collections.emptyMap() : headers;
+        return headers == null
+                ? Collections.emptyMap()
+                : headers;
     }
 
     public @NotNull Map<String, String> getQueryStringParameters() {
-        return queryStringParameters == null ? Collections.emptyMap() : queryStringParameters;
+        return queryStringParameters == null
+                ? Collections.emptyMap()
+                : queryStringParameters;
     }
 
     public @NotNull Map<String, String> getPathParameters() {
-        return pathParameters == null ? Collections.emptyMap() : pathParameters;
+        return pathParameters == null
+                ? Collections.emptyMap()
+                : pathParameters;
     }
 
     public @NotNull Map<String, String> getStageVariables() {
-        return stageVariables == null ? Collections.emptyMap() : stageVariables;
+        return stageVariables == null
+                ? Collections.emptyMap()
+                : stageVariables;
     }
 
     @Data

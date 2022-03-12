@@ -8,7 +8,6 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * Event to represent the payload which is sent to Lambda by S3 Batch to perform a custom action.
- *
  * https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-invoke-lambda.html
  */
 @Data
@@ -21,7 +20,9 @@ public class S3BatchEvent {
     private List<Task> tasks;
 
     public @NotNull List<Task> getTasks() {
-        return tasks == null ? Collections.emptyList() : tasks;
+        return tasks == null
+                ? Collections.emptyList()
+                : tasks;
     }
 
     @Data

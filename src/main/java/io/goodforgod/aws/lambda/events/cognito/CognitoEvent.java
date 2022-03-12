@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events.cognito;
 
 import java.io.Serializable;
@@ -24,7 +23,9 @@ public class CognitoEvent implements Serializable {
     private Map<String, DatasetRecord> datasetRecords;
 
     public @NotNull Map<String, DatasetRecord> getDatasetRecords() {
-        return datasetRecords == null ? Collections.emptyMap() : datasetRecords;
+        return datasetRecords == null
+                ? Collections.emptyMap()
+                : datasetRecords;
     }
 
     /**

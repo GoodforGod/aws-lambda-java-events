@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events.dynamodb;
 
 import java.io.Serializable;
@@ -18,7 +17,9 @@ public class DynamoDBEvent implements Serializable {
     private List<DynamoDBStreamRecord> records;
 
     public @NotNull List<DynamoDBStreamRecord> getRecords() {
-        return records == null ? Collections.emptyList() : records;
+        return records == null
+                ? Collections.emptyList()
+                : records;
     }
 
     /**

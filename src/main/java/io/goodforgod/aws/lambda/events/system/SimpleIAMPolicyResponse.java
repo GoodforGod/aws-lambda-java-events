@@ -18,6 +18,8 @@ public class SimpleIAMPolicyResponse {
     private Map<String, String> context;
 
     public @NotNull Map<String, String> getContext() {
-        return context == null ? Collections.emptyMap() : context;
+        return context == null
+                ? Collections.emptyMap()
+                : context;
     }
 }

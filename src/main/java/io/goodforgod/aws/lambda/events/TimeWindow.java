@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events;
 
 import java.time.LocalDateTime;

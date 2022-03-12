@@ -1,4 +1,3 @@
-
 package io.goodforgod.aws.lambda.events;
 
 import java.util.Collections;
@@ -19,7 +18,9 @@ public class KafkaEvent {
     private Map<String, List<KafkaEventRecord>> records;
 
     public @NotNull Map<String, List<KafkaEventRecord>> getRecords() {
-        return records == null ? Collections.emptyMap() : records;
+        return records == null
+                ? Collections.emptyMap()
+                : records;
     }
 
     @Data
