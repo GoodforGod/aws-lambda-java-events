@@ -16,8 +16,8 @@ repositories {
 group = groupId
 version = artifactVersion
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 spotless {
     java {
@@ -31,7 +31,7 @@ spotless {
 dependencies {
     annotationProcessor "org.projectlombok:lombok:1.18.22"
     compileOnly "org.projectlombok:lombok:1.18.22"
-    compileOnly "org.jetbrains:annotations:22.0.0"
+    compileOnly "org.jetbrains:annotations:23.0.0"
 
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.2"
     testImplementation "org.junit.jupiter:junit-jupiter-api:5.8.2"
