@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 @Data
 @Accessors(chain = true)
-public class IamPolicyResponse implements Serializable {
+public class IAMPolicyResponse implements Serializable {
 
     public static final String EXECUTE_API_INVOKE = "execute-api:Invoke";
     public static final String VERSION_2012_10_17 = "2012-10-17";

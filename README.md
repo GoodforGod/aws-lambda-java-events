@@ -8,7 +8,7 @@ This is based on [official AWS Lambda Java Events v3.11.0](https://github.com/aw
 
 **Gradle**
 ```groovy
-implementation "io.goodforgod:aws-lambda-java-events:1.1.0"
+implementation "io.goodforgod:aws-lambda-java-events:2.0.0"
 ```
 
 **Maven**
@@ -16,7 +16,7 @@ implementation "io.goodforgod:aws-lambda-java-events:1.1.0"
 <dependency>
     <groupId>io.goodforgod</groupId>
     <artifactId>aws-lambda-java-events</artifactId>
-    <version>1.1.0</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 

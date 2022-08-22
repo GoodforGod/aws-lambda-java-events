@@ -3,7 +3,7 @@ package io.goodforgod.aws.lambda.events;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import io.goodforgod.aws.lambda.events.system.IamPolicyResponse;
+import io.goodforgod.aws.lambda.events.system.IAMPolicyResponse;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 
-class IamPolicyResponseTest extends Assertions {
+class IAMPolicyResponseTest extends Assertions {
 
     private static final ObjectMapper OBJECT_MAPPER;
 
@@ -28,12 +28,12 @@ class IamPolicyResponseTest extends Assertions {
 
     @Test
     void testAllowStatement() throws JsonProcessingException {
-        IamPolicyResponse iamPolicyResponse = new IamPolicyResponse()
+        IAMPolicyResponse iamPolicyResponse = new IAMPolicyResponse()
                 .setPrincipalId("me")
-                .setPolicyDocument(new IamPolicyResponse.PolicyDocument()
-                        .setVersion(IamPolicyResponse.VERSION_2012_10_17)
+                .setPolicyDocument(new IAMPolicyResponse.PolicyDocument()
+                        .setVersion(IAMPolicyResponse.VERSION_2012_10_17)
                         .setStatement(List
-                                .of(IamPolicyResponse
+                                .of(IAMPolicyResponse
                                         .allowStatement("arn:aws:execute-api:eu-west-1:123456789012:1234abc/$deafult/*/*"))));
 
         String json = OBJECT_MAPPER.writeValueAsString(iamPolicyResponse);
@@ -47,12 +47,12 @@ class IamPolicyResponseTest extends Assertions {
 
     @Test
     void testDenyStatement() throws JsonProcessingException {
-        IamPolicyResponse iamPolicyResponse = new IamPolicyResponse()
+        IAMPolicyResponse iamPolicyResponse = new IAMPolicyResponse()
                 .setPrincipalId("me")
-                .setPolicyDocument(new IamPolicyResponse.PolicyDocument()
-                        .setVersion(IamPolicyResponse.VERSION_2012_10_17)
+                .setPolicyDocument(new IAMPolicyResponse.PolicyDocument()
+                        .setVersion(IAMPolicyResponse.VERSION_2012_10_17)
                         .setStatement(List
-                                .of(IamPolicyResponse
+                                .of(IAMPolicyResponse
                                         .denyStatement("arn:aws:execute-api:eu-west-1:123456789012:1234abc/$deafult/*/*"))));
 
         String json = OBJECT_MAPPER.writeValueAsString(iamPolicyResponse);
@@ -69,13 +69,13 @@ class IamPolicyResponseTest extends Assertions {
         Map<String, Map<String, Object>> conditions = new HashMap<>();
         conditions.put("DateGreaterThan", Map.of("aws:TokenIssueTime", "2020-01-01T00:00:01Z"));
 
-        IamPolicyResponse iamPolicyResponse = new IamPolicyResponse()
+        IAMPolicyResponse iamPolicyResponse = new IAMPolicyResponse()
                 .setPrincipalId("me")
-                .setPolicyDocument(new IamPolicyResponse.PolicyDocument()
-                        .setVersion(IamPolicyResponse.VERSION_2012_10_17)
-                        .setStatement(List.of(new IamPolicyResponse.Statement()
-                                .setAction(IamPolicyResponse.EXECUTE_API_INVOKE)
-                                .setEffect(IamPolicyResponse.ALLOW)
+                .setPolicyDocument(new IAMPolicyResponse.PolicyDocument()
+                        .setVersion(IAMPolicyResponse.VERSION_2012_10_17)
+                        .setStatement(List.of(new IAMPolicyResponse.Statement()
+                                .setAction(IAMPolicyResponse.EXECUTE_API_INVOKE)
+                                .setEffect(IAMPolicyResponse.ALLOW)
                                 .setResource(List.of("arn:aws:execute-api:eu-west-1:123456789012:1234abc/$deafult/*/*"))
                                 .setCondition(conditions))));
 
