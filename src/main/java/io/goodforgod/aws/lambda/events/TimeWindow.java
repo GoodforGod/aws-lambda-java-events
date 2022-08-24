@@ -22,11 +22,19 @@ public class TimeWindow {
      */
     private String end;
 
-    public LocalDateTime getStartDateTime() {
+    public String getStartAsString() {
+        return start;
+    }
+
+    public String getEndAsString() {
+        return end;
+    }
+
+    public LocalDateTime getStart() {
         return LocalDateTime.parse(start, DateTimeFormatter.ISO_DATE_TIME);
     }
 
-    public LocalDateTime getEndDateTime() {
+    public LocalDateTime getEnd() {
         return LocalDateTime.parse(end, DateTimeFormatter.ISO_DATE_TIME);
     }
 }
